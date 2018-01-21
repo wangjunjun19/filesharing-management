@@ -1,0 +1,15 @@
+.register {
+    float: right;
+    width: 35%;
+    height: 50%;
+    margin-right: 19%;
+    margin-top: 5%;
+}
+
+.quicklogin {
+    float: right;
+    font-size: large;
+    margin-right: 6%;
+    margin-top: 3%;
+
+}
