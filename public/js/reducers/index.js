@@ -4,5 +4,4 @@ import register from "./register"
 export default combineReducers({
     login,
     register
-
 });

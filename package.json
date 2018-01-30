@@ -47,6 +47,7 @@
     "mongodb": "^2.2.25",
     "mongoose": "^4.9.5",
     "mysql": "^2.15.0",
+    "node-mysql": "^0.4.2",
     "react": "^15.5.0",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.4",

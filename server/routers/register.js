@@ -1,11 +1,10 @@
 const express = require("express");
 const route = express.Router();
-const insertUser = require("../dbs/insertUser");
+const register = require("../dbs/register");
 
 route.post('/register',(req,res) => {
-    console.log(req.body)
-    const userInformation = req.body;
-    insertUser(userInformation,(result,err) => {
+    const info = req.body;
+    register(info,(result,err) => {
         if(err){
             res.status(500);
         }else{

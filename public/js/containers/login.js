@@ -4,4 +4,19 @@
 import {connect} from "react-redux";
 import Login from "../components/login";
 
-export default connect()(Login);
+const mapStateToProps = (state) => {
+    console.log(state+"_logincon");
+    return {
+        loginTip: state
+    }
+};
+
+const mapDispatchToProps = (dispatch) => {
+    return {
+        onLogin:(info)=>{
+            dispatch({type:"LOGIN_SUBMIT",info});
+        }
+    };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
