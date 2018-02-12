@@ -4,13 +4,14 @@
 let db = require('./../connection');
 
 function onLogin(info,callback) {
-    let sql = "select * from customers where user_name = "+info.user_name+"and user_pass="+info.user_pass;
+    let sql = "select * from customers where user_name = '"+info.user_name+"' and user_pass= '"
+        +info.user_pass+"'";
     db.query(sql,function (err,results,fields) {
         if(err){
             throw err;
         }else{
-            console.log(data+"db");
-            callback({data})
+            console.log("data"+"db"+results);
+            callback({data:results})
         }
     })
 }

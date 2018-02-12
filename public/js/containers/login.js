@@ -7,7 +7,7 @@ import Login from "../components/login";
 const mapStateToProps = (state) => {
     console.log(state+"_logincon");
     return {
-        loginTip: state
+        loginTip: state.login.loginTip
     }
 };
 

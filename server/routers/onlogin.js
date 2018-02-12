@@ -7,12 +7,12 @@ const onLogin = require("../dbs/onlogin");
 
 route.post('/login',(req,res) => {
     const info = req.body;
+    console.log(info);
     onLogin(info,(result,err) => {
         if(err){
             res.status(500);
         }else{
-            console.log(result+"_rou");
-            res.send(result);
+            res.send(result)
         }
     })
 });

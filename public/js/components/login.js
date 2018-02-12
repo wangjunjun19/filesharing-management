@@ -26,6 +26,7 @@ class Login extends React.Component {
 
     focusName(){
         $("#usernameTip").text("");
+        $("#passwordTip").text("");
     }
 
     focusPass(){
@@ -44,6 +45,7 @@ class Login extends React.Component {
                 "user_pass":password
             }
             console.log("login11");
+            console.log(info);
             this.props.onLogin(info);
         }
     }
@@ -55,7 +57,7 @@ class Login extends React.Component {
             //browserHistory.push(`/userPage?user_name=${nextProps.loginTip[0].user_name}`);
             browserHistory.push("/register");
         } else{
-            alert("登录失败！");
+            $("#passwordTip").text("用户名或密码错误！");
         }
     }
 

@@ -3,15 +3,16 @@ const app=express();
 const path = require('path');
 var request = require("request");
 const bodyParser = require('body-parser');
-const login=require('./routes/login');
+//const login=require('./routes/login');
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
 const register=require('./server/routers/register');
-
+const login=require('./server/routers/onlogin');
 
 app.use('/',register);
+app.use('/',login);
 
 app.get("/",function (req,res) {
     res.sendfile('index.html');
