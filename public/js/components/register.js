@@ -17,6 +17,7 @@ class Register extends React.Component {
         }
     }
 
+
     verifyPass(){
         let password=this.refs.password.value;
         let regexp=/^[A-Za-z0-9]{6,16}$/;
@@ -77,14 +78,20 @@ class Register extends React.Component {
         }
     }
 
-    componentWillReceiveProps(nextProps){
-        if(nextProps.registerTip){
-            alert("注册成功！");
+    componentWillReceiveProps(nextProps) {
+        console.log(nextProps.registerTip+"_________register__")
+        if (nextProps.registerTip === "该用户名已被注册，请重新输入！") {
+            $("#nameTip").text("该用户名已被注册，请重新输入！");
+            this.props.reset({registerTip: false});
+        } else if (nextProps.registerTip) {
+            alert("恭喜您，注册成功！" +
+            "点击确定，将跳往登录页面" );
             browserHistory.push('');
-        }else{
-            alert("注册失败!");
+            //window.setTimeout('',3000);
+            this.props.reset({registerTip: false});
         }
     }
+
 
     render() {
         return <div >
