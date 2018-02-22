@@ -1,0 +1,15 @@
+.button {
+    width: 35%;
+    padding: 10px 10px;
+    text-align: center;
+    text-decoration: none;
+    font-size: 15px;
+    margin-left: 10%;
+    border-radius: 3px;
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+    color: black;
+    border: 2px solid #00b38a;
+    background-color: #00b38a;
+    margin-bottom: 5%;
+}

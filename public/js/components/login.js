@@ -82,7 +82,7 @@ class Login extends React.Component {
                     <span className="input-tips" id="passwordTip"></span>
                 </div>
                 <div className="forget">
-                    <span >忘记密码？</span>
+                    <Link to = '/modifyPass'>忘记密码？</Link>
                 </div>
                 <div>
                     <button  className="submit" onClick={this.onLogin.bind(this)}>登录</button>
