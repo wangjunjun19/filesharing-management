@@ -2,6 +2,7 @@
  * Created by 十九 on 2018/1/21.
  */
 require('../../css/registerStyle.css');
+require('../../css/background.css');
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
 
@@ -120,6 +121,9 @@ class Register extends React.Component {
                     </div>
                     <button  className="submit" onClick={this.register.bind(this)} >注册</button>
                 </div>
+            </div>
+            <div  className ="helloB">
+                <img  className ="img"  src = "../image/helloB.jpg" alt =""/>
             </div>
         </div>
     }

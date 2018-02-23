@@ -2,6 +2,7 @@
  * Created by 十九 on 2018/1/21.
  */
 require('../../css/loginStyle.css');
+require('../../css/background.css');
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
 
@@ -63,7 +64,7 @@ class Login extends React.Component {
 
 
     render() {
-        return <div  className="pageBody">
+        return <div  className="pageBody" >
             <div className="title">
                 <span>大学生学习资料共享系统</span>
             </div>
@@ -91,6 +92,9 @@ class Login extends React.Component {
                     还没有FSMS账号？
                     <Link to ="/register" >立即注册</Link>
                 </div>
+            </div>
+            <div  className ="helloB">
+                <img  className ="img"  src = "../image/helloB.jpg" alt =""/>
             </div>
         </div>
     }

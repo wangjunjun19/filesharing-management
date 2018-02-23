@@ -1,0 +1,24 @@
+.helloB{
+    float: left;
+    width: 30%;
+    height: 30%;
+    margin-left: 15%;
+    margin-top: 5%;
+    color: #a6e1ec;
+}
+.img{
+    width: 100%;
+    height: 100%;
+}
+
+.mainB{
+    width: 100%;
+    height: 100%;
+    background-image: url("../image/mainB.jpg");
+    color: #28a4c9;
+    position: fixed;
+    top: 0;
+    left: 0;
+    border: 3px solid #ce8483;
+    background-size: 100%;
+}

@@ -3,6 +3,7 @@
  */
 require('../../css/registerStyle.css');
 require('../../css/button.css');
+require('../../css/background.css');
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
 
@@ -37,6 +38,9 @@ class ModifyPass extends React.Component {
         $("#passTip").text("");
     }
 
+    return(){
+        browserHistory.push('');
+    }
 
     modifyPass(){
         let username = this.refs.username.value;
@@ -101,9 +105,12 @@ class ModifyPass extends React.Component {
                     </div>
                     <div>
                         <button  className="button" onClick={this.modifyPass.bind(this)} >确认</button>
-                        <button  className="button"  >取消</button>
+                        <button  className="button"  onClick={this.return.bind(this)} >取消</button>
                     </div>
                 </div>
+            </div>
+            <div  className ="helloB">
+                <img  className ="img"  src = "../image/helloB.jpg" alt =""/>
             </div>
         </div>
     }
