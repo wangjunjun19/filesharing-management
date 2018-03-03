@@ -5,20 +5,20 @@ import {connect} from "react-redux";
 import ModifyPass from "../components/modifyPass.js";
 
 const mapStateToProps = (state) => {
-    console.log(state+"containers");
+    console.log(state.modifyPass.modifyPassTip+"__containers");
     return {
-        modifyPassTip:state
+        modifyPassTip:state.modifyPass.modifyPassTip
     }
 };
-//console.log(modifyPassTip+"______dix");
+
 const mapDispatchToProps = (dispatch) => {
    //console.log(info+"_______con_info");
     return {
         modifyPass:(info)=>{
             dispatch({type:'MODIFYPASS',info});
         },
-        reset:(info)=>{
-            dispatch({type:'RESET',info})
+        resetModifyPass:(info)=>{
+            dispatch({type:'RESET_MIDIFYPASS',info})
         }
     }
 };

@@ -55,8 +55,7 @@ class Login extends React.Component {
         console.log(nextProps.loginTip[0]);
         if (nextProps.loginTip[0]) {
             console.log("shujuku");
-            //browserHistory.push(`/userPage?user_name=${nextProps.loginTip[0].user_name}`);
-            browserHistory.push("/register");
+            browserHistory.push(`/userHomePage?user_id=${nextProps.loginTip[0].id}`);
         } else{
             $("#passwordTip").text("用户名或密码错误！");
         }

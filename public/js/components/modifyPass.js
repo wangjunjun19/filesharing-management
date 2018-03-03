@@ -73,12 +73,12 @@ class ModifyPass extends React.Component {
         console.log(nextProps.modifyPassTip+"_________modifyPassTip__");
         if (nextProps.modifyPassTip === "该用户名未注册！") {
             $("#nameTip").text("该用户名未注册！");
-            this.props.reset({modifyPassTip: false});
+            this.props.resetModifyPass({modifyPassTip: false});
         } else if (nextProps.modifyPassTip) {
             alert("恭喜您，密码修改成功！" +
             "点击确定，将跳往登录页面" );
             browserHistory.push('');
-            this.props.reset({modifyPassTip: false});
+            this.props.resetModifyPass({modifyPassTip: false});
         }
     }
 

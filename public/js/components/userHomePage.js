@@ -8,11 +8,19 @@ import {Link,browserHistory} from 'react-router';
 
 class UserHomePage extends React.Component{
 
+    nextPage(){
+        browserHistory.push(`/addFiles?user_id=${this.props.location.query.user_id}`);
+    }
+
     render(){
 
         return <div className="mainB">
+            <div className="user glyphicon glyphicon-user">
+                <span  id ="user_name"></span>
+            </div>
+
             <div className="horizontal">
-                <a href="../addFiles"  className="share">分享</a>
+                <button className="share" onClick={this.nextPage.bind(this)}>分享</button>
                 <span className="personality">个性推荐</span>
             </div>
             <div>
