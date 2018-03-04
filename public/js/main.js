@@ -14,11 +14,13 @@ import AddFiles from './containers/addFiles';
 import loginMiddleware from './middlewares/login'
 import registerMiddleware from './middlewares/register'
 import modifyPassMiddleware from './middlewares/modifyPass'
+import addFilesMiddleware from './middlewares/addFiles'
 
 const createStoreWithMiddleware = applyMiddleware(
     registerMiddleware,
     loginMiddleware,
-    modifyPassMiddleware
+    modifyPassMiddleware,
+    addFilesMiddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

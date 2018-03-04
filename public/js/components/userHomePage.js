@@ -5,6 +5,7 @@ require ('../../css/userHomePage.css');
 require('../../css/background.css');
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
+import Nav from'../containers/nav'
 
 class UserHomePage extends React.Component{
 
@@ -14,24 +15,36 @@ class UserHomePage extends React.Component{
 
     render(){
 
-        return <div className="mainB">
-            <div className="user glyphicon glyphicon-user">
-                <span  id ="user_name"></span>
-            </div>
-
-            <div className="horizontal">
-                <button className="share" onClick={this.nextPage.bind(this)}>分享</button>
-                <span className="personality">个性推荐</span>
-            </div>
+        return<div>
+            <Nav/>
             <div>
-                <ul className="menu" >
-                    <li className="li">全部文件</li>
-                    <li className="li">我的分享</li>
-                    <li className="li">个人中心</li>
-                </ul>
+                <div className="SC">
                 <div>
-
+                    <input type="text"  />
+                    <button >查询</button>
                 </div>
+                <div className="horizontal">
+                    <button className="share" onClick={this.nextPage.bind(this)}>上传文件</button>
+                </div>
+                </div>
+                <div >
+                    <ul className="menu" >
+                        <li className="li">全部文件</li>
+                        <li className="li">经管类</li>
+                        <li className="li">文哲类</li>
+                        <li className="li">法学类</li>
+                        <li className="li">理学类</li>
+                        <li className="li">工学类</li>
+                        <li className="li">外语类</li>
+                        <li className="li">艺术类</li>
+                        <li className="li">其他</li>
+                        <li className="li">我的分享</li>
+                    </ul>
+            </div>
+
+            <div>
+
+            </div>
             </div>
         </div>
     }

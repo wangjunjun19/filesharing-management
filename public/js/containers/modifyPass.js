@@ -18,7 +18,7 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type:'MODIFYPASS',info});
         },
         resetModifyPass:(info)=>{
-            dispatch({type:'RESET_MIDIFYPASS',info})
+            dispatch({type:'RESET_MODIFY_PASS',info})
         }
     }
 };
