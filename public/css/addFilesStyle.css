@@ -16,6 +16,7 @@
     border: 3px solid #ce8483;
     margin-right: 30%;
     margin-top: 2%;
+    margin-bottom: 8%;
 }
 
 .label{
@@ -82,4 +83,13 @@
     padding-left: 20px;
     margin-bottom: 5.1%;
     margin-left: 7%;
+}
+
+.b-s{
+    width: 80px;
+    height: 35px;
+    font-size: large;
+    margin-left: 12%;
+    margin-top: 3.5%
+
 }

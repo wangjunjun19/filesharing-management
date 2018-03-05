@@ -1,11 +1,17 @@
 .horizontal{
-    height: 20px;
+    font-size: x-large;
+    margin-top: 30px;
+    color: #0074D9;
+    float: right;
+    padding: 10px 10px;
+    margin-right: 3%;
 
 }
 
-.share{
-    font-size: 25px;
-    margin-left: 40%;
+.buttonBac{
+    border: 2px solid #e4b9c0;
+    background-color: #e4b9c0;
+    border-radius: 3px;
 }
 
 .personality{
@@ -15,10 +21,10 @@
 .menu{
     width: 194px;
     list-style-type: none;
-    margin-left: 5%;
-    background-color: #00b3ee;
+    margin-left: 4%;
+    color: #0074D9;
     height: 500px;
-    margin-top: 10px;
+    margin-top: 43px;
     float: left;
 }
 
@@ -28,7 +34,8 @@
     height: 38px;
     margin-bottom: 5px;
     font-family: "Microsoft Yahei", "微软雅黑", verdana;
-    font-size: large;
+    font-size:x-large;
+
 }
 
 .show{
@@ -37,7 +44,32 @@
     height: 60%;
 }
 
+.search{
+    font-size: x-large;
+    margin-top: 30px;
+    color: #0074D9;
+    float: left;
+    margin-left: 52%;
+    padding: 10px 10px;
+}
+
+.input{
+    border: 2px solid #e4b9c0;
+}
 .SC{
-    margin-left: 50%;
-    float: right;
+    width: 81%;
+    height: 87%;
+    border-radius:20px;
+    float:right;
+    border: 2px solid #e4b9c0;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    background-color: #ffffff;
+
+}
+.background-l{
+    background-image: url("../image/san.jpg");
+    background-size: 100% auto;
+    overflow: auto;
+    width: 100%;
 }

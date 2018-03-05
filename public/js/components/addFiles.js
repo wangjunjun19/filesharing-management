@@ -6,7 +6,7 @@ require('../../css/button.css');
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
 import request from 'superagent';
-
+import Nav from'../containers/nav';
 class AddFiles extends React.Component{
 
     return(){
@@ -76,8 +76,11 @@ class AddFiles extends React.Component{
 
     render(){
 
-        return<div  className="pageBody"  >
-            <button className="returnButton glyphicon glyphicon-arrow-left" value="回上页" onClick={this.return.bind(this)} />
+        return<div  className="background-l"  >
+
+            <div className="b-s">
+            <button className="glyphicon glyphicon-arrow-left buttonBac " value="回上页" onClick={this.return.bind(this)} >返回资料库</button>
+                </div>
                     <div  className="body">
                     <div className="upload">
                         <input  className="file" id="files" ref="file" type="file" onChange={this.isClick.bind(this)} onFocus={this.focusChoose.bind(this)} />
@@ -103,8 +106,6 @@ class AddFiles extends React.Component{
                         <button  className="button" onClick={this.addFile.bind(this)} >上传</button>
                         <button  className="button"  onClick={this.clear.bind(this)} >取消</button>
                     </div>
-
-
                 </div>
         </div>
     }

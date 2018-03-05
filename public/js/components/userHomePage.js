@@ -5,7 +5,8 @@ require ('../../css/userHomePage.css');
 require('../../css/background.css');
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
-import Nav from'../containers/nav'
+import Nav from'../containers/nav';
+import AllFile from '../containers/allFile'
 
 class UserHomePage extends React.Component{
 
@@ -15,17 +16,22 @@ class UserHomePage extends React.Component{
 
     render(){
 
-        return<div>
+        var p=<AllFile/>;
+
+        return<div className="background-l">
             <Nav/>
-            <div>
-                <div className="SC">
-                <div>
-                    <input type="text"  />
-                    <button >查询</button>
-                </div>
-                <div className="horizontal">
-                    <button className="share" onClick={this.nextPage.bind(this)}>上传文件</button>
-                </div>
+            <div  >
+                <div className=" SC ">
+                    <div className="search">
+                        <input className="input" type="text"  placeholder="输入XXX" />
+                        <button  className="buttonBac">搜索</button>
+                    </div>
+                    <div className="horizontal">
+                        <button  className="buttonBac" onClick={this.nextPage.bind(this)}>上传文件</button>
+                    </div>
+                    <div>
+                            {p}
+                    </div>
                 </div>
                 <div >
                     <ul className="menu" >
@@ -40,11 +46,7 @@ class UserHomePage extends React.Component{
                         <li className="li">其他</li>
                         <li className="li">我的分享</li>
                     </ul>
-            </div>
-
-            <div>
-
-            </div>
+                </div>
             </div>
         </div>
     }
