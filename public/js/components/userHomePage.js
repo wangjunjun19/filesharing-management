@@ -11,6 +11,7 @@ import MyShare from '../containers/myShare'
 import Economic from '../containers/economic'
 import Philosophy from '../containers/philosophy'
 import Law from '../containers/law'
+import Science from '../containers/science'
 
 class UserHomePage extends React.Component{
 
@@ -49,7 +50,7 @@ class UserHomePage extends React.Component{
                 p=<Law/>;
                 break;
             case "science":
-                p=<Nav/>;
+                p=<Science/>;
                 break;
             case "engineering":
                 p=<Nav/>;

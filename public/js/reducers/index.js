@@ -10,6 +10,7 @@ import myShare from"./myShare"
 import economic from "./economic"
 import philosophy from "./philosophy"
 import law from "./law"
+import science from'./science'
 export default combineReducers({
     login,
     register,
@@ -21,5 +22,6 @@ export default combineReducers({
     myShare,
     economic,
     philosophy,
-    law
+    law,
+    science
 });

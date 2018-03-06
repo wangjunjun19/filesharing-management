@@ -20,6 +20,7 @@ import myShareMiddleware from './middlewares/myShare'
 import economicMiddleware from './middlewares/economic'
 import philosophyMiddleware from './middlewares/philosophy'
 import lawMiddleware from './middlewares/law'
+import scienceMiddleware from './middlewares/science'
 
 const createStoreWithMiddleware = applyMiddleware(
     registerMiddleware,
@@ -30,7 +31,8 @@ const createStoreWithMiddleware = applyMiddleware(
     myShareMiddleware,
     economicMiddleware,
     philosophyMiddleware,
-    lawMiddleware
+    lawMiddleware,
+    scienceMiddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

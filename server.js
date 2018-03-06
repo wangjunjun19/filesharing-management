@@ -18,6 +18,7 @@ const getMyShareList = require('./server/routers/getMyShareList');
 const getEconomicList = require('./server/routers/getEconomicList');
 const getPhilosophyList=require('./server/routers/getPhilosophyList');
 const getLawList=require('./server/routers/getLawList');
+const getScienceList = require('./server/routers/getScienceList');
 
 app.use('/',register);
 app.use('/',login);
@@ -28,6 +29,7 @@ app.use('/',getMyShareList);
 app.use('/',getEconomicList);
 app.use('/',getPhilosophyList);
 app.use('/',getLawList);
+app.use('/',getScienceList);
 
 //选择diskStorage存储
 var storage = multer.diskStorage({

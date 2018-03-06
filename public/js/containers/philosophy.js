@@ -7,7 +7,7 @@ import {connect} from "react-redux";
 import Philosophy from "../components/philosophy";
 
 const mapStateToProps = (state) => {
-    console.log(state.philosophy.philosophyList+"___________container economicList");
+    console.log(state.philosophy.philosophyList+"___________container philosophyList");
     return {
         philosophyList:state.philosophy.philosophyList
     }
