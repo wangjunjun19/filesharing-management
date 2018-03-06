@@ -3,8 +3,8 @@
  */
 let db = require('./../connection');
 
-function getEconomicList(callback) {
-    let sql = "select * from files where file_type=4";
+function getPhilosophyList(callback) {
+    let sql = "select * from files where file_type=0";
     db.query(sql,function (err,results,fields) {
         if(err){
             throw err;
@@ -15,4 +15,4 @@ function getEconomicList(callback) {
     })
 }
 
-module.exports = getEconomicList;
+module.exports = getPhilosophyList;

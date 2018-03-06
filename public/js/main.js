@@ -18,6 +18,7 @@ import addFilesMiddleware from './middlewares/addFiles'
 import allFileMiddleware from './middlewares/allFile'
 import myShareMiddleware from './middlewares/myShare'
 import economicMiddleware from './middlewares/economic'
+import philosophyMiddleware from './middlewares/philosophy'
 
 const createStoreWithMiddleware = applyMiddleware(
     registerMiddleware,
@@ -26,7 +27,8 @@ const createStoreWithMiddleware = applyMiddleware(
     addFilesMiddleware,
     allFileMiddleware,
     myShareMiddleware,
-    economicMiddleware
+    economicMiddleware,
+    philosophyMiddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

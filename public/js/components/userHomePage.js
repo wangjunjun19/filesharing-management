@@ -9,6 +9,7 @@ import Nav from'../containers/nav';
 import AllFile from '../containers/allFile'
 import MyShare from '../containers/myShare'
 import Economic from '../containers/economic'
+import Philosophy from '../containers/philosophy'
 
 class UserHomePage extends React.Component{
 
@@ -41,7 +42,7 @@ class UserHomePage extends React.Component{
                 p=<Economic/>;
                 break;
             case "philosophy":
-                p=<Nav/>;
+                p=<Philosophy/>;
                 break;
             case "law":
                 p=<Nav/>;
