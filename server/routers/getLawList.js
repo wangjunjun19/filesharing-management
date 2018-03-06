@@ -4,12 +4,11 @@
 
 const express = require("express");
 const route = express.Router();
-const getMyShareList = require("../dbs/getMyShareList");
+const getLawList = require("../dbs/getLawList");
 
-route.post('/getMyShareList',(req,res) => {
-    const user_id = req.body;
+route.post('/getLawList',(req,res) => {
     console.log(res.body);
-    getMyShareList(user_id,(result,err) => {
+    getLawList((result,err) => {
         if(err){
             res.status(500);
         }else{
