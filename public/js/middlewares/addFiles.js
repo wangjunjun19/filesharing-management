@@ -4,7 +4,7 @@
 import request from "superagent";
 
 export default store => next => action =>{
-    console.log(action.type+"___action.type");
+
     switch (action.type){
         case 'ADD_FILE':
             request.post('/addFiles')

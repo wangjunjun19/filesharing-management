@@ -9,6 +9,7 @@ import {Link, browserHistory} from 'react-router';
 class AllFile extends Component{
 
     componentWillMount() {
+        console.log("getAllFileList")
         this.props.getAllFileList();
     }
 
@@ -17,8 +18,8 @@ class AllFile extends Component{
         var p=this.props.allFileList.map((value,index)=>{
             return <div>
                 <div>
-                    <span></span>
-                    <span></span>
+                    <span >{value.file_name}</span>
+                    <span >{value.file_intro}</span>
                 </div>
             </div>
         });

@@ -5,7 +5,7 @@
 export default (state = {allFileList:[]}, action) => {
     if(action.type === 'ALL_FILE_TIP') {
         state.allFileList = action.data;
-        console.log(state.allFileList+"__________redu+regiseter ");
+        console.log(state.allFileList[0].file_name+"__________redu+allFileList ");
         return Object.assign({}, state);
     }
     return state;

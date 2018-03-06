@@ -9,7 +9,7 @@ export default store => next => action =>{
         case 'GET_ALL_FILE_LIST':
             request.post('/getAllFileList')
                 .end((err,res) => {
-                    console.log(res.body+"midd");
+                    console.log(res.body+"midd  res.body ");
                     next({type:"ALL_FILE_TIP",data:res.body.data});
                 });
             break;

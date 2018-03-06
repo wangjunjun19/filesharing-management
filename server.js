@@ -13,11 +13,13 @@ const register=require('./server/routers/register');
 const login=require('./server/routers/onlogin');
 const modifyPass=require('./server/routers/modifyPass');
 const addFiles = require('./server/routers/addFiles');
+const getAllFileList = require('./server/routers/getAllFileList');
 
 app.use('/',register);
 app.use('/',login);
 app.use('/',modifyPass);
 app.use('/',addFiles);
+app.use('/',getAllFileList);
 
 //选择diskStorage存储
 var storage = multer.diskStorage({
