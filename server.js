@@ -14,12 +14,16 @@ const login=require('./server/routers/onlogin');
 const modifyPass=require('./server/routers/modifyPass');
 const addFiles = require('./server/routers/addFiles');
 const getAllFileList = require('./server/routers/getAllFileList');
+const getMyShareList = require('./server/routers/getMyShareList');
+const getEconomicList = require('./server/routers/getEconomicList');
 
 app.use('/',register);
 app.use('/',login);
 app.use('/',modifyPass);
 app.use('/',addFiles);
 app.use('/',getAllFileList);
+app.use('/',getMyShareList);
+app.use('/',getEconomicList);
 
 //选择diskStorage存储
 var storage = multer.diskStorage({

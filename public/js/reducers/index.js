@@ -6,6 +6,8 @@ import userHomePage from "./userHomePage";
 import addFiles from "./addFiles"
 import uploadFile from "./upload"
 import allFile from "./allFile"
+import myShare from"./myShare"
+import economic from "./economic"
 export default combineReducers({
     login,
     register,
@@ -13,5 +15,7 @@ export default combineReducers({
     userHomePage,
     addFiles,
     uploadFile,
-    allFile
+    allFile,
+    myShare,
+    economic
 });

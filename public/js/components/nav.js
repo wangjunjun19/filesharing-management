@@ -14,7 +14,7 @@ class Nav extends Component{
                    <span className="logo"  >FSMS</span>
                    <button className="ZLSButton" >资料库</button>
                    <button className="ZLSButton">个性推荐</button>
-                   <span className="user glyphicon glyphicon-user personalC">用户名</span>
+                   <span className="user glyphicon glyphicon-user personalC">用户</span>
                </div>
         </div>
             </div>

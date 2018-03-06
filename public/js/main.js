@@ -16,13 +16,17 @@ import registerMiddleware from './middlewares/register'
 import modifyPassMiddleware from './middlewares/modifyPass'
 import addFilesMiddleware from './middlewares/addFiles'
 import allFileMiddleware from './middlewares/allFile'
+import myShareMiddleware from './middlewares/myShare'
+import economicMiddleware from './middlewares/economic'
 
 const createStoreWithMiddleware = applyMiddleware(
     registerMiddleware,
     loginMiddleware,
     modifyPassMiddleware,
     addFilesMiddleware,
-    allFileMiddleware
+    allFileMiddleware,
+    myShareMiddleware,
+    economicMiddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

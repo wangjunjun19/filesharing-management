@@ -1,33 +1,29 @@
 /**
  * Created by 十九 on 2018/3/6.
  */
-/**
- * Created by 十九 on 2018/3/5.
- */
+
 require('../../css/allFile.css');
 
 import React,{Component} from "react";
 import {Link, browserHistory} from 'react-router';
 
-class MyShare extends Component{
+class Economic extends Component{
 
     componentWillMount() {
-        console.log("getMyShareList")
-        var user_id=this.props.loginTip;
-        console.log(this.props.loginTip+"______userId");
-        this.props.getMyShareList({user_id});
+        console.log("getEconomicList")
+        this.props.getEconomicList();
     }
 
     render(){
 
-       /** var p=this.props.myShareList.map((value,index)=>{
+        var p=this.props.economicList.map((value,index)=>{
             return <div>
                 <div>
                     <span >{value.file_name}</span>
                     <span >{value.file_intro}</span>
                 </div>
             </div>
-        });*/
+        });
 
         return<div >
             <div >
@@ -35,10 +31,10 @@ class MyShare extends Component{
                 <span className="span-l">文件简介</span>
             </div>
             <div  className="mainShow" >
-
+            {p}
             </div>
         </div>
     }
 }
 
-export default MyShare;
+export default Economic;

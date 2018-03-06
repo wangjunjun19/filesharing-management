@@ -12,6 +12,7 @@ route.post('/login',(req,res) => {
         if(err){
             res.status(500);
         }else{
+            console.log(result+"________result")
             res.send(result)
         }
     })

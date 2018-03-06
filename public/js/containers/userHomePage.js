@@ -7,12 +7,15 @@ import UserHomePage from "../components/userHomePage";
 const mapStateToProps = (state) => {
     console.log(state+"containers");
     return {
+        presentShow:state.userHomePage.presentShow
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
-
+        getPresentShow:(target)=>{
+            dispatch({type:"GET_PRESENT_SHOW",target});
+        }
     }
 };
 
