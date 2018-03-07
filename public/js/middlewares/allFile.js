@@ -13,6 +13,16 @@ export default store => next => action =>{
                     next({type:"ALL_FILE_TIP",data:res.body.data});
                 });
             break;
+
+        //试一下删除
+        case 'DELETE_FILE':
+            request.post('/deleteFile')
+                .send(action.info)
+                .end((err,res) => {
+                    console.log(res.body+"midd  res.body ");
+                    next({type:"DELETE_FILE_TIP",status:res.body.status});
+                });
+            break;
     }
     next(action);
 }

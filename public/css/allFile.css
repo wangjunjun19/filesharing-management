@@ -1,12 +1,13 @@
 .mainShow{
 
     padding:20px 20px;
-    border-radius:20px;
     height:500px;
     width:100%;
     float:right;
     overflow-y: scroll;
-    border: 2px solid #e4b9c0;
+    border-width: 1px 0 0 0;
+    border-color: #e4b9c0;
+    border-style: solid;
     margin-top: 15px;
 }
 
@@ -17,7 +18,46 @@
 }
 
 .span-l{
-    margin-right: 70%;
+    margin-right: 60%;
     font-size: large;
     float: right;
+}
+.file-div{
+    border-width: 0 0 1px 0;
+    border-style: solid;
+    border-color: #adadad;
+    width: 100%;
+}
+
+.span-file{
+    position: relative;
+    font-size: large;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    display: inline-block;
+    margin-left: 2.5%;
+    width: 32%;
+
+
+}
+
+.span-intro{
+    text-overflow: ellipsis;
+    position: relative;
+    display: inline-block;
+    font-size: large;
+    width: 50%;
+
+}
+.span-down{
+    display: inline-block;
+    font-size: large;
+    color:#e4b9c0 ;
+}
+
+.down{
+    background-color: transparent;
+    border-color: transparent;
 }
