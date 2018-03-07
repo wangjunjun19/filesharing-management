@@ -10,7 +10,7 @@ export default store => next => action =>{
         case 'GET_MY_SHARE_LIST':
             console.log(action.user_id+"____action.id")
             request.post('/getMyShareList')
-                .send(action.user_id)
+                .send(action.info)
                 .end((err,res) => {
                     console.log(res.body+"midd  res.body ");
                     next({type:"MY_SHARE_TIP",data:res.body.data});

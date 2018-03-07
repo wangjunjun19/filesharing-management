@@ -1,15 +1,16 @@
 /**
- * Created by 十九 on 2018/3/6.
+ * Created by 十九 on 2018/3/7.
  */
 
 const express = require("express");
 const route = express.Router();
-const getMyShareList = require("../dbs/getMyShareList");
+const search = require("../dbs/search");
 
-route.post('/getMyShareList',(req,res) => {
+route.post('/search',(req,res) => {
     const info = req.body;
-    console.log(req.body);
-    getMyShareList(info,(result,err) => {
+    console.log(info.file_name+"______________info.file_name")
+
+    search(info,(result,err) => {
         if(err){
             res.status(500);
         }else{

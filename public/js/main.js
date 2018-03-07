@@ -21,6 +21,7 @@ import economicMiddleware from './middlewares/economic'
 import philosophyMiddleware from './middlewares/philosophy'
 import lawMiddleware from './middlewares/law'
 import scienceMiddleware from './middlewares/science'
+import differentTypeListShowMiddleware from './middlewares/differentTypeListShow'
 
 const createStoreWithMiddleware = applyMiddleware(
     registerMiddleware,
@@ -32,7 +33,8 @@ const createStoreWithMiddleware = applyMiddleware(
     economicMiddleware,
     philosophyMiddleware,
     lawMiddleware,
-    scienceMiddleware
+    scienceMiddleware,
+    differentTypeListShowMiddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

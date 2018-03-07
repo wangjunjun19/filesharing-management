@@ -1,12 +1,13 @@
 /**
- * Created by 十九 on 2018/3/6.
+ * Created by 十九 on 2018/3/7.
  */
 
 let db = require('./../connection');
 
-function getMyShareList(info,callback) {
-    console.log(info.user_id);
-    let sql = "select * from files where user_id="+info.user_id;
+function search(info,callback) {
+    console.log(info+"___________info__")
+
+    let sql = "select *  from files where file_name like '%"+info.file_name+"%'";
     db.query(sql,function (err,results,fields) {
         if(err){
             throw err;
@@ -17,4 +18,4 @@ function getMyShareList(info,callback) {
     })
 }
 
-module.exports = getMyShareList;
+module.exports = search;

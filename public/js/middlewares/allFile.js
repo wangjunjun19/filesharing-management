@@ -13,6 +13,17 @@ export default store => next => action =>{
                     next({type:"ALL_FILE_TIP",data:res.body.data});
                 });
             break;
+        case 'SEARCH':
+            request.post('/search')
+                console.log(action.info.file_name+"++++midd")
+                .send(action.info)
+                .end((err,res) => {
+                    console.log(res.body+"midd  res.body   ___midd");
+                    next({type:"ALL_FILE_TIP",data:res.body.data});
+                });
+            break;
+
+
 
         //试一下删除
         case 'DELETE_FILE':

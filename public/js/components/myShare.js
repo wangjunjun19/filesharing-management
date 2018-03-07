@@ -1,9 +1,6 @@
 /**
  * Created by 十九 on 2018/3/6.
  */
-/**
- * Created by 十九 on 2018/3/5.
- */
 require('../../css/allFile.css');
 
 import React,{Component} from "react";
@@ -15,7 +12,10 @@ class MyShare extends Component{
         console.log("getMyShareList")
         var user_id=this.props.loginTip;
         console.log(this.props.loginTip+"______userId");
-        this.props.getMyShareList({user_id});
+        let info={
+            user_id:user_id
+        }
+        this.props.getMyShareList(info);
     }
 
     render(){

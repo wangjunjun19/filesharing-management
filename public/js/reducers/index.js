@@ -11,6 +11,7 @@ import economic from "./economic"
 import philosophy from "./philosophy"
 import law from "./law"
 import science from'./science'
+import differentTypeListShow from './differentTypeListShow'
 export default combineReducers({
     login,
     register,
@@ -23,5 +24,6 @@ export default combineReducers({
     economic,
     philosophy,
     law,
-    science
+    science,
+    differentTypeListShow
 });

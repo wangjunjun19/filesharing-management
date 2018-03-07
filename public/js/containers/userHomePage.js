@@ -15,6 +15,10 @@ const mapDispatchToProps = (dispatch) => {
     return {
         getPresentShow:(target)=>{
             dispatch({type:"GET_PRESENT_SHOW",target});
+        },
+        search:(info)=>{
+            console.log(info.file_name+"_____cco");
+            dispatch({type:"SEARCH",info});
         }
     }
 };

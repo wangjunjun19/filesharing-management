@@ -1,12 +1,10 @@
 /**
- * Created by 十九 on 2018/3/6.
+ * Created by 十九 on 2018/3/7.
  */
-
 let db = require('./../connection');
 
-function getMyShareList(info,callback) {
-    console.log(info.user_id);
-    let sql = "select * from files where user_id="+info.user_id;
+function getFileList(info,callback) {
+    let sql = "select * from files where file_type="+info.file_type;
     db.query(sql,function (err,results,fields) {
         if(err){
             throw err;
@@ -17,4 +15,4 @@ function getMyShareList(info,callback) {
     })
 }
 
-module.exports = getMyShareList;
+module.exports = getFileList;

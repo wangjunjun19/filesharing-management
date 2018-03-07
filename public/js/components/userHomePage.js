@@ -12,6 +12,7 @@ import Economic from '../containers/economic'
 import Philosophy from '../containers/philosophy'
 import Law from '../containers/law'
 import Science from '../containers/science'
+import DifferentTypeListShow from '../containers/differentTypeListShow'
 
 class UserHomePage extends React.Component{
 
@@ -28,6 +29,14 @@ class UserHomePage extends React.Component{
         }
     }
 
+    search(){
+        let info={
+            file_name:this.refs.search.value
+        }
+        console.log(info.file_name+"___info.file_name");
+        this.props.search(info);
+    }
+
     nextPage(){
         browserHistory.push(`/addFiles?user_id=${this.props.location.query.user_id}`);
     }
@@ -38,36 +47,36 @@ class UserHomePage extends React.Component{
 
         switch (this.props.presentShow){
             case "allFile":
-                p=<AllFile  getAllFileList={this.props.getAllFileList}  />;
+                p=<AllFile  getAllFileList={this.props.getAllFileList}/>;
                 break;
             case "economic":
-                p=<Economic/>;
+                p=<DifferentTypeListShow/>;
                 break;
             case "philosophy":
-                p=<Philosophy/>;
+                p=<DifferentTypeListShow/>;
                 break;
             case "law":
-                p=<Law/>;
+                p=<DifferentTypeListShow/>;
                 break;
             case "science":
-                p=<Science/>;
+                p=<DifferentTypeListShow/>;
                 break;
             case "engineering":
-                p=<Nav/>;
+                p=<DifferentTypeListShow/>;
                 break;
             case "foreignLanguage":
-                p=<Nav/>;
+                p=<DifferentTypeListShow/>;
                 break;
             case "arts":
-                p=<Nav/>;
+                p=<DifferentTypeListShow/>;
                 break;
             case "other":
-                p=<Nav/>;
+                console.log("case___other___compan");
+                p=<DifferentTypeListShow/>;
                 break;
             case "myShare":
-                p=< MyShare  getAllFileList={this.props.getMyShareList}/>;
+                p=<DifferentTypeListShow/>;
                 break;
-
 
 
         }
@@ -79,8 +88,8 @@ class UserHomePage extends React.Component{
             <div  >
                 <div className=" SC ">
                     <div className="search">
-                        <input className="input" type="text"  placeholder="输入XXX" />
-                        <button  className="buttonBac">搜索</button>
+                        <input className="input" type="text"  placeholder="输入XXX" ref="search"/>
+                        <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
                     </div>
                     <div className="horizontal">
                         <button  className="buttonBac" onClick={this.nextPage.bind(this)}>上传文件</button>
