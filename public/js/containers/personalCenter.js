@@ -1,8 +1,9 @@
 /**
- * Created by 十九 on 2018/3/4.
+ * Created by 十九 on 2018/3/8.
  */
+
 import {connect} from "react-redux";
-import Nav from "../components/nav";
+import PersonalCenter from "../components/personalCenter";
 
 const mapStateToProps = (state) => {
     return {
@@ -16,4 +17,4 @@ const mapDispatchToProps = (dispatch) =>{
     }
 };
 
-export default connect(mapStateToProps,mapDispatchToProps)(Nav);
+export default connect(mapStateToProps,mapDispatchToProps)(PersonalCenter);
