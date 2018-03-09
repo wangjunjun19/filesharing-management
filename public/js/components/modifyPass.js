@@ -39,7 +39,8 @@ class ModifyPass extends React.Component {
     }
 
     return(){
-        browserHistory.push('');
+        this.refs.username.value ="";
+        this.refs.password.value = "";
     }
 
     modifyPass(){
@@ -94,12 +95,12 @@ class ModifyPass extends React.Component {
                         <span>重置登录密码</span>
                     </div>
                     <div>
-                        <input type="text" className="username" ref="username" placeholder="用户名" id="username"
+                        <input type="text" className="username" ref="username" placeholder="您的用户名git" id="username"
                             onBlur={this.verifyUsername.bind(this)} onFocus={this.focusName.bind(this)}/>
                         <span className="input-tips" id="nameTip"></span>
                     </div>
                     <div>
-                        <input type="password" className="pass" ref="password" placeholder="新密码"
+                        <input type="password" className="pass" ref="password" placeholder="您的新密码"
                             onBlur={this.verifyPass.bind(this)} onFocus={this.focusPass.bind(this)}/>
                         <span className="input-tips" id="passTip"></span>
                     </div>

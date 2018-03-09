@@ -16,6 +16,7 @@ import loginMiddleware from './middlewares/login'
 import registerMiddleware from './middlewares/register'
 import modifyPassMiddleware from './middlewares/modifyPass'
 import addFilesMiddleware from './middlewares/addFiles'
+import personalCenterMiddleware from './middlewares/personalCenter'
 import allFileMiddleware from './middlewares/allFile'
 import myShareMiddleware from './middlewares/myShare'
 import economicMiddleware from './middlewares/economic'
@@ -29,6 +30,7 @@ const createStoreWithMiddleware = applyMiddleware(
     loginMiddleware,
     modifyPassMiddleware,
     addFilesMiddleware,
+    personalCenterMiddleware,
     allFileMiddleware,
     myShareMiddleware,
     economicMiddleware,

@@ -12,6 +12,7 @@ import philosophy from "./philosophy"
 import law from "./law"
 import science from'./science'
 import differentTypeListShow from './differentTypeListShow'
+import personalCenter from './personalCenter'
 export default combineReducers({
     login,
     register,
@@ -25,5 +26,6 @@ export default combineReducers({
     philosophy,
     law,
     science,
-    differentTypeListShow
+    differentTypeListShow,
+    personalCenter
 });

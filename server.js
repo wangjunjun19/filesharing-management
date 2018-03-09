@@ -20,6 +20,7 @@ const getPhilosophyList=require('./server/routers/getPhilosophyList');
 const getLawList=require('./server/routers/getLawList');
 const getScienceList = require('./server/routers/getScienceList');
 const deleteFile = require('./server/routers/deleteFile');
+const deleteUser = require('./server/routers/deleteUser');
 const search =require('./server/routers/search');
 const getFileList = require('./server/routers/getFileList');
 
@@ -34,6 +35,7 @@ app.use('/',getPhilosophyList);
 app.use('/',getLawList);
 app.use('/',getScienceList);
 app.use('/',deleteFile);
+app.use('/',deleteUser);
 app.use('/',search);
 app.use('/',getFileList);
 

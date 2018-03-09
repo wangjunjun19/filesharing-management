@@ -29,7 +29,19 @@ class PersonalCenter extends React.Component{
     }
 
     cancellation(){
-
+            let tip = confirm("您确认要注销该账户吗？")
+            if(tip === true){
+                let info={
+                    user_id:this.props.location.query.user_id
+                }
+                this.props.cancellation(info);
+            }
+    }
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.cancelTip) {
+            alert("恭喜您，账户注销成功，请重新登录！");
+            browserHistory.push('');
+        }
     }
 
     render(){
@@ -62,7 +74,7 @@ class PersonalCenter extends React.Component{
                 </div>
                 <div className="per-div">
                     <button className="per-but">保存账号信息</button>
-                    <button className="per-but">注销账号信息</button>
+                    <button className="per-but" onClick={this.cancellation.bind(this)}>注销账户</button>
                 </div>.
             </div>
         </div>
