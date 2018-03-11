@@ -6,7 +6,6 @@ import {connect} from "react-redux";
 import Law from "../components/law";
 
 const mapStateToProps = (state) => {
-    console.log(state.law.lawList+"___________container economicList");
     return {
         lawList:state.law.lawList
     }

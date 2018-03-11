@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import AddFiles from "../components/addFiles";
 
 const mapStateToProps = (state) => {
-    console.log(state.addFileTip+"___containers");
     return {
         addFileTip:state.addFiles.addFileTip,
         uploadFile:state.uploadFile

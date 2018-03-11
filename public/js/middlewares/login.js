@@ -8,7 +8,6 @@ export default store => next => action => {
         request.post('/login')
             .send(action.info)
             .end((err, res) => {
-                console .log(res.body.data+"___midd");
                 next({type:"GET_LOGIN_TIP", data:res.body.data});
             });
     }

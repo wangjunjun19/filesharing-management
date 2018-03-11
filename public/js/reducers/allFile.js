@@ -9,7 +9,6 @@ export default (state = {allFileList:[],deleteFileTip:false}, action) => {
         //试一下删除
         state.deleteFileTip=false;
 
-        console.log(state.allFileList[0].file_name+"__________redu+allFileList ");
         return Object.assign({}, state);
     }else if(action.type ==='DELETE_FILE_TIP'){
         state.deleteFileTip=action.status;

@@ -9,7 +9,6 @@ import {Link, browserHistory} from 'react-router';
 class AllFile extends Component{
 
     componentWillMount() {
-        console.log("getAllFileList")
         this.props.getAllFileList();
     }
 

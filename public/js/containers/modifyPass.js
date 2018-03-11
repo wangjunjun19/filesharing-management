@@ -5,14 +5,12 @@ import {connect} from "react-redux";
 import ModifyPass from "../components/modifyPass.js";
 
 const mapStateToProps = (state) => {
-    console.log(state.modifyPass.modifyPassTip+"__containers");
     return {
         modifyPassTip:state.modifyPass.modifyPassTip
     }
 };
 
 const mapDispatchToProps = (dispatch) => {
-   //console.log(info+"_______con_info");
     return {
         modifyPass:(info)=>{
             dispatch({type:'MODIFYPASS',info});

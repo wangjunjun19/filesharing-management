@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import AllFile from "../components/allFile";
 
 const mapStateToProps = (state) => {
-    console.log(state.allFile.allFileList+"___________container allFileList");
     return {
         allFileList:state.allFile.allFileList,
 

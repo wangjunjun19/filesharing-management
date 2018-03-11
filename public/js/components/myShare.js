@@ -9,9 +9,7 @@ import {Link, browserHistory} from 'react-router';
 class MyShare extends Component{
 
     componentWillMount() {
-        console.log("getMyShareList")
         var user_id=this.props.loginTip;
-        console.log(this.props.loginTip+"______userId");
         let info={
             user_id:user_id
         }

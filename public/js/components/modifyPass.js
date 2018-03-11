@@ -62,16 +62,12 @@ class ModifyPass extends React.Component {
             let info = {
             username,password
             }
-            console.log("user_"+username+"pass_"+password +"info"+info);
-            console.log("hello modify");
-            console.log({username:this.refs.username.value,password:this.refs.password.value});
             this.props.modifyPass({username:this.refs.username.value,password:this.refs.password.value});
 
         }
     }
 
     componentWillReceiveProps(nextProps) {
-        console.log(nextProps.modifyPassTip+"_________modifyPassTip__");
         if (nextProps.modifyPassTip === "该用户名未注册！") {
             $("#nameTip").text("该用户名未注册！");
             this.props.resetModifyPass({modifyPassTip: false});
@@ -95,7 +91,7 @@ class ModifyPass extends React.Component {
                         <span>重置登录密码</span>
                     </div>
                     <div>
-                        <input type="text" className="username" ref="username" placeholder="您的用户名git" id="username"
+                        <input type="text" className="username" ref="username" placeholder="您的用户名" id="username"
                             onBlur={this.verifyUsername.bind(this)} onFocus={this.focusName.bind(this)}/>
                         <span className="input-tips" id="nameTip"></span>
                     </div>

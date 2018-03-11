@@ -4,13 +4,11 @@
 
 import request from "superagent";
 
-export default store => next => action =>{
-    console.log(action.type+"___action.type");
+export default store => next => action =>{;
     switch (action.type){
         case 'GET_SCIENCE_LIST':
             request.post('/getScienceList')
                 .end((err,res) => {
-                    console.log(res.body+"midd  res.body ");
                     next({type:"SCIENCE_TIP",data:res.body.data});
                 });
             break;

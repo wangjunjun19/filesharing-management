@@ -5,7 +5,6 @@ import {connect} from "react-redux";
 import Register from "../components/register";
 
 const mapStateToProps = (state) => {
-    console.log(state+"containers");
     return {
         registerTip:state.register.registerTip
         //console.log(state.registerTip);

@@ -10,7 +10,6 @@ import {Link, browserHistory} from 'react-router';
 class Economic extends Component{
 
     componentWillMount() {
-        console.log("getEconomicList")
         this.props.getEconomicList();
     }
 

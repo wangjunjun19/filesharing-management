@@ -14,10 +14,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-        getDifferentTypeList:(info)=>{
-            console.log(info.file_type+"_____——info.file_type___contain");
-            dispatch({type:"GET_FILE_LIST",info})
-        }
+
     }
 };
 

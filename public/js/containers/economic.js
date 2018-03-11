@@ -6,7 +6,6 @@ import {connect} from "react-redux";
 import Economic from "../components/economic";
 
 const mapStateToProps = (state) => {
-    console.log(state.economic.economicList+"___________container economicList");
     return {
         economicList:state.economic.economicList
     }

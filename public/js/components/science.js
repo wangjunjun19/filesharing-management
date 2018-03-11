@@ -10,7 +10,6 @@ import {Link, browserHistory} from 'react-router';
 class Science extends Component{
 
     componentWillMount() {
-        console.log("getScienceList")
         this.props.getScienceList();
     }
 

@@ -58,7 +58,6 @@ class AddFiles extends React.Component{
                 file_intro:this.refs.intro.value,
                 file_route:this.props.uploadFile
             }
-            console.log("addFile____"+info.file_intro+info.file_name+info.file_route+info.file_type+info.user_id);
             this.props.addFiles(info);
         }
 

@@ -45,8 +45,6 @@ class Login extends React.Component {
             let info={ "user_name":username,
                 "user_pass":password
             }
-            console.log("login11");
-            console.log(info);
             this.props.onLogin(info);
         }
     }
@@ -54,7 +52,6 @@ class Login extends React.Component {
     componentWillReceiveProps(nextProps) {
         console.log(nextProps.loginTip[0]);
         if (nextProps.loginTip[0]) {
-            console.log("shujuku");
             browserHistory.push(`/userHomePage?user_id=${nextProps.loginTip[0].id}`);
         } else{
             $("#passwordTip").text("用户名或密码错误！");

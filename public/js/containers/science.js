@@ -7,7 +7,6 @@ import {connect} from "react-redux";
 import Science from "../components/science";
 
 const mapStateToProps = (state) => {
-    console.log(state.science.scienceList+"___________container scienceList");
     return {
         scienceList:state.science.scienceList
     }

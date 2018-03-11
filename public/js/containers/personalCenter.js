@@ -15,7 +15,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) =>{
     return {
         cancellation:(info)=>{
-            console.log(info.user_id+"++container__id")
+
             dispatch({type:"CANCELLATION_USER",info})
         }
     }

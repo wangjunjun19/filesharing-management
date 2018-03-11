@@ -74,7 +74,6 @@ class Register extends React.Component {
             let info={ "user_name":this.refs.username.value,
                 "user_pass":this.refs.password.value
             }
-            console.log("hello");
             this.props.register(info);
         }
     }

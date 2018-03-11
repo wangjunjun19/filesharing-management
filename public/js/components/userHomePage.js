@@ -41,6 +41,14 @@ class UserHomePage extends React.Component{
         browserHistory.push(`/addFiles?user_id=${this.props.location.query.user_id}`);
     }
 
+    getDifferentTypeList(file_type){
+        let info={
+            file_type:file_type
+        }
+        console.log(info.file_type+"~~~~~")
+        this.props.getDifferentTypeList(info);
+    }
+
     render(){
 
         var p=<AllFile  getAllFileList={this.props.getAllFileList}  />;
@@ -100,9 +108,9 @@ class UserHomePage extends React.Component{
                 </div>
                 <div >
                     <ul className="menu"  onClick={this.onAside.bind(this)} >
-                        <li className="li" id="allFile">全部文件</li>
-                        <li className="li" id="economic" >经管类</li>
-                        <li className="li" id="philosophy">文哲类</li>
+                        <li className="li" id="allFile" >全部文件</li>
+                        <li className="li" id="economic" onClick={this.getDifferentTypeList.bind(4,this)} >经管类</li>
+                        <li className="li" id="philosophy" onClick={this.getDifferentTypeList.bind(0,this)}>文哲类</li>
                         <li className="li" id="law">法学类</li>
                         <li className="li" id="science">理学类</li>
                         <li className="li" id="engineering" >工学类</li>

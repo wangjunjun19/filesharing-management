@@ -4,21 +4,17 @@
 import request from "superagent";
 
 export default store => next => action =>{
-    console.log(action.type+"___action.type");
     switch (action.type){
         case 'GET_ALL_FILE_LIST':
             request.post('/getAllFileList')
                 .end((err,res) => {
-                    console.log(res.body+"midd  res.body ");
                     next({type:"ALL_FILE_TIP",data:res.body.data});
                 });
             break;
         case 'SEARCH':
             request.post('/search')
-                console.log(action.info.file_name+"++++midd")
                 .send(action.info)
                 .end((err,res) => {
-                    console.log(res.body+"midd  res.body   ___midd");
                     next({type:"ALL_FILE_TIP",data:res.body.data});
                 });
             break;
@@ -30,7 +26,6 @@ export default store => next => action =>{
             request.post('/deleteFile')
                 .send(action.info)
                 .end((err,res) => {
-                    console.log(res.body+"midd  res.body ");
                     next({type:"DELETE_FILE_TIP",status:res.body.status});
                 });
             break;

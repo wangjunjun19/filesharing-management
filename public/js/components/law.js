@@ -10,7 +10,6 @@ import {Link, browserHistory} from 'react-router';
 class Law extends Component{
 
     componentWillMount() {
-        console.log("getLawList")
         this.props.getLawList();
     }
 

@@ -10,7 +10,6 @@ import {Link, browserHistory} from 'react-router';
 class Philosophy extends Component{
 
     componentWillMount() {
-        console.log("getPhilosophyList")
         this.props.getPhilosophyList();
     }
 

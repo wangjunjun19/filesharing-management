@@ -10,7 +10,6 @@ export default store => next => action =>{
             request.post('/addFiles')
                 .send(action.info)
                 .end((err,res) => {
-                    console.log(res.body.status+"midd");
                     next({type:"ADD_FILE_TIP",status:res.body.status});
                 });
             break;

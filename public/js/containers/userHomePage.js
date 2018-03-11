@@ -19,6 +19,10 @@ const mapDispatchToProps = (dispatch) => {
         search:(info)=>{
             console.log(info.file_name+"_____cco");
             dispatch({type:"SEARCH",info});
+        },
+        getDifferentTypeList:(info)=>{
+            console.log(info.file_type+"_____——info.file_type___contain");
+            dispatch({type:"GET_FILE_LIST",info})
         }
     }
 };

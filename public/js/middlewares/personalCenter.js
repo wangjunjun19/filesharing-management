@@ -8,7 +8,6 @@ export default store => next => action =>{
             request.post('/deleteUser')
                 .send(action.info)
                 .end((err,res) => {
-                    console.log(res.body.status+"midd");
                     next({type:"CANCELLATION_TIP",status:res.body.status});
                 });
             break;
