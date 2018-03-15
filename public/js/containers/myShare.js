@@ -7,8 +7,9 @@ import MyShare from "../components/myShare";
 
 const mapStateToProps = (state) => {
     return {
-        myShareList:state.allFile.myShareList,
-        loginTip:state.login.loginTip[0].id
+        myShareList:state.myShare.myShareList,
+        loginTip:state.login.loginTip[0].id,
+        deleteFileTip:state.myShare.deleteFileTip
     }
 };
 
@@ -17,6 +18,9 @@ const mapDispatchToProps = (dispatch) =>{
         getMyShareList:(info)=>{
             console.log(info.user_id+"++container__id")
             dispatch({type:"GET_MY_SHARE_LIST",info})
+        },
+        deleteFile:(info)=>{
+            dispatch({type:"DELETE_FILE",info})
         }
     }
 };

@@ -83,7 +83,7 @@ class UserHomePage extends React.Component{
                 p=<DifferentTypeListShow/>;
                 break;
             case "myShare":
-                p=<Myshare/>;
+                p=<MyShare/>;
                 break;
 
 

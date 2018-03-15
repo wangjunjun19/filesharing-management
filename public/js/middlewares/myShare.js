@@ -14,6 +14,14 @@ export default store => next => action =>{
 
                 });
             break;
+        //试一下删除
+        case 'DELETE_FILE':
+            request.post('/deleteFile')
+                .send(action.info)
+                .end((err,res) => {
+                    next({type:"DELETE_FILE_TIP",status:res.body.status});
+                });
+            break;
     }
     next(action);
 }
