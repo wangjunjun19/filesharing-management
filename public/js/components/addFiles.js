@@ -19,6 +19,25 @@ class AddFiles extends React.Component{
         document.getElementById("introduce").value="";
     }
 
+    getFileSize(){
+        let dom = document.getElementById('files');
+        let size=dom.files[0].size/1024/1024;
+            return size;
+    }
+
+    test(){
+        let isOK=this.getFileSize();
+        //判断文件大小是否大于10M
+        if(isOK<=10){
+            this.isClick();
+        }
+        else{
+            alert("上传的文件不能超过10M,请重新上传!");
+            this.clear();
+        }
+
+    }
+
     isClick(){
         let file=this.refs.file;
         if(file.files && file.files[0]){
@@ -82,7 +101,7 @@ class AddFiles extends React.Component{
                 </div>
                     <div  className="body">
                     <div className="upload">
-                        <input  className="file" id="files" ref="file" type="file" onChange={this.isClick.bind(this)} onFocus={this.focusChoose.bind(this)} />
+                        <input  className="file" id="files" ref="file" type="file" onChange={this.test.bind(this)} onFocus={this.focusChoose.bind(this)} />
                         <span  id="chooseTip" className="chooseTip"></span>
                     </div>
                     <div className="div">

@@ -7,8 +7,10 @@ import PersonalCenter from "../components/personalCenter";
 
 const mapStateToProps = (state) => {
     return {
-        loginTip:state.login.loginTip[0].id,
-        cancelTip:state.personalCenter.cancelTip
+        loginTip:state.login.loginTip[0],
+        cancelTip:state.personalCenter.cancelTip,
+        userInfoTip:state.personalCenter.userInfoTip,
+        updateTip:state.personalCenter.updateTip
     };
 };
 
@@ -17,6 +19,12 @@ const mapDispatchToProps = (dispatch) =>{
         cancellation:(info)=>{
 
             dispatch({type:"CANCELLATION_USER",info})
+        },
+        getUserInfo:(info)=>{
+            dispatch({type:"USER_INFO",info})
+        },
+        updateUser:(info)=>{
+            dispatch({type:"UPDATE_USER",info})
         }
     }
 };

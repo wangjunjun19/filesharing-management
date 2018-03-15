@@ -23,7 +23,11 @@ const deleteFile = require('./server/routers/deleteFile');
 const deleteUser = require('./server/routers/deleteUser');
 const search =require('./server/routers/search');
 const getFileList = require('./server/routers/getFileList');
+const findUser = require('./server/routers/findUser');
+const updateUser =require('./server/routers/updateUser')
 
+app.use('/',updateUser);
+app.use('/',findUser);
 app.use('/',register);
 app.use('/',login);
 app.use('/',modifyPass);

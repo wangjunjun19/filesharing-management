@@ -5,6 +5,7 @@ import Nav from './nav'
 
 class PersonalCenter extends React.Component{
 
+
     verifyPass(){
         let password=this.refs.password.value;
         let regexp=/^[A-Za-z0-9]{6,16}$/;
@@ -37,10 +38,25 @@ class PersonalCenter extends React.Component{
                 this.props.cancellation(info);
             }
     }
+
+    updateUser(){
+        let info={
+            user_pass:this.refs.password.value,
+            user_sex:this.refs.sex.value,
+            user_tel:this.refs.tel.value,
+            user_age:this.refs.age.value,
+            user_id:this.props.location.query.user_id
+        }
+        this.props.updateUser(info);
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.cancelTip) {
             alert("恭喜您，账户注销成功，请重新登录！");
             browserHistory.push('');
+        }
+        if(nextProps.updateTip){
+            alert("恭喜您，信息修改成功！");
         }
     }
 
@@ -54,26 +70,26 @@ class PersonalCenter extends React.Component{
                     <lable className="per-mes">个人信息</lable>
                 </div>
                 <div className="per-div">
-                    <label className="per-lab">用户名:</label><input type="text" disabled/>
+                    <label className="per-lab">用户名:</label><input type="text" ref="user_name" disabled></input>
                 </div>
                 <div className="per-div">
                     <label className="per-lab">密码:</label><input type="password" ref="password"
-                    onBlur={this.verifyPass.bind(this)} onFocus={this.focusPass.bind(this)}/>
+                    onBlur={this.verifyPass.bind(this)} onFocus={this.focusPass.bind(this)}></input>
                     <span className="per-tips" id="password"></span>
                 </div>
                 <div className="per-div">
-                    <label className="per-lab">性别:</label><input type="text"/>
+                    <label className="per-lab">性别:</label><input type="text" ref="sex"/>
                 </div>
                 <div className="per-div">
-                    <label className="per-lab">年龄:</label><input type="text"/>
+                    <label className="per-lab">年龄:</label><input type="text" ref="age"/>
                 </div>
                 <div className="per-div">
                     <label className="per-lab">手机号:</label><input type="tel" ref="tel"
-                    onBlur={this.verifyTel.bind(this)} onFocus={this.focusTel.bind(this)}/>
+                    onBlur={this.verifyTel.bind(this)} onFocus={this.focusTel.bind(this)} />
                     <span className="per-tips" id="tel"></span>
                 </div>
                 <div className="per-div">
-                    <button className="per-but">保存账号信息</button>
+                    <button className="per-but" onClick={this.updateUser.bind(this)}>保存账号信息</button>
                     <button className="per-but" onClick={this.cancellation.bind(this)}>注销账户</button>
                 </div>.
             </div>

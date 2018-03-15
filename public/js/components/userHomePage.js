@@ -58,16 +58,16 @@ class UserHomePage extends React.Component{
                 p=<AllFile  getAllFileList={this.props.getAllFileList}/>;
                 break;
             case "economic":
-                p=<DifferentTypeListShow/>;
+                p=<Economic/>;
                 break;
             case "philosophy":
-                p=<DifferentTypeListShow/>;
+                p=<Philosophy/>;
                 break;
             case "law":
-                p=<DifferentTypeListShow/>;
+                p=<Law/>;
                 break;
             case "science":
-                p=<DifferentTypeListShow/>;
+                p=<Science/>;
                 break;
             case "engineering":
                 p=<DifferentTypeListShow/>;
@@ -83,7 +83,7 @@ class UserHomePage extends React.Component{
                 p=<DifferentTypeListShow/>;
                 break;
             case "myShare":
-                p=<DifferentTypeListShow/>;
+                p=<Myshare/>;
                 break;
 
 
