@@ -15,6 +15,10 @@ const mapDispatchToProps = (dispatch) =>{
     return {
         getAllFileList:()=>{
             dispatch({type:"GET_ALL_FILE_LIST"})
+        },
+        search:(info)=>{
+            console.log(info.file_name+"_____cco");
+            dispatch({type:"SEARCH",info});
         }
     }
 };

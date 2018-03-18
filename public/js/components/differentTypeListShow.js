@@ -1,15 +1,15 @@
 /**
  * Created by 十九 on 2018/3/7.
  */
-/**
- * Created by 十九 on 2018/3/5.
- */
 require('../../css/allFile.css');
 
 import React,{Component} from "react";
 import {Link, browserHistory} from 'react-router';
 
 class differentTypeListShow extends Component{
+    componentWillMount() {
+        this.props.getDifferentTypeList();
+    }
 
     render(){
 

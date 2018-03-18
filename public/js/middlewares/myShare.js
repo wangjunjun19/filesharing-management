@@ -22,6 +22,14 @@ export default store => next => action =>{
                     next({type:"DELETE_FILE_TIP",status:res.body.status});
                 });
             break;
+
+        case 'SEARCH_MY':
+            request.post('/searchMyShare')
+                .send(action.info)
+                .end((err,res) => {
+                    next({type:"MY_SHARE_TIP",data:res.body.data});
+                });
+            break;
     }
     next(action);
 }

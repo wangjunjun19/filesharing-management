@@ -21,6 +21,9 @@ const mapDispatchToProps = (dispatch) =>{
         },
         deleteFile:(info)=>{
             dispatch({type:"DELETE_FILE",info})
+        },
+        searchMy:(info)=>{
+            dispatch({type:"SEARCH_MY",info});
         }
     }
 };

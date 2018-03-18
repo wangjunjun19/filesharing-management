@@ -5,6 +5,12 @@ import Nav from './nav'
 
 class PersonalCenter extends React.Component{
 
+    componentWillMount() {
+        let info={
+            user_id:this.props.location.query.user_id
+        }
+        this.props.getUserInfo(info);
+    }
 
     verifyPass(){
         let password=this.refs.password.value;
@@ -44,13 +50,16 @@ class PersonalCenter extends React.Component{
             user_pass:this.refs.password.value,
             user_sex:this.refs.sex.value,
             user_tel:this.refs.tel.value,
-            user_age:this.refs.age.value,
             user_id:this.props.location.query.user_id
         }
         this.props.updateUser(info);
     }
 
     componentWillReceiveProps(nextProps) {
+        if(nextProps.userInfoTip)
+        {
+            alert(nextProps.userInfoTip[0].id)
+        }
         if (nextProps.cancelTip) {
             alert("恭喜您，账户注销成功，请重新登录！");
             browserHistory.push('');
@@ -61,7 +70,16 @@ class PersonalCenter extends React.Component{
     }
 
     render(){
+        var info=this.props.userInfoTip.map((value,index)=>{
+         let info ={
+             id:value.id,
+             user_name:value.user_name,
+             user_pass:value.user_pass
+         }
 
+            console.log(info.id)
+            return  info
+        });
 
         return<div className="per-bac">
             <Nav/>
@@ -70,7 +88,7 @@ class PersonalCenter extends React.Component{
                     <lable className="per-mes">个人信息</lable>
                 </div>
                 <div className="per-div">
-                    <label className="per-lab">用户名:</label><input type="text" ref="user_name" disabled></input>
+                    <label className="per-lab">用户名:</label><input type="text" ref="user_name" disabled placeholder={info.id}>{info.id}</input>
                 </div>
                 <div className="per-div">
                     <label className="per-lab">密码:</label><input type="password" ref="password"
@@ -78,10 +96,7 @@ class PersonalCenter extends React.Component{
                     <span className="per-tips" id="password"></span>
                 </div>
                 <div className="per-div">
-                    <label className="per-lab">性别:</label><input type="text" ref="sex"/>
-                </div>
-                <div className="per-div">
-                    <label className="per-lab">年龄:</label><input type="text" ref="age"/>
+                    <label className="per-lab">性别:</label><input type="text" ref="sex" />
                 </div>
                 <div className="per-div">
                     <label className="per-lab">手机号:</label><input type="tel" ref="tel"

@@ -23,6 +23,15 @@ class MyShare extends Component{
         this.props.deleteFile(info);
     }
 
+    search(){
+        let info={
+            file_name:this.refs.search.value,
+            user_id:this.props.loginTip
+        }
+        console.log(info.file_name+"___info.file_name");
+        this.props.searchMy(info);
+    }
+
     componentWillReceiveProps(nextProps) {
         if (nextProps.deleteFileTip) {
             var user_id=this.props.loginTip;
@@ -41,13 +50,17 @@ class MyShare extends Component{
                 <div className="file-div">
                     <div className="span-file"><span >{value.file_name}</span></div>
                     <div className="span-intro"><span >{value.file_intro}</span></div>
-                    <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
-                    <div className="span-down "><button onClick={this.deleteFile.bind(this,value.file_id)} >试一下删除功能</button></div>
+                    <div className="span-down"><button className="glyphicon glyphicon-download-alt down-my"></button></div>
+                    <div className="span-down"><button className="glyphicon glyphicon-trash down-my" onClick={this.deleteFile.bind(this,value.file_id)} ></button></div>
                 </div>
             </div>
         });
 
         return<div >
+            <div className="search">
+                <input className="input" type="text"  placeholder="输入XXX" ref="search"/>
+                <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
+            </div>
             <div >
                 <span className="span-d">文件名</span>
                 <span className="span-l">文件简介</span>

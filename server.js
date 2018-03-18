@@ -25,7 +25,9 @@ const search =require('./server/routers/search');
 const getFileList = require('./server/routers/getFileList');
 const findUser = require('./server/routers/findUser');
 const updateUser =require('./server/routers/updateUser')
+const searchMyShare = require('./server/routers/searchMyShare')
 
+app.use('/',searchMyShare)
 app.use('/',updateUser);
 app.use('/',findUser);
 app.use('/',register);

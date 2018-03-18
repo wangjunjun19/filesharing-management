@@ -12,11 +12,13 @@ class AllFile extends Component{
         this.props.getAllFileList();
     }
 
-    deleteFile(file_id){
+
+    search(){
         let info={
-            file_id:file_id
+            file_name:this.refs.search.value
         }
-        this.props.deleteFile(info);
+        console.log(info.file_name+"___info.file_name");
+        this.props.search(info);
     }
 
     render(){
@@ -32,6 +34,10 @@ class AllFile extends Component{
         });
 
         return<div >
+            <div className="search">
+                <input className="input" type="text"  placeholder="输入XXX" ref="search"/>
+                <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
+            </div>
             <div >
                 <span className="span-d">文件名</span>
                 <span className="span-l">文件简介</span>

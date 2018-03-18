@@ -29,13 +29,7 @@ class UserHomePage extends React.Component{
         }
     }
 
-    search(){
-        let info={
-            file_name:this.refs.search.value
-        }
-        console.log(info.file_name+"___info.file_name");
-        this.props.search(info);
-    }
+
 
     nextPage(){
         browserHistory.push(`/addFiles?user_id=${this.props.location.query.user_id}`);
@@ -45,7 +39,7 @@ class UserHomePage extends React.Component{
         let info={
             file_type:file_type
         }
-        console.log(info.file_type+"~~~~~")
+        console.log(file_type+"~~~~~")
         this.props.getDifferentTypeList(info);
     }
 
@@ -80,7 +74,7 @@ class UserHomePage extends React.Component{
                 break;
             case "other":
                 console.log("case___other___compan");
-                p=<DifferentTypeListShow/>;
+                p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList} />;
                 break;
             case "myShare":
                 p=<MyShare/>;
@@ -95,10 +89,7 @@ class UserHomePage extends React.Component{
             <Nav/>
             <div  >
                 <div className=" SC ">
-                    <div className="search">
-                        <input className="input" type="text"  placeholder="输入XXX" ref="search"/>
-                        <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
-                    </div>
+
                     <div className="horizontal">
                         <button  className="buttonBac" onClick={this.nextPage.bind(this)}>上传文件</button>
                     </div>
@@ -109,14 +100,14 @@ class UserHomePage extends React.Component{
                 <div >
                     <ul className="menu"  onClick={this.onAside.bind(this)} >
                         <li className="li" id="allFile" >全部文件</li>
-                        <li className="li" id="economic" onClick={this.getDifferentTypeList.bind(4,this)} >经管类</li>
-                        <li className="li" id="philosophy" onClick={this.getDifferentTypeList.bind(0,this)}>文哲类</li>
+                        <li className="li" id="economic"  >经管类</li>
+                        <li className="li" id="philosophy" >文哲类</li>
                         <li className="li" id="law">法学类</li>
                         <li className="li" id="science">理学类</li>
                         <li className="li" id="engineering" >工学类</li>
                         <li className="li" id="foreignLanguage">外语类</li>
-                        <li className="li" id="arts">艺术类</li>
-                        <li className="li" id="other">其他</li>
+                        <li className="li" id="arts" onClick={this.getDifferentTypeList.bind(6,this)}>艺术类</li>
+                        <li className="li" id="other" onClick={this.getDifferentTypeList.bind(7,this)}>其他</li>
                         <li className="li" id="myShare" >我的分享</li>
                     </ul>
                 </div>
