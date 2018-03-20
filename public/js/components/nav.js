@@ -8,7 +8,20 @@ import {Link, browserHistory} from 'react-router';
 class Nav extends Component{
 
     personalCenter(){
-        browserHistory.push(`/personalCenter?user_id=${this.props.loginTip}`);
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let isLogin = this.props.nav;
+        let id = cookies.user_id;
+        if (id === isLogin) {
+            let path = "personalCenter?user_id=" + id;
+            browserHistory.push(path);
+        }else{
+            browserHistory.push('');
+        }
+
     }
     database(){
         browserHistory.push(`/userHomePage?user_id=${this.props.loginTip}`);

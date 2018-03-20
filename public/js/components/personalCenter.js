@@ -88,6 +88,7 @@ class PersonalCenter extends React.Component{
     componentWillReceiveProps(nextProps) {
         if (nextProps.cancelTip) {
             alert("恭喜您，账户注销成功，请重新登录！");
+            this.props.resetPer({cancelTip: false});
             browserHistory.push('');
         }
 

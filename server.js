@@ -4,10 +4,19 @@ const path = require('path');
 const multer = require('multer');
 var request = require("request");
 const bodyParser = require('body-parser');
+const session = require('express-session');
+const cookieParser = require("cookie-parser");
 
 app.use(express.static(__dirname + '/public'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(cookieParser());
+app.use(session({
+    secret: 'a',
+    resave: true,
+    saveUninitialized: true
+}));
+
 
 const register=require('./server/routers/register');
 const login=require('./server/routers/onlogin');

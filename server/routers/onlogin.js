@@ -12,8 +12,9 @@ route.post('/login',(req,res) => {
         if(err){
             res.status(500);
         }else{
-            console.log(result+"________result")
-            res.send(result)
+            console.log(result[0].id+"______result.id")
+            res.cookie('user_id',result[0].id,{path:'/'});
+            res.send({data:result})
         }
     })
 });

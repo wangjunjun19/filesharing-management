@@ -11,7 +11,7 @@ function onLogin(info,callback) {
             throw err;
         }else{
             console.log("data"+"db"+results);
-            callback({data:results})
+            callback(results)
         }
     })
 }
