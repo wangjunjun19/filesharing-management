@@ -15,5 +15,9 @@ export default (state = {cancelTip:false,updateTip:false,userInfoTip:[]}, action
         state.updateTip =action.status;
         return Object.assign({},state);
     }
+    if(action.type === 'RESET_PER') {
+        state.updateTip = action.info.updateTip;
+        return Object.assign({}, state);
+    }
     return state;
 }

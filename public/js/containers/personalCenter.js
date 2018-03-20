@@ -25,6 +25,9 @@ const mapDispatchToProps = (dispatch) =>{
         },
         updateUser:(info)=>{
             dispatch({type:"UPDATE_USER",info})
+        } ,
+        resetPer:(info)=>{
+            dispatch({type:'RESET_PER',info})
         }
     }
 };

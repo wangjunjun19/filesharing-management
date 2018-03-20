@@ -54,7 +54,10 @@
     color: #fd5f39;
     display: inline-block;
 }
-.sex{
-    width: 5%;
-    margin-left: 60px;
+.per-addDiv{
+    display: inline-block;
+}
+.per-tip{
+    margin-left: 15%;
+    color: #fd5f39;
 }
