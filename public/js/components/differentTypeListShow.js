@@ -36,24 +36,42 @@ class differentTypeListShow extends Component{
                 info.file_type = 7;
                 break;
         }
-        this.props.searchByType(info);
+        if(info.file_name !='')
+        {
+            this.props.searchByType(info);
+        }
     }
 
     render(){
 
-        var p=this.props.differentTypeListTip.map((value,index)=>{
-            return <div>
-                <div className="file-div">
-                    <div className="span-file"><span >{value.file_name}</span></div>
-                    <div className="span-intro"><span >{value.file_intro}</span></div>
-                    <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
+        if(this.props.differentTypeListTip != '')
+        {
+            var p=this.props.differentTypeListTip.map((value,index)=>{
+                return <div>
+                    <div className="file-div">
+                        <div className="span-file"><span >{value.file_name}</span></div>
+                        <div className="span-intro"><span >{value.file_intro}</span></div>
+                        <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
+                    </div>
                 </div>
-            </div>
-        });
+            });
+        }
+        else{
+            var p=<div className = "errTip">
+                    <div >
+                        <div className="errTip-t">
+                            <img src="../image/tip.png"/>
+                        </div>
+                        <div>
+                            当前资料库中，没有找到相应的文件
+                        </div>
+                    </div>
+                </div>
+        }
 
         return<div >
             <div className="search">
-                <input className="input" type="text"  placeholder="输入XXX" ref="search"/>
+                <input className="input" type="text"  placeholder="搜索您的文件" ref="search"/>
                 <button  className="buttonBac" onClick={this.searchByType.bind(this)} >搜索</button>
             </div>
             <div >

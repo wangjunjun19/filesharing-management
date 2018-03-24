@@ -8,13 +8,7 @@ import {Link, browserHistory} from 'react-router';
 
 class MyShare extends Component{
 
-    componentWillMount() {
-        var user_id=this.props.loginTip;
-        let info={
-            user_id:user_id
-        }
-        this.props.getMyShareList(info);
-    }
+
 
     deleteFile(file_id){
         let info={
@@ -29,7 +23,11 @@ class MyShare extends Component{
             user_id:this.props.loginTip
         }
         console.log(info.file_name+"___info.file_name");
-        this.props.searchMy(info);
+        if(info.file_name != '')
+        {
+            this.props.searchMy(info);
+        }
+
     }
 
     componentWillReceiveProps(nextProps) {
@@ -45,20 +43,35 @@ class MyShare extends Component{
 
     render(){
 
-        var p=this.props.myShareList.map((value,index)=>{
-            return <div>
-                <div className="file-div">
-                    <div className="span-file"><span >{value.file_name}</span></div>
-                    <div className="span-intro"><span >{value.file_intro}</span></div>
-                    <div className="span-down"><button className="glyphicon glyphicon-download-alt down-my"></button></div>
-                    <div className="span-down"><button className="glyphicon glyphicon-trash down-my" onClick={this.deleteFile.bind(this,value.file_id)} ></button></div>
+        if(this.props.myShareList != '')
+        {
+            var p=this.props.myShareList.map((value,index)=>{
+                return <div>
+                    <div className="file-div">
+                        <div className="span-file"><span >{value.file_name}</span></div>
+                        <div className="span-intro"><span >{value.file_intro}</span></div>
+                        <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
+                    </div>
+                </div>
+            });
+        }
+        else{
+            var p=<div className = "errTip">
+                <div >
+                    <div className="errTip-t">
+                        <img src="../image/tip.png"/>
+                    </div>
+                    <div>
+                        当前资料库中，没有找到相应的文件
+                    </div>
                 </div>
             </div>
-        });
+        }
+
 
         return<div >
             <div className="search">
-                <input className="input" type="text"  placeholder="输入XXX" ref="search"/>
+                <input className="input" type="text"  placeholder="搜索您的文件" ref="search"/>
                 <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
             </div>
             <div >

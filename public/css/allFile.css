@@ -67,3 +67,13 @@
     background-color: transparent;
     border-color: transparent;
 }
+
+.errTip{
+    width: 40%;
+    height: 50%;
+    margin-left: 40%;
+    margin-top: 10%;
+}
+.errTip-t{
+    margin-left: 10%;
+}

@@ -18,24 +18,43 @@ class AllFile extends Component{
             file_name:this.refs.search.value
         }
         console.log(info.file_name+"___info.file_name");
-        this.props.search(info);
+        if(info.file_name != '')
+        {
+            this.props.search(info);
+        }
+
     }
 
     render(){
 
-        var p=this.props.allFileList.map((value,index)=>{
-            return <div>
-                <div className="file-div">
-                    <div className="span-file"><span >{value.file_name}+{value.file_id}</span></div>
-                    <div className="span-intro"><span >{value.file_intro}</span></div>
-                    <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
+        if(this.props.allFileList != '')
+        {
+            var p=this.props.allFileList.map((value,index)=>{
+                return <div>
+                    <div className="file-div">
+                        <div className="span-file"><span >{value.file_name}</span></div>
+                        <div className="span-intro"><span >{value.file_intro}</span></div>
+                        <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
+                    </div>
+                </div>
+            });
+        }
+        else{
+            var p=<div className = "errTip">
+                <div >
+                    <div className="errTip-t">
+                        <img src="../image/tip.png"/>
+                    </div>
+                    <div>
+                        当前资料库中，没有找到相应的文件
+                    </div>
                 </div>
             </div>
-        });
+        }
 
         return<div >
             <div className="search">
-                <input className="input" type="text"  placeholder="输入XXX" ref="search"/>
+                <input className="input" type="text"  placeholder="搜索您的文件" ref="search"/>
                 <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
             </div>
             <div >

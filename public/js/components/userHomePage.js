@@ -39,9 +39,21 @@ class UserHomePage extends React.Component{
         this.props.getDifferentTypeList(info);
     }
 
+    getAllFile(){
+        this.props.getAllFileList();
+    }
+
+    getMyShareList() {
+        var user_id=this.props.location.query.user_id;
+        let info={
+            user_id:user_id
+        }
+        this.props.getMyShareList(info);
+    }
+
     render(){
 
-        var p=<AllFile  getAllFileList={this.props.getAllFileList}  />;
+        var p=<AllFile   getAllFileList={this.props.getAllFile} />;
 
         switch (this.props.presentShow){
             case "allFile":
@@ -95,7 +107,7 @@ class UserHomePage extends React.Component{
                 </div>
                 <div >
                     <ul className="menu"  onClick={this.onAside.bind(this)} >
-                        <li className="li" id="allFile" >全部文件</li>
+                        <li className="li" id="allFile" onClick={this.getAllFile.bind(this)}>全部文件</li>
                         <li className="li" id="economic"  onClick={this.getDifferentTypeList.bind(this,4)}>经管类</li>
                         <li className="li" id="philosophy" onClick={this.getDifferentTypeList.bind(this,0)}>文哲类</li>
                         <li className="li" id="law" onClick={this.getDifferentTypeList.bind(this,1)}>法学类</li>
@@ -104,7 +116,7 @@ class UserHomePage extends React.Component{
                         <li className="li" id="foreignLanguage" onClick={this.getDifferentTypeList.bind(this,5)}>外语类</li>
                         <li className="li" id="arts" onClick={this.getDifferentTypeList.bind(this,6)}>艺术类</li>
                         <li className="li" id="other" onClick={this.getDifferentTypeList.bind(this,7)} >其他</li>
-                        <li className="li" id="myShare" >我的分享</li>
+                        <li className="li" id="myShare"  onClick={this.getMyShareList.bind(this)}>我的分享</li>
                     </ul>
                 </div>
             </div>
