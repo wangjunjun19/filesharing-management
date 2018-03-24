@@ -24,10 +24,6 @@ const modifyPass=require('./server/routers/modifyPass');
 const addFiles = require('./server/routers/addFiles');
 const getAllFileList = require('./server/routers/getAllFileList');
 const getMyShareList = require('./server/routers/getMyShareList');
-const getEconomicList = require('./server/routers/getEconomicList');
-const getPhilosophyList=require('./server/routers/getPhilosophyList');
-const getLawList=require('./server/routers/getLawList');
-const getScienceList = require('./server/routers/getScienceList');
 const deleteFile = require('./server/routers/deleteFile');
 const deleteUser = require('./server/routers/deleteUser');
 const search =require('./server/routers/search');
@@ -35,7 +31,13 @@ const getFileList = require('./server/routers/getFileList');
 const findUser = require('./server/routers/findUser');
 const updateUser =require('./server/routers/updateUser')
 const searchMyShare = require('./server/routers/searchMyShare')
+const legalUsername = require('./server/routers/legalUSerID');
+const logout = require('./server/routers/logout');
+const searchByType = require('./server/routers/searchByType');
 
+app.use('/',searchByType);
+app.use('/',legalUsername);
+app.use('/',logout);
 app.use('/',searchMyShare)
 app.use('/',updateUser);
 app.use('/',findUser);
@@ -45,10 +47,6 @@ app.use('/',modifyPass);
 app.use('/',addFiles);
 app.use('/',getAllFileList);
 app.use('/',getMyShareList);
-app.use('/',getEconomicList);
-app.use('/',getPhilosophyList);
-app.use('/',getLawList);
-app.use('/',getScienceList);
 app.use('/',deleteFile);
 app.use('/',deleteUser);
 app.use('/',search);

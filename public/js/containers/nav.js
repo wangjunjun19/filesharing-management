@@ -5,13 +5,17 @@ import {connect} from "react-redux";
 import Nav from "../components/nav";
 
 const mapStateToProps = (state) => {
-    return {
-        loginTip:state.login.loginTip[0].id
-    };
+    return state;
 };
 
 const mapDispatchToProps = (dispatch) =>{
     return {
+        getCookie:() => {
+            dispatch ({type:'LOAD-USERNAME'})
+        },
+        logoutUser:() => {
+        dispatch ({type:'LOGOUT'})
+    }
 
     }
 };

@@ -10,8 +10,7 @@ function onLogin(info,callback) {
         if(err){
             throw err;
         }else{
-            console.log("data"+"db"+results);
-            callback(results)
+            callback({data:results})
         }
     })
 }

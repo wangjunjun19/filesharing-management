@@ -41,7 +41,7 @@ class Login extends React.Component {
         if(username === "" || password === ""){
             $("#passwordTip").text("用户名或密码为空，请重新输入");
         }
-        else {
+        else{
             let info={ "user_name":username,
                 "user_pass":password
             }
@@ -77,6 +77,7 @@ class Login extends React.Component {
                     <input type="password" className="pass" ref="password" placeholder="输入密码"
                         onBlur={this.verifyPass.bind(this)} onFocus={this.focusPass.bind(this)}/>
                     <span className="input-tips" id="passwordTip"></span>
+                    <span className="input-tips" id="Tip"></span>
                 </div>
                 <div className="forget">
                     <Link to = '/modifyPass'>忘记密码？</Link>

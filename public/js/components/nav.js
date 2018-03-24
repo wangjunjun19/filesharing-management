@@ -6,6 +6,7 @@ import React,{Component} from "react";
 import {Link, browserHistory} from 'react-router';
 
 class Nav extends Component{
+    
 
     personalCenter(){
         let cookies = {};
@@ -24,7 +25,7 @@ class Nav extends Component{
 
     }
     database(){
-        browserHistory.push(`/userHomePage?user_id=${this.props.loginTip}`);
+        browserHistory.push(`/userHomePage?user_id=$`);
     }
 
     render(){

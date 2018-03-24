@@ -7,12 +7,9 @@ import addFiles from "./addFiles"
 import uploadFile from "./upload"
 import allFile from "./allFile"
 import myShare from"./myShare"
-import economic from "./economic"
-import philosophy from "./philosophy"
-import law from "./law"
-import science from'./science'
 import differentTypeListShow from './differentTypeListShow'
 import personalCenter from './personalCenter'
+import nav from './nav'
 export default combineReducers({
     login,
     register,
@@ -22,10 +19,7 @@ export default combineReducers({
     uploadFile,
     allFile,
     myShare,
-    economic,
-    philosophy,
-    law,
-    science,
     differentTypeListShow,
-    personalCenter
+    personalCenter,
+    nav
 });

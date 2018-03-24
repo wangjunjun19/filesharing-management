@@ -19,11 +19,8 @@ import addFilesMiddleware from './middlewares/addFiles'
 import personalCenterMiddleware from './middlewares/personalCenter'
 import allFileMiddleware from './middlewares/allFile'
 import myShareMiddleware from './middlewares/myShare'
-import economicMiddleware from './middlewares/economic'
-import philosophyMiddleware from './middlewares/philosophy'
-import lawMiddleware from './middlewares/law'
-import scienceMiddleware from './middlewares/science'
 import differentTypeListShowMiddleware from './middlewares/differentTypeListShow'
+import navMiddleware from './middlewares/nav';
 
 const createStoreWithMiddleware = applyMiddleware(
     registerMiddleware,
@@ -33,11 +30,8 @@ const createStoreWithMiddleware = applyMiddleware(
     personalCenterMiddleware,
     allFileMiddleware,
     myShareMiddleware,
-    economicMiddleware,
-    philosophyMiddleware,
-    lawMiddleware,
-    scienceMiddleware,
-    differentTypeListShowMiddleware
+    differentTypeListShowMiddleware,
+    navMiddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

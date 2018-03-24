@@ -14,7 +14,9 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-
+        searchByType:(info)=>{
+        dispatch({type:"SEARCH_BY_TYPE",info});
+        }
     }
 };
 

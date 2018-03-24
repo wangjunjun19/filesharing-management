@@ -8,10 +8,6 @@ import {Link,browserHistory} from 'react-router';
 import Nav from'../containers/nav';
 import AllFile from '../containers/allFile'
 import MyShare from '../containers/myShare'
-import Economic from '../containers/economic'
-import Philosophy from '../containers/philosophy'
-import Law from '../containers/law'
-import Science from '../containers/science'
 import DifferentTypeListShow from '../containers/differentTypeListShow'
 
 class UserHomePage extends React.Component{
@@ -39,7 +35,7 @@ class UserHomePage extends React.Component{
         let info={
             file_type:file_type
         }
-        console.log(file_type+"~~~~~")
+        console.log(info.file_type+"~~~~~")
         this.props.getDifferentTypeList(info);
     }
 
@@ -52,26 +48,26 @@ class UserHomePage extends React.Component{
                 p=<AllFile  getAllFileList={this.props.getAllFileList}/>;
                 break;
             case "economic":
-                p=<Economic/>;
+                p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList}/>
                 break;
             case "philosophy":
-                p=<Philosophy/>;
+                p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList}/>
                 break;
             case "law":
-                p=<Law/>;
+                p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList}/>
                 break;
             case "science":
-                p=<Science/>;
+                p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList}/>
                 break;
             case "engineering":
-                p=<DifferentTypeListShow/>;
+                p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList}/>
                 break;
             case "foreignLanguage":
-                p=<DifferentTypeListShow/>;
+                p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList}/>
                 break;
             case "arts":
-                p=<DifferentTypeListShow/>;
-                break;
+                p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList}/>
+                    break;
             case "other":
                 console.log("case___other___compan");
                 p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList} />;
@@ -100,14 +96,14 @@ class UserHomePage extends React.Component{
                 <div >
                     <ul className="menu"  onClick={this.onAside.bind(this)} >
                         <li className="li" id="allFile" >全部文件</li>
-                        <li className="li" id="economic"  >经管类</li>
-                        <li className="li" id="philosophy" >文哲类</li>
-                        <li className="li" id="law">法学类</li>
-                        <li className="li" id="science">理学类</li>
-                        <li className="li" id="engineering" >工学类</li>
-                        <li className="li" id="foreignLanguage">外语类</li>
-                        <li className="li" id="arts" onClick={this.getDifferentTypeList.bind(6,this)}>艺术类</li>
-                        <li className="li" id="other" onClick={this.getDifferentTypeList.bind(7,this)}>其他</li>
+                        <li className="li" id="economic"  onClick={this.getDifferentTypeList.bind(this,4)}>经管类</li>
+                        <li className="li" id="philosophy" onClick={this.getDifferentTypeList.bind(this,0)}>文哲类</li>
+                        <li className="li" id="law" onClick={this.getDifferentTypeList.bind(this,1)}>法学类</li>
+                        <li className="li" id="science" onClick={this.getDifferentTypeList.bind(this,2)}>理学类</li>
+                        <li className="li" id="engineering"  onClick={this.getDifferentTypeList.bind(this,3)}>工学类</li>
+                        <li className="li" id="foreignLanguage" onClick={this.getDifferentTypeList.bind(this,5)}>外语类</li>
+                        <li className="li" id="arts" onClick={this.getDifferentTypeList.bind(this,6)}>艺术类</li>
+                        <li className="li" id="other" onClick={this.getDifferentTypeList.bind(this,7)} >其他</li>
                         <li className="li" id="myShare" >我的分享</li>
                     </ul>
                 </div>

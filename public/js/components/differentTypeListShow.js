@@ -7,8 +7,36 @@ import React,{Component} from "react";
 import {Link, browserHistory} from 'react-router';
 
 class differentTypeListShow extends Component{
-    componentWillMount() {
-        this.props.getDifferentTypeList();
+
+    searchByType() {
+        let info = {
+            file_name:this.refs.search.value,
+            file_type: 0
+        }
+        switch (this.props.presentShow) {
+            case "economic":
+                info.file_type = 4;
+                break;
+            case "law":
+                info.file_type = 1;
+                break;
+            case "science":
+                info.file_type = 2;
+                break;
+            case "engineering":
+                info.file_type = 3;
+                break;
+            case "foreignLanguage":
+                info.file_type = 5;
+                break;
+            case "arts":
+                info.file_type = 6;
+                break;
+            case "other":
+                info.file_type = 7;
+                break;
+        }
+        this.props.searchByType(info);
     }
 
     render(){
@@ -16,7 +44,7 @@ class differentTypeListShow extends Component{
         var p=this.props.differentTypeListTip.map((value,index)=>{
             return <div>
                 <div className="file-div">
-                    <div className="span-file"><span >{value.file_name}+{value.file_id}</span></div>
+                    <div className="span-file"><span >{value.file_name}</span></div>
                     <div className="span-intro"><span >{value.file_intro}</span></div>
                     <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
                 </div>
@@ -24,6 +52,10 @@ class differentTypeListShow extends Component{
         });
 
         return<div >
+            <div className="search">
+                <input className="input" type="text"  placeholder="输入XXX" ref="search"/>
+                <button  className="buttonBac" onClick={this.searchByType.bind(this)} >搜索</button>
+            </div>
             <div >
                 <span className="span-d">文件名</span>
                 <span className="span-l">文件简介</span>
