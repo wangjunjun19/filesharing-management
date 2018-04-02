@@ -10,7 +10,13 @@ import Nav from'../containers/nav';
 class AddFiles extends React.Component{
 
     return(){
-        browserHistory.push(`/userHomePage?user_id=${this.props.location.query.user_id}`);
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let id = cookies.user_name;
+        browserHistory.push(`/userHomePage?user_name=${id}`);
     }
 
     clear(){
@@ -66,6 +72,12 @@ class AddFiles extends React.Component{
 
     addFile(){
 
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let id = cookies.user_id;
         let name=this.refs.file.value;
         if(name ===""){
             $("#chooseTip").text("您没有选择文件，请选择后上传！");
@@ -73,7 +85,7 @@ class AddFiles extends React.Component{
         else{
             let info={file_name:document.getElementById("files").files[0].name,
                 file_type:parseInt(this.refs.select.value),
-                user_id: parseInt(this.props.location.query.user_id),
+                user_id: id,
                 file_intro:this.refs.intro.value,
                 file_route:this.props.uploadFile
             }

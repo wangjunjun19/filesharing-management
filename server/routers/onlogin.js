@@ -15,7 +15,8 @@ route.post('/login',(req,res) => {
                 if( result[0]){
                     console.log(result[0]+"^^^")
                     console.log(result[0].id +"___cookie");
-                    res.cookie('user_id',result[0].id,{path:'/'});
+                    res.cookie('user_id',result[0].id);
+                    res.cookie('user_name',result[0].user_name);
                     res.send({data:result});
                 }
                 else{

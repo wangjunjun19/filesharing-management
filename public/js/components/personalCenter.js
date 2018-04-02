@@ -6,8 +6,14 @@ import Nav from './nav'
 class PersonalCenter extends React.Component{
 
     componentWillMount() {
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let id = cookies.user_id;
         let info={
-            user_id:this.props.location.query.user_id
+            user_id:id
         }
         this.props.getUserInfo(info);
 
@@ -56,10 +62,16 @@ class PersonalCenter extends React.Component{
     }
 
     cancellation(){
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let id = cookies.user_id;
             let tip = confirm("您确认要注销该账户吗？")
             if(tip === true){
                 let info={
-                    user_id:this.props.location.query.user_id
+                    user_id:id
                 }
                 this.props.cancellation(info);
             }
@@ -75,11 +87,17 @@ class PersonalCenter extends React.Component{
             $("#mtip").text("修改项格式有误，请根据提示填写正确格式的内容");
         }
         else{
+            let cookies = {};
+            document.cookie.split(';').forEach((Cookie)=> {
+                let parts = Cookie.split('=');
+                cookies[parts[0].trim()] = (parts[1]).trim();
+            });
+            let id = cookies.user_id;
             let info= {
                 user_pass: this.refs.password.value,
                 user_sex: this.refs.sex.value,
                 user_tel: this.refs.tel.value,
-                user_id: this.props.location.query.user_id
+                user_id: id
             }
             this.props.updateUser(info);
         }
@@ -95,8 +113,14 @@ class PersonalCenter extends React.Component{
         if(nextProps.updateTip) {
             this.props.resetPer({updateTip: false});
             alert("恭喜您，信息修改成功！");
+            let cookies = {};
+            document.cookie.split(';').forEach((Cookie)=> {
+                let parts = Cookie.split('=');
+                cookies[parts[0].trim()] = (parts[1]).trim();
+            });
+            let id = cookies.user_id;
             let info={
-                user_id:this.props.location.query.user_id
+                user_id:id
             }
             this.props.getUserInfo(info);
         }

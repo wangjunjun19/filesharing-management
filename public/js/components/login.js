@@ -52,7 +52,7 @@ class Login extends React.Component {
     componentWillReceiveProps(nextProps) {
         console.log(nextProps.loginTip[0]);
         if (nextProps.loginTip[0]) {
-            browserHistory.push(`/userHomePage?user_id=${nextProps.loginTip[0].id}`);
+            browserHistory.push(`/userHomePage?user_name=${nextProps.loginTip[0].user_name}`);
         } else{
             $("#passwordTip").text("用户名或密码错误！");
         }

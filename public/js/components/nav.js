@@ -6,10 +6,9 @@ import React,{Component} from "react";
 import {Link, browserHistory} from 'react-router';
 
 class Nav extends  React.Component{
-
     componentWillMount() {
-    this.props.getUserId();
-}
+        //this.props.getUserId();
+    }
 
     personalCenter(){
         let cookies = {};
@@ -17,35 +16,54 @@ class Nav extends  React.Component{
             let parts = Cookie.split('=');
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
-        let isLogin = this.props.nav;
-        let id = cookies.user_id;
-        console.log(isLogin+"__islogin")
-        console.log(id+"___id")
+        let id = cookies.user_name;
+        console.log(id+"___id");
         if (id ) {
-            browserHistory.push(`/personalCenter?user_id=${id}`);
+            browserHistory.push(`/personalCenter?user_name=${id}`);
         }else{
             browserHistory.push('');
         }
 
     }
     database(){
-        let isLogin=this.props.nav;
-        browserHistory.push(`/userHomePage?user_id=${isLogin}`);
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let id = cookies.user_name;
+        browserHistory.push(`/userHomePage?user_name=${id}`);
     }
 
     perRecom(){
-        let isLogin=this.props.nav;
-        browserHistory.push(`/perRecom?user_id=${isLogin}`);
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let id = cookies.user_name;
+        browserHistory.push(`/perRecom?user_name=${id}`);
+    }
+
+    return(){
+        browserHistory.push('');
     }
 
     render(){
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let user= cookies.user_name;
         return<div>
         <div className="xtJbHcb">
                 <div>
                    <span className="logo"  >FSMS</span>
                    <button className="ZLSButton"  onClick={this.database.bind(this)}>资料库</button>
                    <button className="ZLSButton" onClick={this.perRecom.bind(this)}>个性推荐</button>
-                   <li className="user glyphicon glyphicon-user personalC" onClick={this.personalCenter.bind(this)}>用户</li>
+                   <li className="user glyphicon glyphicon-user personalC" onClick={this.personalCenter.bind(this)}>{user}</li>
+                    <button className="personalC" onClick={this.return.bind(this)}>退出登录</button>
                </div>
         </div>
             </div>

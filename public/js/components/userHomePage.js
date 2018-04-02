@@ -28,7 +28,13 @@ class UserHomePage extends React.Component{
 
 
     nextPage(){
-        browserHistory.push(`/addFiles?user_id=${this.props.location.query.user_id}`);
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let id = cookies.user_name;
+        browserHistory.push(`/addFiles?user_name=${id}`);
     }
 
     getDifferentTypeList(file_type){
@@ -49,8 +55,10 @@ class UserHomePage extends React.Component{
             let parts = Cookie.split('=');
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
+        let id = cookies.user_id;
+        //let id=this.props.location.query.user_id;
         let info={
-            user_id:cookies.user_id
+            user_id:id
         }
         this.props.getMyShareList(info);
     }
