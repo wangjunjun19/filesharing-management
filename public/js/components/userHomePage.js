@@ -44,9 +44,13 @@ class UserHomePage extends React.Component{
     }
 
     getMyShareList() {
-        var user_id=this.props.location.query.user_id;
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
         let info={
-            user_id:user_id
+            user_id:cookies.user_id
         }
         this.props.getMyShareList(info);
     }

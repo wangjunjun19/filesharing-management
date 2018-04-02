@@ -10,7 +10,7 @@ function onLogin(info,callback) {
         if(err){
             throw err;
         }else{
-            callback({data:results})
+            callback(results)
         }
     })
 }

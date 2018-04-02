@@ -10,7 +10,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) =>{
     return {
-        getCookie:() => {
+        getUserId:() => {
             dispatch ({type:'LOAD-USERNAME'})
         },
         logoutUser:() => {

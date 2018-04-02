@@ -12,7 +12,16 @@ route.post('/login',(req,res) => {
             if(err){
                 res.status(500);
             }else{
-                res.send(result)
+                if( result[0]){
+                    console.log(result[0]+"^^^")
+                    console.log(result[0].id +"___cookie");
+                    res.cookie('user_id',result[0].id,{path:'/'});
+                    res.send({data:result});
+                }
+                else{
+                    console.log(result[0]+"^^^")
+                    res.send({data:result});
+                }
             }
         }
     )
