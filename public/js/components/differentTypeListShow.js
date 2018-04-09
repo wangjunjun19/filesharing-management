@@ -51,7 +51,7 @@ class differentTypeListShow extends Component{
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
-                        <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
+                        <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name}></a></div>
                     </div>
                 </div>
             });

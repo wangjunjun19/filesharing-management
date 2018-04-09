@@ -11,10 +11,14 @@ class MyShare extends Component{
 
 
     deleteFile(file_id){
-        let info={
-            file_id:file_id
+        let tip = confirm("您确认要删除该资料吗？")
+        if(tip === true){
+            let info={
+                file_id:file_id
+            }
+            this.props.deleteFile(info);
         }
-        this.props.deleteFile(info);
+
     }
 
     search(){
@@ -50,7 +54,7 @@ class MyShare extends Component{
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
-                        <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
+                        <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name}></a></div>
                         <div className="span-down "><button className="glyphicon glyphicon-trash down" onClick={this.deleteFile.bind(this,value.file_id)}></button></div>
 
                     </div>

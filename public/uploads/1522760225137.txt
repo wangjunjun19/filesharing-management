@@ -1,0 +1,2 @@
+#config t
+#no ip domain-lookup

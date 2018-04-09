@@ -25,8 +25,26 @@ class AllFile extends Component{
 
     }
 
-    render(){
+    download(file_route){
+        const fileArray= file_route.split('/');
+        const dir =fileArray[0];
+        const fileName=fileArray[1];
+        console.log(dir,fileName);
 
+        this.props.downloadFile({dir,fileName})
+    }
+
+    downFile(file_route,file_name){
+    const fileArray= file_route.split('/');
+        const fileName=fileArray[1];
+        let info={
+            file_name:"nicaia",
+            file_route:"public/"+file_route
+        }
+        this.props.downFile(info);
+    }
+
+    render(){
         if(this.props.allFileList != '')
         {
             var p=this.props.allFileList.map((value,index)=>{
@@ -34,7 +52,7 @@ class AllFile extends Component{
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
-                        <div className="span-down "><button className="glyphicon glyphicon-download-alt down"></button></div>
+                        <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name}></a></div>
                     </div>
                 </div>
             });

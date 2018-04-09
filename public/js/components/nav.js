@@ -62,8 +62,8 @@ class Nav extends  React.Component{
                    <span className="logo"  >FSMS</span>
                    <button className="ZLSButton"  onClick={this.database.bind(this)}>资料库</button>
                    <button className="ZLSButton" onClick={this.perRecom.bind(this)}>个性推荐</button>
-                   <li className="user glyphicon glyphicon-user personalC" onClick={this.personalCenter.bind(this)}>{user}</li>
-                    <button className="personalC" onClick={this.return.bind(this)}>退出登录</button>
+                   <button className="user glyphicon glyphicon-user personalC" onClick={this.personalCenter.bind(this)}>{user}</button>
+                    <button className="fan" onClick={this.return.bind(this)}>退出登录</button>
                </div>
         </div>
             </div>

@@ -19,6 +19,12 @@ const mapDispatchToProps = (dispatch) =>{
         search:(info)=>{
             console.log(info.file_name+"_____cco");
             dispatch({type:"SEARCH",info});
+        },
+        downloadFile:(info)=>{
+            dispatch({type:"DOWN_LODE",info})
+        },
+        downFile:(info)=>{
+            dispatch({type:"DOWN",info})
         }
     }
 };

@@ -18,6 +18,22 @@ export default store => next => action =>{
                     next({type:"ALL_FILE_TIP",data:res.body.data});
                 });
             break;
+        case 'DOWN_LODE':
+            request.post('/downloadFile')
+                .send(action.info)
+                .end((err,res) => {
+                    console.log("down_"+res.text);
+                    next({type:"DOWN_LOAD_FILE",status:res.text});
+                });
+            break;
+        case 'DOWN':
+            request.post('/downFile')
+                .send(action.info)
+                .end((err,res) => {
+                    console.log("down_File_"+res.text);
+                    next({type:"DOWN_LOAD_FILE",status:res.text});
+                });
+            break;
 
     }
     next(action);

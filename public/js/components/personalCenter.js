@@ -93,13 +93,16 @@ class PersonalCenter extends React.Component{
                 cookies[parts[0].trim()] = (parts[1]).trim();
             });
             let id = cookies.user_id;
-            let info= {
-                user_pass: this.refs.password.value,
-                user_sex: this.refs.sex.value,
-                user_tel: this.refs.tel.value,
-                user_id: id
+            let tip = confirm("您确认要修改账户信息吗？")
+            if(tip === true){
+                let info= {
+                    user_pass: this.refs.password.value,
+                    user_sex: this.refs.sex.value,
+                    user_tel: this.refs.tel.value,
+                    user_id: id
+                }
+                this.props.updateUser(info);
             }
-            this.props.updateUser(info);
         }
     }
 

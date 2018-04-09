@@ -34,7 +34,11 @@ const searchMyShare = require('./server/routers/searchMyShare')
 const legalUsername = require('./server/routers/legalUSerID');
 const logout = require('./server/routers/logout');
 const searchByType = require('./server/routers/searchByType');
+const downloadFile=require('./server/routers/downloadFile');
+const downFile=require('./server/routers/downFile');
 
+app.use('/',downFile);
+app.use('/',downloadFile);
 app.use('/',searchByType);
 app.use('/',legalUsername);
 app.use('/',logout);
