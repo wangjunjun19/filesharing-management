@@ -11,12 +11,18 @@ class PersonalCenter extends React.Component{
             let parts = Cookie.split('=');
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
-        let id = cookies.user_id;
-        let info={
-            user_id:id
+        let user = cookies.user_name;
+        let name=this.props.location.query.user_name;
+        if(name!=user){
+            alert("请您先登录！")
+            browserHistory.push('');
+        }else{
+            let id = cookies.user_id;
+            let info={
+                user_id:id
+            }
+            this.props.getUserInfo(info);
         }
-        this.props.getUserInfo(info);
-
     }
 
     verifyPass(){

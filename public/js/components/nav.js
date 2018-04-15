@@ -45,7 +45,9 @@ class Nav extends  React.Component{
     }
 
     return(){
+
         browserHistory.push('');
+        this.props.logoutUser();
     }
 
     render(){

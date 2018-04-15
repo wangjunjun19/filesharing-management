@@ -5,9 +5,10 @@ const express = require('express');
 const route = express.Router();
 
 route.get('/logout',(req,res) => {
-    if(req.cookies.user_id){
-        req.cookies.user_id = "";
-        res.send(req.cookies.user_id);
+    if(req.cookies){
+        res.cookie('user_id',"");
+        res.cookie('user_name',"");
+        res.send(req.cookies);
     }else{
         res.status(500).send("");
     }

@@ -8,6 +8,19 @@ import {Link,browserHistory} from 'react-router';
 import request from 'superagent';
 import Nav from'../containers/nav';
 class AddFiles extends React.Component{
+    componentWillMount() {
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let id = cookies.user_name;
+        let name=this.props.location.query.user_name;
+        if(name!=id){
+            alert("请您先登录！")
+            browserHistory.push('');
+        }
+    }
 
     return(){
         let cookies = {};
@@ -109,7 +122,7 @@ class AddFiles extends React.Component{
         return<div  className="background-l"  >
 
             <div className="b-s">
-            <button className="glyphicon glyphicon-arrow-left buttonBac " value="回上页" onClick={this.return.bind(this)} >返回
+            <button className="glyphicon glyphicon-arrow-left buttonBac " value="回上页" onClick={this.return.bind(this)} >返回上一页
             </button>
                 </div>
                     <div  className="body">

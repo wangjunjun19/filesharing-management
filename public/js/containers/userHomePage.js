@@ -7,7 +7,8 @@ import UserHomePage from "../components/userHomePage";
 const mapStateToProps = (state) => {
     console.log(state+"containers");
     return {
-        presentShow:state.userHomePage.presentShow
+        presentShow:state.userHomePage.presentShow,
+        loginTip: state.login.loginTip
     }
 };
 

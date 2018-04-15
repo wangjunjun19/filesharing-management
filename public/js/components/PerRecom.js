@@ -14,11 +14,17 @@ class PerRecom extends React.Component{
             let parts = Cookie.split('=');
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
-        let info={
-            user_id:parseInt(cookies.user_id)
+        let id = cookies.user_name;
+        let name=this.props.location.query.user_name;
+        if(name!=id){
+            alert("请您先登录！")
+            browserHistory.push('');
+        }else{
+            let info={
+                user_id:parseInt(cookies.user_id)
+            }
+            this.props.getPerRecomList(info);
         }
-        console.log(info.user_id)
-        this.props.getPerRecomList(info);
     }
 
     downFile(file_id,file_type){
