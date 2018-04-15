@@ -61,6 +61,7 @@
     background-color: transparent;
     border-color: transparent;
     margin-left: 15px;
+    color:#e4b9c0 ;
 }
 
 .down-my{
@@ -76,4 +77,18 @@
 }
 .errTip-t{
     margin-left: 10%;
+}
+
+a:hover{
+    color:#e4b9c0  ;
+    text-decoration: underline;
+}
+
+a:link {
+    color: #e4b9c0 ;
+    text-decoration: none;
+}
+a:visited {
+    color:#e4b9c0 ;
+    text-decoration: none;
 }

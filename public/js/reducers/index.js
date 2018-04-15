@@ -10,6 +10,7 @@ import myShare from"./myShare"
 import differentTypeListShow from './differentTypeListShow'
 import personalCenter from './personalCenter'
 import nav from './nav'
+import perRecom from './perRecom'
 export default combineReducers({
     login,
     register,
@@ -21,5 +22,6 @@ export default combineReducers({
     myShare,
     differentTypeListShow,
     personalCenter,
-    nav
+    nav,
+    perRecom
 });

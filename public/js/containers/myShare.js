@@ -24,6 +24,9 @@ const mapDispatchToProps = (dispatch) =>{
         },
         searchMy:(info)=>{
             dispatch({type:"SEARCH_MY",info});
+        },
+        downFile:(info)=>{
+            dispatch({type:"DOWN",info})
         }
     }
 };

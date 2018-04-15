@@ -109,7 +109,8 @@ class AddFiles extends React.Component{
         return<div  className="background-l"  >
 
             <div className="b-s">
-            <button className="glyphicon glyphicon-arrow-left buttonBac " value="回上页" onClick={this.return.bind(this)} >返回资料库</button>
+            <button className="glyphicon glyphicon-arrow-left buttonBac " value="回上页" onClick={this.return.bind(this)} >返回
+            </button>
                 </div>
                     <div  className="body">
                     <div className="upload">

@@ -42,6 +42,20 @@ class differentTypeListShow extends Component{
         }
     }
 
+    downFile(file_id,file_type){
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let info={
+            file_id:file_id,
+            file_type:file_type,
+            user_id:parseInt(cookies.user_id)
+        }
+        this.props.downFile(info);
+    }
+
     render(){
 
         if(this.props.differentTypeListTip != '')
@@ -51,7 +65,7 @@ class differentTypeListShow extends Component{
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
-                        <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name}></a></div>
+                        <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a></div>
                     </div>
                 </div>
             });

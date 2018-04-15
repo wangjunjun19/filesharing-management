@@ -6,9 +6,6 @@ import React,{Component} from "react";
 import {Link, browserHistory} from 'react-router';
 
 class Nav extends  React.Component{
-    componentWillMount() {
-        //this.props.getUserId();
-    }
 
     personalCenter(){
         let cookies = {};
@@ -26,6 +23,7 @@ class Nav extends  React.Component{
 
     }
     database(){
+        document.getElementById("zlk").style.backgroundColor="#e4b9c0";
         let cookies = {};
         document.cookie.split(';').forEach((Cookie)=> {
             let parts = Cookie.split('=');
@@ -36,6 +34,7 @@ class Nav extends  React.Component{
     }
 
     perRecom(){
+        document.getElementById("gxtj").style.backgroundColor="#e4b9c0";
         let cookies = {};
         document.cookie.split(';').forEach((Cookie)=> {
             let parts = Cookie.split('=');
@@ -57,11 +56,11 @@ class Nav extends  React.Component{
         });
         let user= cookies.user_name;
         return<div>
-        <div className="xtJbHcb">
-                <div>
+        <div className="xtJbHcb" >
+                <div >
                    <span className="logo"  >FSMS</span>
-                   <button className="ZLSButton"  onClick={this.database.bind(this)}>资料库</button>
-                   <button className="ZLSButton" onClick={this.perRecom.bind(this)}>个性推荐</button>
+                   <button className="ZLSButton"    id="zlk" onClick={this.database.bind(this)}>资料库</button>
+                   <button className="ZLSButton" id="gxtj" onClick={this.perRecom.bind(this)}>个性推荐</button>
                    <button className="user glyphicon glyphicon-user personalC" onClick={this.personalCenter.bind(this)}>{user}</button>
                     <button className="fan" onClick={this.return.bind(this)}>退出登录</button>
                </div>

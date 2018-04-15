@@ -6,7 +6,7 @@ let db = require('./../connection');
 
 function getMyShareList(info,callback) {
     console.log(info.user_id);
-    let sql = "select * from files where user_id="+info.user_id;
+    let sql = "select * from files where user_id="+info.user_id+" order by file_count desc";
     db.query(sql,function (err,results,fields) {
         if(err){
             throw err;

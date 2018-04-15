@@ -22,6 +22,7 @@ import allFileMiddleware from './middlewares/allFile'
 import myShareMiddleware from './middlewares/myShare'
 import differentTypeListShowMiddleware from './middlewares/differentTypeListShow'
 import navMiddleware from './middlewares/nav';
+import perRecomMiddleware from './middlewares/perRecom'
 
 const createStoreWithMiddleware = applyMiddleware(
     registerMiddleware,
@@ -32,7 +33,8 @@ const createStoreWithMiddleware = applyMiddleware(
     allFileMiddleware,
     myShareMiddleware,
     differentTypeListShowMiddleware,
-    navMiddleware
+    navMiddleware,
+    perRecomMiddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

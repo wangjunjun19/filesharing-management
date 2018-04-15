@@ -43,22 +43,39 @@ class ModifyPass extends React.Component {
         this.refs.password.value = "";
     }
 
+    verifyRe(){
+        let password=this.refs.password.value;
+        let rep=this.refs.repass.value;
+
+        if(rep !== password){
+            $("#repTip").text("与初始密码不一致");
+        }
+    }
+
+    focusRe(){
+        $("#repTip").text("");
+    }
+
     modifyPass(){
         let username = this.refs.username.value;
         let password = this.refs.password.value;
+        let rep=this.refs.repass.value;
 
       //  console.log("user_"+username+"pass_"+password);
 
         let name = $("#username").text();
         let psTip = $("#passTip").text();
+        let reTip=$("#repTip").text();
 
-        if(username === "" || password ===""){
+        if(username === "" || password ==="" || rep===""){
             $("#psTip").text("输入框内容不能为空！");
         }else if(psTip != ""){
             $("#password").focus();
         }else if(name != ""){
             $("#username").focus();
-        }else{
+        }else if(reTip != ""){
+            $("#repTip").focus();
+        } else{
             let info = {
             username,password
             }
@@ -99,6 +116,11 @@ class ModifyPass extends React.Component {
                         <input type="password" className="pass" ref="password" placeholder="您的新密码"
                             onBlur={this.verifyPass.bind(this)} onFocus={this.focusPass.bind(this)}/>
                         <span className="input-tips" id="passTip"></span>
+                    </div>
+                    <div>
+                        <input type="password" className="pass" ref="repass" placeholder="再次输入您的新密码"
+                            onBlur={this.verifyRe.bind(this)} onFocus={this.focusRe.bind(this)}/>
+                        <span className="input-tips" id="repTip"></span>
                     </div>
                     <div>
                         <button  className="button" onClick={this.modifyPass.bind(this)} >确认</button>
