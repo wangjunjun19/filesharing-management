@@ -22,6 +22,10 @@ const mapDispatchToProps = (dispatch) =>{
         },
         downFile:(info)=>{
             dispatch({type:"DOWN",info})
+        },
+        select:(info)=>{
+            console.log(info.file_name+"_____cco");
+            dispatch({type:"SELECT",info});
         }
     }
 };

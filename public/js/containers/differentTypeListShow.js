@@ -19,6 +19,9 @@ const mapDispatchToProps = (dispatch) =>{
         },
         downFile:(info)=>{
             dispatch({type:"DOWN",info})
+        },
+        selectByType:(info)=>{
+            dispatch({type:"SELECT_BY_TYPE",info});
         }
     }
 };

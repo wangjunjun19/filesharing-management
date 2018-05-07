@@ -36,7 +36,14 @@ const logout = require('./server/routers/logout');
 const searchByType = require('./server/routers/searchByType');
 const downFile=require('./server/routers/downFile');
 const getPerRecomList= require('./server/routers/getPerRecomList');
+const select =require ('./server/routers/select');
+const selectByType=require('./server/routers/selectByType')
+const selectMyShare= require('./server/routers/selectMyShare')
 
+
+app.use('/',selectMyShare)
+app.use('/',selectByType)
+app.use('/',select);
 app.use('/',getPerRecomList);
 app.use('/',downFile);
 app.use('/',searchByType);

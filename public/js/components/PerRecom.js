@@ -53,7 +53,7 @@ class PerRecom extends React.Component{
                         <div className="divT">
                             资料名：<a href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}>{value.file_name}</a>
                         </div>
-                        <div className="divT">上传者：{value.user_id}</div>
+                        <div className="divT">上传者ID：{value.user_id}</div>
                         <div className="divT">下载次数：{value.file_count}</div>
                     </li>
                     </div>

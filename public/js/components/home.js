@@ -1,30 +1,20 @@
 /**
+ * Created by 十九 on 2018/4/17.
+ */
+/**
  * Created by 十九 on 2018/2/23.
  */
 require ('../../css/userHomePage.css');
 require('../../css/background.css');
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
-import Nav from'../containers/nav';
+import Title from'../containers/title';
 import AllFile from '../containers/allFile'
 import MyShare from '../containers/myShare'
 import DifferentTypeListShow from '../containers/differentTypeListShow'
 
 class UserHomePage extends React.Component{
 
-   componentWillMount() {
-        let cookies = {};
-        document.cookie.split(';').forEach((Cookie)=> {
-            let parts = Cookie.split('=');
-            cookies[parts[0].trim()] = (parts[1]).trim();
-        });
-        let id = cookies.user_name;
-        let name=this.props.location.query.user_name;
-        if(name!=id){
-            alert("请您先登录！")
-            browserHistory.push('');
-        }
-    }
 
     onAside(e){
 
@@ -104,7 +94,7 @@ class UserHomePage extends React.Component{
                 break;
             case "arts":
                 p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList}/>
-                    break;
+                break;
             case "other":
                 console.log("case___other___compan");
                 p=<DifferentTypeListShow getDifferentTypeList={this.props.getDifferentTypeList} />;
@@ -119,7 +109,7 @@ class UserHomePage extends React.Component{
 
 
         return<div className="background-l">
-            <Nav/>
+            <Title/>
             <div  >
                 <div className=" SC ">
 
@@ -149,4 +139,4 @@ class UserHomePage extends React.Component{
     }
 }
 
-export default UserHomePage;
+export default Home;

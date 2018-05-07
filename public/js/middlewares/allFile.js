@@ -25,7 +25,13 @@ export default store => next => action =>{
                     next({type:"DOWN_LOAD_FILE",status:res.body.status});
                 });
             break;
-
+        case 'SELECT':
+            request.post('/select')
+                .send(action.info)
+                .end((err,res) => {
+                    next({type:"ALL_FILE_TIP",data:res.body.data});
+                });
+            break;
     }
     next(action);
 }

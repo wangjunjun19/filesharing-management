@@ -27,6 +27,9 @@ const mapDispatchToProps = (dispatch) =>{
         },
         downFile:(info)=>{
             dispatch({type:"DOWN",info})
+        } ,
+        selectMyShare:(info)=>{
+            dispatch({type:"SELECT_MY",info});
         }
     }
 };

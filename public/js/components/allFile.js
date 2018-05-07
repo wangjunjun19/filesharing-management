@@ -25,6 +25,13 @@ class AllFile extends Component{
 
     }
 
+    select(){
+        let info={
+            file_intro:this.refs.intro.value
+        }
+        this.props.select(info);
+    }
+
     downFile(file_id,file_type){
         let cookies = {};
         document.cookie.split(';').forEach((Cookie)=> {
@@ -43,9 +50,36 @@ class AllFile extends Component{
         if(this.props.allFileList != '')
         {
             var p=this.props.allFileList.map((value,index)=>{
+                switch (value.file_type) {
+                    case 4:
+                        var type="经管类";
+                        break;
+                    case 1:
+                        var type="法学类";
+                        break;
+                    case 2:
+                        var type="理学类";
+                        break;
+                    case 3:
+                        var type="工学类";
+                        break;
+                    case 4:
+                        var type="文哲类"
+                        break;
+                    case 5:
+                        var type="外语类"
+                        break;
+                    case 6:
+                        var type="艺术类";
+                        break;
+                    case 7:
+                        var type="其他";
+                        break;
+                }
                 return <div>
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
+                        <div className="span-label"><span >{value.file_label}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
                         <div className="span-down ">
                             <a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a>
@@ -74,7 +108,17 @@ class AllFile extends Component{
             </div>
             <div >
                 <span className="span-d">文件名</span>
-                <span className="span-l">文件简介</span>
+                <span className="span-b">文件标签</span>
+                <div className="span-l">
+                    <span >适用人群</span>
+                <select ref="intro"  id="intro" onClick={this.select.bind(this)}>
+                    <option value="">全部</option>
+                    <option value="大一">大一</option>
+                    <option value="大二">大二</option>
+                    <option value="大三">大三</option>
+                    <option value="大四">大四</option>
+                </select>
+                </div>
             </div>
             <div  className="mainShow" >
             {p}

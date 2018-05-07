@@ -30,6 +30,14 @@ export default store => next => action =>{
                     next({type:"MY_SHARE_TIP",data:res.body.data});
                 });
             break;
+
+        case 'SELECT_MY':
+            request.post('/selectMyShare')
+                .send(action.info)
+                .end((err,res) => {
+                    next({type:"MY_SHARE_TIP",data:res.body.data});
+                });
+            break;
     }
     next(action);
 }

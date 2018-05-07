@@ -35,7 +35,8 @@ class AddFiles extends React.Component{
     clear(){
         document.getElementById("files").value="";
         document.getElementById("select").value="0";
-        document.getElementById("introduce").value="";
+        document.getElementById("intro").value="全部";
+        document.getElementById("label").value="";
     }
 
     getFileSize(){
@@ -100,7 +101,8 @@ class AddFiles extends React.Component{
                 file_type:parseInt(this.refs.select.value),
                 user_id: id,
                 file_intro:this.refs.intro.value,
-                file_route:this.props.uploadFile
+                file_route:this.props.uploadFile,
+                file_label:this.refs.label.value
             }
             this.props.addFiles(info);
         }
@@ -113,6 +115,8 @@ class AddFiles extends React.Component{
             alert("恭喜您，上传成功！");
             this.clear();
             this.props.resetAddFile({addFileTip: false});
+
+
 
         }
     }
@@ -143,9 +147,20 @@ class AddFiles extends React.Component{
                             <option value="7">其他</option>
                         </select>
                     </div>
-                    <div className="div">
-                        <label className="label">文件简介</label><input ref="intro" id="introduce" className="text" type="text"/>
-                    </div>
+                        <div className="div">
+                            <label className="label">适用人群</label>
+                            <select ref="intro" className="select" id="intro">
+                                <option value="全部">全部</option>
+                                <option value="大一">大一</option>
+                                <option value="大二">大二</option>
+                                <option value="大三">大三</option>
+                                <option value="大四">大四</option>
+                            </select>
+                        </div>
+                        <div className="div">
+                            <label className="label">文件标签</label><input ref="label" id="label"  className="biaoqian"  placeholder="例如：机器学习" type="text"></input>
+                        </div>
+
                     <div>
                         <button  className="button" onClick={this.addFile.bind(this)} >上传</button>
                         <button  className="button"  onClick={this.clear.bind(this)} >取消</button>

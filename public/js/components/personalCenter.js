@@ -189,6 +189,10 @@ class PersonalCenter extends React.Component{
                     <span className="per-tips" id="tel"></span>
                 </div>
                 <div className="per-div">
+                    <label className="per-lab">手机号:</label>{tel}
+                    <span className="per-tips" id="tel"></span>
+                </div>
+                <div className="per-div">
                 <span className="per-tip" id="mtip"></span>
                 </div>
                 <div className="per-div">

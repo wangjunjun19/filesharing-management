@@ -12,11 +12,10 @@
 .body{
     float: right;
     width: 40%;
-    height: 60%;
+    height: 50%;
     border: 3px solid #ce8483;
     margin-right: 30%;
     margin-top: 2%;
-    margin-bottom: 8%;
 }
 
 .label{
@@ -92,4 +91,10 @@
     margin-left: 12%;
     margin-top: 3.5%
 
+}
+
+.biaoqian{
+    width: 230px;
+    height: 75px;
+    border: 2px solid #e4b9c0;
 }

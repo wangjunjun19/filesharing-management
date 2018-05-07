@@ -19,6 +19,13 @@ export default store => next => action =>{
                     next({type:"FILE_TIP",data:res.body.data});
                 });
             break;
+        case 'SELECT_BY_TYPE':
+            request.post('/selectByType')
+                .send(action.info)
+                .end((err,res) => {
+                    next({type:"FILE_TIP",data:res.body.data});
+                });
+            break;
     }
     next(action);
 }
