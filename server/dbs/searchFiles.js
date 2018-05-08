@@ -5,7 +5,7 @@
 let db = require('./../connection');
 
 function searchFiles(callback) {
-    let sql = "select * from files  where order by file_count,file_id desc limit 9";
+    let sql = "select * from files  order by file_count desc ,file_id desc limit 9";
     db.query(sql,function (err,results,fields) {
         if(err){
             throw err;

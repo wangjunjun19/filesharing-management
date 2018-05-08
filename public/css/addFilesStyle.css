@@ -27,8 +27,13 @@
 .div{
     width: 100%;
     height: 35%;
-    margin-top: 9%;
-    margin-bottom: 5%;
+    margin-top: 8%;
+    margin-bottom: 4%;
+    margin-left: 5%;
+}
+.div-ba{
+    width: 100%;
+    margin-top: 2%;
     margin-left: 5%;
 }
 .text{
@@ -64,6 +69,13 @@
     border: 2px solid #e4b9c0;
     background-color: #e4b9c0;
     margin-left: 17%;
+}
+
+.button-la{
+    color: black;
+    border: 2px solid #e4b9c0;
+    background-color: #00b38a;
+    margin-left: 2%;
 }
 
 .file{

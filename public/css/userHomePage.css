@@ -19,18 +19,18 @@
     margin-left: 5%;
 }
 .menu{
-    width: 194px;
+    width: 12%;
     list-style-type: none;
-    margin-left: 4%;
     color: #0074D9;
     height: 500px;
     margin-top: 43px;
+    margin-left: 4%;
     float: left;
 }
 
 .li{
     list-style-type: none;
-    width: 153px;
+    width: 125px;
     height: 38px;
     margin-bottom: 5px;
     font-family: "Microsoft Yahei", "微软雅黑", verdana;
@@ -50,7 +50,7 @@
     margin-top: 30px;
     color: #0074D9;
     float: left;
-    margin-left: 52%;
+    margin-left: 45%;
     padding: 10px 10px;
 }
 
@@ -73,4 +73,5 @@
     background-size: 100% auto;
     overflow: auto;
     width: 100%;
+    height: 100%;
 }

@@ -122,7 +122,6 @@ class UserHomePage extends React.Component{
             <Nav/>
             <div  >
                 <div className=" SC ">
-
                     <div className="horizontal">
                         <button  className="buttonBac" onClick={this.nextPage.bind(this)}>上传文件</button>
                     </div>

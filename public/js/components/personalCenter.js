@@ -52,6 +52,14 @@ class PersonalCenter extends React.Component{
             $("#sex").text("请输入女/男/不输入");
         }
     }
+
+    verifyAge(){
+        let age=this.refs.age.value;
+        if((age<=0 && age!='') || (age>200 && age!='') ){
+            $("#age").text("请输入正确年龄");
+        }
+    }
+
     focusSex(){
         $("#sex").text("");
         $("#mtip").text("");
@@ -59,6 +67,10 @@ class PersonalCenter extends React.Component{
 
     focusTel(){
         $("#tel").text("");
+        $("#mtip").text("");
+    }
+    focusAge(){
+        $("#age").text("");
         $("#mtip").text("");
     }
 
@@ -87,8 +99,9 @@ class PersonalCenter extends React.Component{
         let pass=$("#password").text();
         let sex=$("#sex").text();
         let tel=$("#tel").text();
+        let age=$("#age").text();
 
-        if(pass!=''|| sex != ''|| tel !='')
+        if(pass!=''|| sex != ''|| tel !=''|| age !='')
         {
             $("#mtip").text("修改项格式有误，请根据提示填写正确格式的内容");
         }
@@ -105,6 +118,7 @@ class PersonalCenter extends React.Component{
                     user_pass: this.refs.password.value,
                     user_sex: this.refs.sex.value,
                     user_tel: this.refs.tel.value,
+                    user_age: this.refs.age.value,
                     user_id: id
                 }
                 this.props.updateUser(info);
@@ -157,6 +171,15 @@ class PersonalCenter extends React.Component{
             </div>
         });
 
+        var age=this.props.userInfoTip.map((value,index)=>{
+            if(value.user_age === 'null')
+                value.user_age="";
+            return<div className="per-addDiv">
+                <input type="tel" ref="age"
+                    onBlur={this.verifyAge.bind(this)} onFocus={this.focusAge.bind(this)} defaultValue ={value.user_age} />
+            </div>
+        });
+
         var tel=this.props.userInfoTip.map((value,index)=>{
             if(value.user_tel === 'null')
                 value.user_tel="";
@@ -185,8 +208,8 @@ class PersonalCenter extends React.Component{
                     <span className="per-tips" id="sex"></span>
                 </div>
                 <div className="per-div">
-                    <label className="per-lab">手机号:</label>{tel}
-                    <span className="per-tips" id="tel"></span>
+                    <label className="per-lab">年龄:</label>{age}
+                    <span className="per-tips" id="age"></span>
                 </div>
                 <div className="per-div">
                     <label className="per-lab">手机号:</label>{tel}
