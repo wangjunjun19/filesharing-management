@@ -6,10 +6,13 @@ const express = require("express");
 const route = express.Router();
 const getPerRecomList = require("../dbs/getPerRecomList");
 const searchFiles = require("../dbs/searchFiles");
+const deleteOldDfr=require("../dbs/deleteOldDfr");
 
 route.post('/getPerRecomList',(req,res) => {
     const info = req.body;
     console.log(info+"____info");
+    deleteOldDfr((result)=>{
+    });
     getPerRecomList(info,(result) => {
         console.log(result.length +"_____________")
         if(result.length===0){
