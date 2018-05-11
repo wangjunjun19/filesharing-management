@@ -11,5 +11,9 @@ export default (state = {myShareList:[],deleteFileTip:false}, action) => {
         state.deleteFileTip=action.status;
         return Object.assign({},state);
     }
+    if(action.type === 'RESET_DELETE_TIP') {
+        state.deleteFileTip = action.info.deleteFileTip;
+        return Object.assign({}, state);
+    }
     return state;
 }

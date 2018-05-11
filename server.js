@@ -39,8 +39,9 @@ const getPerRecomList= require('./server/routers/getPerRecomList');
 const select =require ('./server/routers/select');
 const selectByType=require('./server/routers/selectByType')
 const selectMyShare= require('./server/routers/selectMyShare')
+const selectfile=require('./server/routers/select-file')
 
-
+app.use('/',selectfile)
 app.use('/',selectMyShare)
 app.use('/',selectByType)
 app.use('/',select);

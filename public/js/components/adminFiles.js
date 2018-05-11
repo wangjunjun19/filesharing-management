@@ -6,7 +6,7 @@ require('../../css/allFile.css');
 import React,{Component} from "react";
 import {Link, browserHistory} from 'react-router';
 
-class AllFile extends Component{
+class AdminFiles extends Component{
 
     componentWillMount() {
         this.props.getAllFileList();
@@ -25,9 +25,20 @@ class AllFile extends Component{
 
     }
 
+    deleteFile(file_id){
+        let tip = confirm("您确认要删除该资料吗？")
+        if(tip === true){
+            let info={
+                file_id:file_id
+            }
+            this.props.deleteFile(info);
+        }
+
+    }
+
     select(){
         let info={
-            file_intro:this.refs.intro.value
+            file_type:this.refs.type.value
         }
         this.props.select(info);
     }
@@ -52,11 +63,19 @@ class AllFile extends Component{
             this.props.downFile(info);
         }
         /*let info={
-            file_id:file_id,
-            file_type:file_type,
-            user_id:parseInt(cookies.user_id)
+         file_id:file_id,
+         file_type:file_type,
+         user_id:parseInt(cookies.user_id)
+         }
+         this.props.downFile(info);*/
+    }
+
+    componentWillReceiveProps(nextProps) {
+        if (nextProps.deleteFileTip) {
+            this.props.getAllFileList();
+            this.props.resetDeleteTip({modifyPassTip: false});
+            alert("删除成功！")
         }
-        this.props.downFile(info);*/
     }
 
     render(){
@@ -64,8 +83,8 @@ class AllFile extends Component{
         {
             var p=this.props.allFileList.map((value,index)=>{
                 switch (value.file_type) {
-                    case 4:
-                        var type="经管类";
+                    case 0:
+                        var type="文史哲类";
                         break;
                     case 1:
                         var type="法学类";
@@ -77,7 +96,7 @@ class AllFile extends Component{
                         var type="工学类";
                         break;
                     case 4:
-                        var type="文哲类"
+                        var type="经管类";
                         break;
                     case 5:
                         var type="外语类"
@@ -93,10 +112,9 @@ class AllFile extends Component{
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-label"><span >{value.file_label}</span></div>
-                        <div className="span-intro"><span >{value.file_intro}</span></div>
-                        <div className="span-down ">
-                            <a id ="down"  className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a>
-                        </div>
+                        <div className="span-intro"><span >{type}</span></div>
+                        <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a></div>
+                        <div className="span-down "><button className="glyphicon glyphicon-trash down" onClick={this.deleteFile.bind(this,value.file_id)}></button></div>
                     </div>
                 </div>
             });
@@ -115,6 +133,9 @@ class AllFile extends Component{
         }
 
         return<div >
+            <div className="horizontal">
+                <button  className="buttonBac" >上传文件</button>
+            </div>
             <div className="search">
                 <input className="input" type="text"  placeholder="搜索您的文件" ref="search"/>
                 <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
@@ -123,14 +144,18 @@ class AllFile extends Component{
                 <span className="span-d">文件名</span>
                 <span className="span-b">文件标签</span>
                 <div className="span-l">
-                    <span >适用人群</span>
-                <select ref="intro"  id="intro" onClick={this.select.bind(this)}>
-                    <option value="">全部</option>
-                    <option value="大一">大一</option>
-                    <option value="大二">大二</option>
-                    <option value="大三">大三</option>
-                    <option value="大四">大四</option>
-                </select>
+                    <span >文件类型</span>
+                    <select ref="type"  id="type" onClick={this.select.bind(this)}>
+                        <option value="">全部</option>
+                        <option value="0">文史哲类</option>
+                        <option value="1">法学类</option>
+                        <option value="2">理学类</option>
+                        <option value="3">工学类</option>
+                        <option value="4">经济管理类</option>
+                        <option value="5">外语类</option>
+                        <option value="6">艺术类</option>
+                        <option value="7">其他</option>
+                    </select>
                 </div>
             </div>
             <div  className="mainShow" >
@@ -140,4 +165,4 @@ class AllFile extends Component{
     }
 }
 
-export default AllFile;
+export default AdminFiles;

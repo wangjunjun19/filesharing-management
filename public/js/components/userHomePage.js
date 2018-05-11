@@ -13,7 +13,7 @@ import DifferentTypeListShow from '../containers/differentTypeListShow'
 class UserHomePage extends React.Component{
 
    componentWillMount() {
-        let cookies = {};
+        /*let cookies = {};
         document.cookie.split(';').forEach((Cookie)=> {
             let parts = Cookie.split('=');
             cookies[parts[0].trim()] = (parts[1]).trim();
@@ -23,7 +23,7 @@ class UserHomePage extends React.Component{
         if(name!=id){
             alert("请您先登录！")
             browserHistory.push('');
-        }
+        }*/
     }
 
     onAside(e){
@@ -48,7 +48,13 @@ class UserHomePage extends React.Component{
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
         let id = cookies.user_name;
-        browserHistory.push(`/addFiles?user_name=${id}`);
+        if(id==="")
+        {
+            alert("请登录")
+        }else{
+            browserHistory.push(`/addFiles?user_name=${id}`);
+        }
+        //browserHistory.push(`/addFiles?user_name=${id}`);
     }
 
     getDifferentTypeList(file_type){
@@ -70,10 +76,20 @@ class UserHomePage extends React.Component{
         });
         let id = cookies.user_id;
         //let id=this.props.location.query.user_id;
-        let info={
+       /* let info={
             user_id:id
+        }*/
+        if(id==="")
+        {
+            alert("请登录")
+            this.props.getAllFileList();
+        }else{
+            let info={
+                user_id:id
+            }
+            this.props.getMyShareList(info);
         }
-        this.props.getMyShareList(info);
+        //this.props.getMyShareList(info);
     }
 
     render(){
@@ -140,7 +156,7 @@ class UserHomePage extends React.Component{
                         <li className="li" id="foreignLanguage" onClick={this.getDifferentTypeList.bind(this,5)}>外语类</li>
                         <li className="li" id="arts" onClick={this.getDifferentTypeList.bind(this,6)}>艺术类</li>
                         <li className="li" id="other" onClick={this.getDifferentTypeList.bind(this,7)} >其他</li>
-                        <li className="li" id="myShare"  onClick={this.getMyShareList.bind(this)}>我的分享</li>
+                        <li className="li" id="myShare"   onClick={this.getMyShareList.bind(this)}>我的分享</li>
                     </ul>
                 </div>
             </div>

@@ -32,6 +32,13 @@ export default store => next => action =>{
                     next({type:"ALL_FILE_TIP",data:res.body.data});
                 });
             break;
+        case 'SELECT—FILE':
+            request.post('/selectfile')
+                .send(action.info)
+                .end((err,res) => {
+                    next({type:"ALL_FILE_TIP",data:res.body.data});
+                });
+            break;
     }
     next(action);
 }
