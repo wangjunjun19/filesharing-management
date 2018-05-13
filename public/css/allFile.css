@@ -80,6 +80,7 @@
     border-color: transparent;
     margin-left: 15px;
     color:#e4b9c0 ;
+    display:inline;
 }
 
 .down-my{
@@ -110,3 +111,49 @@ a:visited {
     color:#e4b9c0 ;
     text-decoration: none;
 }
+
+ .OFaPaO {
+    float: right;
+    width: 21%;
+    *width: 165px;
+    min-width: 165px;
+    max-width: 315px;
+    height: 15px;
+    margin: 12px 8px 12px 0;
+    position: relative;
+ }
+
+.OFaPaO .olcu5QZZ {
+    padding-left: 15px;
+    padding-right: 54px;
+    background: #f1f2f4;
+    border-radius: 33px;
+}
+
+ .OFaPaO .kgje9pl {
+     width: 100%;
+     height: 30px;
+     background: 0 0;
+     border: 0;
+     outline: 0;
+     line-height: 29px !important;
+     font-size: 12px;
+     position: absolute;
+     top: 6px;
+     left: 15px;
+     color: #929292;
+}
+
+ #search{
+     margin-top: 2%;
+     margin-left: 60%;
+ }
+
+ #type-btn{
+     float: right;
+     margin-top: 2%;
+     margin-right: 2%;
+ }
+
+ #main-title{
+ }

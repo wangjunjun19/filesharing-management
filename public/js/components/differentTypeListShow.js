@@ -117,16 +117,22 @@ class differentTypeListShow extends Component{
         }
 
         return<div >
-            <div className="search">
-                <input className="input" type="text"  placeholder="搜索您的文件" ref="search"/>
-                <button  className="buttonBac" onClick={this.searchByType.bind(this)} >搜索</button>
+            <div  className="row" >
+                <div className="col-lg-3" id="search">
+                    <div className="input-group">
+                        <input type="text" className="form-control" placeholder="Search for..." ref="search"/>
+                        <span className="input-group-btn">
+                            <button className="btn btn-default" type="button" onClick={this.searchByType.bind(this)}>Go!</button>
+                        </span>
+                    </div>
+                </div>
             </div>
             <div >
                 <span className="span-d">文件名</span>
                 <span className="span-b">文件标签</span>
                 <div className="span-l">
                     <span >适用人群</span>
-                    <select ref="intro"  id="intro" onClick={this.selectByType.bind(this)}>
+                    <select ref="intro" className="btn btn-default dropdown-toggle" className="dropdown-menu"  id="intro" onClick={this.selectByType.bind(this)}>
                         <option value="">全部</option>
                         <option value="大一">大一</option>
                         <option value="大二">大二</option>

@@ -133,20 +133,18 @@ class AdminFiles extends Component{
         }
 
         return<div >
-            <div className="horizontal">
-                <button  className="buttonBac" >上传文件</button>
-            </div>
-            <div className="search">
-                <input className="input" type="text"  placeholder="搜索您的文件" ref="search"/>
-                <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
-            </div>
-            <div >
-                <span className="span-d">文件名</span>
-                <span className="span-b">文件标签</span>
-                <div className="span-l">
-                    <span >文件类型</span>
-                    <select ref="type"  id="type" onClick={this.select.bind(this)}>
-                        <option value="">全部</option>
+            <div  className="row" >
+                <div className="col-lg-3" id="search">
+                    <div className="input-group">
+                        <input type="text" className="form-control" placeholder="Search for..." ref="search"/>
+                            <span className="input-group-btn">
+                                <button className="btn btn-default" type="button" onClick={this.search.bind(this)}>Go!</button>
+                            </span>
+                        </div>
+                </div>
+                <div id="type-btn" className="dropdown">
+                    <select ref="type"  className="btn btn-default dropdown-toggle"  id="type" onClick={this.select.bind(this)}>
+                        <option  value="">全部</option>
                         <option value="0">文史哲类</option>
                         <option value="1">法学类</option>
                         <option value="2">理学类</option>
@@ -156,6 +154,14 @@ class AdminFiles extends Component{
                         <option value="6">艺术类</option>
                         <option value="7">其他</option>
                     </select>
+                </div>
+                </div>
+
+            <div id ="main-title" >
+                <span className="span-d">文件名</span>
+                <span className="span-b">文件标签</span>
+                <div className="span-l">
+                    <span >文件类型</span>
                 </div>
             </div>
             <div  className="mainShow" >

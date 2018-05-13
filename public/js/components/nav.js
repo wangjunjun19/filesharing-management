@@ -18,6 +18,7 @@ class Nav extends  React.Component{
         if (id ) {
             browserHistory.push(`/personalCenter?user_name=${id}`);
         }else{
+
             browserHistory.push('');
         }
 
@@ -49,7 +50,13 @@ class Nav extends  React.Component{
         browserHistory.push('');
         this.props.logoutUser();
     }
+    login(){
+    browserHistory.push('');
+}
 
+    register(){
+        browserHistory.push('/register');
+    }
     render(){
         let cookies = {};
         document.cookie.split(';').forEach((Cookie)=> {
@@ -58,13 +65,19 @@ class Nav extends  React.Component{
         });
         let user= cookies.user_name;
         return<div>
-        <div className="xtJbHcb" >
-                <div >
-                   <span className="logo"  >FSMS</span>
+        <div className="module-header-wrapper" >
+                <div  className="xtJbHcb">
+                   <span className="EHazOI" id="logo"  >FSMS</span>
                    <button className="ZLSButton"    id="zlk" onClick={this.database.bind(this)}>资料库</button>
                    <button className="ZLSButton" id="gxtj" onClick={this.perRecom.bind(this)}>个性推荐</button>
-                   <button className="user glyphicon glyphicon-user personalC" onClick={this.personalCenter.bind(this)}>{user}</button>
-                    <button className="fan" onClick={this.return.bind(this)}>退出登录</button>
+                    <div id="login-tip" className={(user!=""&&user)?"":"hidden"}>
+                        <div > <span  id="return" onClick={this.return.bind(this)}>退出登录</span></div>
+                        <div><span  id="username" className="user glyphicon glyphicon-user " onClick={this.personalCenter.bind(this)}>{user},欢迎您</span></div>
+                    </div>
+                    <div id="login-tip" className={(user!=""&&user)?"hidden":""}>
+                        <div > <span  id="return" onClick={this.register.bind(this)}>注册</span></div>
+                        <div><span  id="username"  onClick={this.login.bind(this)}>登录</span></div>
+                    </div>
                </div>
         </div>
             </div>

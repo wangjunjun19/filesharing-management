@@ -10,8 +10,26 @@ class AllFile extends Component{
 
     componentWillMount() {
         this.props.getAllFileList();
+
+    }
+    componentDidMount(){
+        this.isOK();
     }
 
+    isOK (){
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0]] = (parts[1]);
+        });
+        //let name=this.props.location.query.user_name;
+        if(cookies.user_id===""|| !cookies.user_id){
+            var a = document.getElementsByName("down");
+            console.log(a);
+            a.href = "javascript:return false;"
+            //document.getElementById("down").style.href="javascript:return false;"
+        }
+    }
 
     search(){
         let info={
@@ -63,39 +81,13 @@ class AllFile extends Component{
         if(this.props.allFileList != '')
         {
             var p=this.props.allFileList.map((value,index)=>{
-                switch (value.file_type) {
-                    case 4:
-                        var type="经管类";
-                        break;
-                    case 1:
-                        var type="法学类";
-                        break;
-                    case 2:
-                        var type="理学类";
-                        break;
-                    case 3:
-                        var type="工学类";
-                        break;
-                    case 4:
-                        var type="文哲类"
-                        break;
-                    case 5:
-                        var type="外语类"
-                        break;
-                    case 6:
-                        var type="艺术类";
-                        break;
-                    case 7:
-                        var type="其他";
-                        break;
-                }
                 return <div>
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-label"><span >{value.file_label}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
                         <div className="span-down ">
-                            <a id ="down"  className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a>
+                            <a name ="down"  className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a>
                         </div>
                     </div>
                 </div>
@@ -115,16 +107,22 @@ class AllFile extends Component{
         }
 
         return<div >
-            <div className="search">
-                <input className="input" type="text"  placeholder="搜索您的文件" ref="search"/>
-                <button  className="buttonBac" onClick={this.search.bind(this)}>搜索</button>
-            </div>
+            <div  className="row" >
+                <div className="col-lg-3" id="search">
+                    <div className="input-group">
+                        <input type="text" className="form-control" placeholder="Search for..." ref="search"/>
+                        <span className="input-group-btn">
+                            <button className="btn btn-default" type="button" onClick={this.search.bind(this)}>Go!</button>
+                        </span>
+                    </div>
+                </div>
+                </div>
             <div >
                 <span className="span-d">文件名</span>
                 <span className="span-b">文件标签</span>
                 <div className="span-l">
                     <span >适用人群</span>
-                <select ref="intro"  id="intro" onClick={this.select.bind(this)}>
+                <select ref="intro"  className="btn btn-default dropdown-toggle"  onClick={this.select.bind(this)}>
                     <option value="">全部</option>
                     <option value="大一">大一</option>
                     <option value="大二">大二</option>

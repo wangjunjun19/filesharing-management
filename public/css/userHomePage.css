@@ -12,6 +12,10 @@
     border: 2px solid #e4b9c0;
     background-color: #e4b9c0;
     border-radius: 3px;
+    color: #ffffff;
+    float: right;
+    margin-right: 2%;
+    margin-top: 2%;
 }
 
 .personality{

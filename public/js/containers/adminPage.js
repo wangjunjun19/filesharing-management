@@ -19,6 +19,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         getAllFileList:()=>{
             dispatch({type:"GET_ALL_FILE_LIST"})
+        },
+        logoutUser:() => {
+            dispatch ({type:'LOGOUT'})
         }
     }
 };

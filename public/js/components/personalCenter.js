@@ -151,14 +151,14 @@ class PersonalCenter extends React.Component{
 
     render(){
         var name=this.props.userInfoTip.map((value,index)=>{
-            var s=<div className="per-addDiv">
-                <input type="text" ref="user_name" disabled id="name"  value={value.user_name} ></input>
+            var s=<div>
+                <input type="text" className="form-control"  ref="user_name" disabled id="name"  value={value.user_name}  placeholder="请输入您的用户名" aria-describedby="basic-addon1"/>
             </div>
             return s;
         });
         var pass=this.props.userInfoTip.map((value,index)=>{
-            return<div className="per-addDiv">
-                <input type="password" ref="password" id="pass"
+            return<div>
+                <input type="password" className="form-control"  placeholder="请输入您的密码" aria-describedby="basic-addon1" ref="password" id="pass"
                     onBlur={this.verifyPass.bind(this)} onFocus={this.focusPass.bind(this)} defaultValue={value.user_pass}  onChange={this.handleChange}></input>
             </div>
         });
@@ -166,16 +166,16 @@ class PersonalCenter extends React.Component{
         var sex=this.props.userInfoTip.map((value,index)=>{
             if(value.user_sex === 'null')
                 value.user_sex="";
-            return<div className="per-addDiv">
-                <input type="text" ref="sex" defaultValue ={value.user_sex}  onBlur={this.verifySex.bind(this)} onFocus={this.focusSex.bind(this)}/>
+            return<div >
+                <input type="text"   className="form-control"  placeholder="请输入您的性别" aria-describedby="basic-addon1" ref="sex" defaultValue ={value.user_sex}  onBlur={this.verifySex.bind(this)} onFocus={this.focusSex.bind(this)}/>
             </div>
         });
 
         var age=this.props.userInfoTip.map((value,index)=>{
             if(value.user_age === 'null')
                 value.user_age="";
-            return<div className="per-addDiv">
-                <input type="tel" ref="age"
+            return<div >
+                <input type="tel" ref="age"  className="form-control"  placeholder="请输入您的年龄" aria-describedby="basic-addon1"
                     onBlur={this.verifyAge.bind(this)} onFocus={this.focusAge.bind(this)} defaultValue ={value.user_age} />
             </div>
         });
@@ -183,40 +183,40 @@ class PersonalCenter extends React.Component{
         var tel=this.props.userInfoTip.map((value,index)=>{
             if(value.user_tel === 'null')
                 value.user_tel="";
-            return<div className="per-addDiv">
-                <input type="tel" ref="tel"
+            return<div >
+                <input type="tel" ref="tel"  className="form-control"  placeholder="请输入您的电话号码" aria-describedby="basic-addon1"
                     onBlur={this.verifyTel.bind(this)} onFocus={this.focusTel.bind(this)} defaultValue ={value.user_tel} />
             </div>
         });
 
 
-        return<div className="per-bac">
+        return<div >
             <Nav/>
-            <div className="per-main">
+            <div>
                 <div className="per-div">
                     <lable className="per-mes">个人信息</lable>
                 </div>
-                <div className="per-div">
-                    <label className="per-lab">用户名:</label>{name}
+                <div className="input-group per-mess">
+                    <span className="input-group-addon" id="basic-addon1">用户名</span>{name}
                 </div>
-                <div className="per-div">
-                    <label className="per-lab">密码:</label>{pass}
+                <div className="input-group per-mess">
+                    <span className="input-group-addon" id="basic-addon1">密码</span>{pass}
                     <span className="per-tips" id="password"></span>
                 </div>
-                <div className="per-div">
-                    <label className="per-lab">性别:</label>{sex}
+                <div className="input-group per-mess">
+                    <span className="input-group-addon" id="basic-addon1">性别</span>{sex}
                     <span className="per-tips" id="sex"></span>
                 </div>
-                <div className="per-div">
-                    <label className="per-lab">年龄:</label>{age}
+                <div className="input-group per-mess">
+                    <span className="input-group-addon" id="basic-addon1">年龄</span>{age}
                     <span className="per-tips" id="age"></span>
                 </div>
-                <div className="per-div">
-                    <label className="per-lab">手机号:</label>{tel}
+                <div className="input-group per-mess">
+                    <span className="input-group-addon" id="basic-addon1">电话</span>{tel}
                     <span className="per-tips" id="tel"></span>
                 </div>
-                <div className="per-div">
-                <span className="per-tip" id="mtip"></span>
+                <div className="input-group per-mess">
+                    <span className="per-tip" id="mtip"></span>
                 </div>
                 <div className="per-div">
                     <button className="per-but" onClick={this.updateUser.bind(this)}>保存账号信息</button>

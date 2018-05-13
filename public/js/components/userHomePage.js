@@ -45,16 +45,17 @@ class UserHomePage extends React.Component{
         let cookies = {};
         document.cookie.split(';').forEach((Cookie)=> {
             let parts = Cookie.split('=');
-            cookies[parts[0].trim()] = (parts[1]).trim();
+            cookies[parts[0].trim()] = (parts[1].trim());
         });
         let id = cookies.user_name;
-        if(id==="")
+        if(id!=""&&id)
         {
-            alert("请登录")
-        }else{
+
             browserHistory.push(`/addFiles?user_name=${id}`);
+        }else{
+            alert("请登录")
+            browserHistory.push(`/`);
         }
-        //browserHistory.push(`/addFiles?user_name=${id}`);
     }
 
     getDifferentTypeList(file_type){
@@ -79,10 +80,10 @@ class UserHomePage extends React.Component{
        /* let info={
             user_id:id
         }*/
-        if(id==="")
+        if(id==="" || !id)
         {
             alert("请登录")
-            this.props.getAllFileList();
+            browserHistory.push(`/`);
         }else{
             let info={
                 user_id:id
@@ -134,29 +135,31 @@ class UserHomePage extends React.Component{
 
 
 
-        return<div className="background-l">
+        return<div>
             <Nav/>
             <div  >
-                <div className=" SC ">
-                    <div className="horizontal">
-                        <button  className="buttonBac" onClick={this.nextPage.bind(this)}>上传文件</button>
+                <div id="layoutMain" >
+                    <div>
+                        <button type="button" onClick={this.nextPage.bind(this)} className="btn btn-default dropdown-toggle buttonBac glyphicon glyphicon-open" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            上传 <span class="caret"></span>
+                        </button>
                     </div>
                     <div>
                             {p}
                     </div>
                 </div>
-                <div >
-                    <ul className="menu"  onClick={this.onAside.bind(this)} >
-                        <li className="li" id="allFile" onClick={this.getAllFile.bind(this)}>全部文件</li>
-                        <li className="li" id="economic"  onClick={this.getDifferentTypeList.bind(this,4)}>经管类</li>
-                        <li className="li" id="philosophy" onClick={this.getDifferentTypeList.bind(this,0)}>文哲类</li>
-                        <li className="li" id="law" onClick={this.getDifferentTypeList.bind(this,1)}>法学类</li>
-                        <li className="li" id="science" onClick={this.getDifferentTypeList.bind(this,2)}>理学类</li>
-                        <li className="li" id="engineering"  onClick={this.getDifferentTypeList.bind(this,3)}>工学类</li>
-                        <li className="li" id="foreignLanguage" onClick={this.getDifferentTypeList.bind(this,5)}>外语类</li>
-                        <li className="li" id="arts" onClick={this.getDifferentTypeList.bind(this,6)}>艺术类</li>
-                        <li className="li" id="other" onClick={this.getDifferentTypeList.bind(this,7)} >其他</li>
-                        <li className="li" id="myShare"   onClick={this.getMyShareList.bind(this)}>我的分享</li>
+                <div  className="module-aside DtJtsC">
+                    <ul className="fOHAbxb"   onClick={this.onAside.bind(this)} >
+                        <li className="hnegd6z bac-color"id="allFile" onClick={this.getAllFile.bind(this)}>全部文件</li>
+                        <li className="hnegd6z" id="economic"  onClick={this.getDifferentTypeList.bind(this,4)}>经管类</li>
+                        <li className="hnegd6z" id="philosophy" onClick={this.getDifferentTypeList.bind(this,0)}>文哲类</li>
+                        <li className="hnegd6z" id="law" onClick={this.getDifferentTypeList.bind(this,1)}>法学类</li>
+                        <li className="hnegd6z" id="science" onClick={this.getDifferentTypeList.bind(this,2)}>理学类</li>
+                        <li className="hnegd6z" id="engineering"  onClick={this.getDifferentTypeList.bind(this,3)}>工学类</li>
+                        <li className="hnegd6z" id="foreignLanguage" onClick={this.getDifferentTypeList.bind(this,5)}>外语类</li>
+                        <li className="hnegd6z" id="arts" onClick={this.getDifferentTypeList.bind(this,6)}>艺术类</li>
+                        <li className="hnegd6z" id="other" onClick={this.getDifferentTypeList.bind(this,7)} >其他</li>
+                        <li className="hnegd6z" id="myShare"   onClick={this.getMyShareList.bind(this)}>我的分享</li>
                     </ul>
                 </div>
             </div>

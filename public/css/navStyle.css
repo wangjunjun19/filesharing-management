@@ -15,19 +15,14 @@
 .ZLSButton{
     font-size: x-large;
     margin-left: 5%;
-    margin-top: 30px;
-    color: #0074D9;
+    margin-top: 1%;
+    color: #ffffff;
     border: 2px solid transparent;
     background:transparent;
     border-radius: 3px;
 }
 .personalC{
-    font-size: x-large;
-    margin-left: 40%;
-
-    margin-top: 30px;
-    border: 2px solid transparent;
-    background:transparent;
+    float: left;
 }
 
 .fan{
@@ -50,4 +45,10 @@
 
 .btn:active {
     background-color: #e4b9c0;
+}
+
+#login-tip{
+    float: right;
+    width: 40%;
+    margin-top: 1%;
 }

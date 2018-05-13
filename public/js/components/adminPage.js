@@ -1,8 +1,7 @@
 /**
  * Created by 十九 on 2018/5/10.
  */
-require ('../../css/userHomePage.css');
-require('../../css/navStyle.css')
+require ('../../css/adminStyle.css');
 import React from 'react';
 import {Link,browserHistory} from 'react-router';
 import AllFile from '../containers/adminFiles'
@@ -63,16 +62,6 @@ class UserHomePage extends React.Component{
 
 
 
-   /* nextPage(){
-        let cookies = {};
-        document.cookie.split(';').forEach((Cookie)=> {
-            let parts = Cookie.split('=');
-            cookies[parts[0].trim()] = (parts[1]).trim();
-        });
-        let id = cookies.user_name;
-        browserHistory.push(`/addFiles?user_name=${id}`);
-    }
-*/
     getAllFile(){
         this.props.getAllFileList();
     }
@@ -82,20 +71,6 @@ class UserHomePage extends React.Component{
     personalCenter(){
         this.props.getAllFileList();
     }
-
-    /*getMyShareList() {
-        let cookies = {};
-        document.cookie.split(';').forEach((Cookie)=> {
-            let parts = Cookie.split('=');
-            cookies[parts[0].trim()] = (parts[1]).trim();
-        });
-        let id = cookies.user_id;
-
-            let info={
-                user_id:id
-            }
-            this.props.getMyShareList(info);
-    }*/
 
     render(){
 
@@ -115,28 +90,34 @@ class UserHomePage extends React.Component{
 
         }
 
-
-
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let user= cookies.user_name;
         return<div >
-            <div className="xtJbHcb" >
-                <div >
-                    <span className="logo"  >FSMS</span>
-                    <button className="fan" onClick={this.return.bind(this)}>退出登录</button>
-                </div>
+            <div id="layoutHeader">
+            <div   className="module-header-wrapper" >
+                    <dl className="xtJbHcb">
+                        <dt className="EHazOI">  <span id="logo">FSMS</span></dt>
+                        <dd> <span  id="return" onClick={this.return.bind(this)}>退出登录</span></dd>
+                        <dd><span  id="username" className="user glyphicon glyphicon-user">{user},欢迎您</span></dd>
+               </dl>
             </div>
-            <div  >
-                <div className=" SC ">
+            </div>
+            <div  className="module-aside DtJtsC">
+                <ul className="fOHAbxb"  onClick={this.onAside.bind(this)} >
+                    <li className="hnegd6z bac-color"  id="allFile" onClick={this.getAllFile.bind(this)}>文件管理</li>
+                    <li className="hnegd6z" id="personalCenter" onClick={this.personalCenter.bind(this)}>个人中心</li>
+                </ul>
+            </div>
+            <div id="layoutMain" >
                     <div>
                             {p}
                     </div>
                 </div>
-                <div >
-                    <ul className="menu"  onClick={this.onAside.bind(this)} >
-                        <li className="li" id="allFile" onClick={this.getAllFile.bind(this)}>文件管理</li>
-                        <li className="li" id="personalCenter" onClick={this.personalCenter.bind(this)}>个人中心</li>
-                    </ul>
-                </div>
-            </div>
+
         </div>
     }
 }

@@ -42,9 +42,9 @@
     border-radius: 3px;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;
-    color: black;
-    border: 2px solid #00b38a;
-    background-color: #00b38a;
+    color: #ffffff;
+    border: 2px solid #e4b9c0;
+    background-color: #e4b9c0;
     margin-bottom: 5%;
     margin-top: 5%;
 }
@@ -60,4 +60,10 @@
 .per-tip{
     margin-left: 15%;
     color: #fd5f39;
+}
+
+.per-mess{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 2%;
 }
