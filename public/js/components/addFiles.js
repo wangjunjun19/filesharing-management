@@ -127,20 +127,22 @@ class AddFiles extends React.Component{
 
     render(){
 
-        return<div  className="background-l"  >
-
+        return<div>
+            <div>
+                <Nav/>
+            </div>
             <div className="b-s">
-            <button className="glyphicon glyphicon-arrow-left buttonBac " value="回上页" onClick={this.return.bind(this)} >返回上一页
+            <button className="glyphicon glyphicon-arrow-left buttonBac  btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" value="回上页" onClick={this.return.bind(this)} >返回上一页
             </button>
                 </div>
-                    <div  className="body">
-                    <div className="upload">
-                        <input  className="file" id="files" ref="file" type="file" onChange={this.test.bind(this)} onFocus={this.focusChoose.bind(this)} />
+                    <div>
+                    <div className="input-group per-mess">
+                        <input  className=" file  form-control"  aria-describedby="basic-addon2"  id="files" ref="file" type="file" onChange={this.test.bind(this)} onFocus={this.focusChoose.bind(this)} />
                         <span  id="chooseTip" className="chooseTip"></span>
                     </div>
-                    <div className="div">
-                        <label className="label">文件类型</label>
-                        <select ref="select" className="select" id="select">
+                    <div className="input-group per-mess">
+                        <span className="input-group-addon" id="basic-addon1">文件类型</span>
+                        <select ref="select" className="form-control" aria-describedby="basic-addon1" id="select">
                             <option value="0">文史哲类</option>
                             <option value="1">法学类</option>
                             <option value="2">理学类</option>
@@ -151,9 +153,9 @@ class AddFiles extends React.Component{
                             <option value="7">其他</option>
                         </select>
                     </div>
-                        <div className="div">
-                            <label className="label">适用人群</label>
-                            <select ref="intro" className="select" id="intro">
+                        <div className="input-group per-mess">
+                            <span className="input-group-addon" id="basic-addon1">适用人群</span>
+                            <select ref="intro" className="form-control" aria-describedby="basic-addon1" id="intro">
                                 <option value="全部">全部</option>
                                 <option value="大一">大一</option>
                                 <option value="大二">大二</option>
@@ -161,21 +163,22 @@ class AddFiles extends React.Component{
                                 <option value="大四">大四</option>
                             </select>
                         </div>
-                        <div className="div">
-                            <label className="label">文件标签</label><input ref="label" id="label"  className="biaoqian"   placeholder="例如：机器学习" type="text"></input>
-                            <div className="div-ba">
-                                <button  className="button-la" name="button" value="机器学习" onClick={this.clickButton.bind(this,0)}>机器学习</button>
-                                <button className="button-la" name="button" value="英语四级"  onClick={this.clickButton.bind(this,1)}>英语四级</button >
-                                <button  className="button-la" name="button" value="高等数学"  onClick={this.clickButton.bind(this,2)}>高等数学</button>
-                                <button   className="button-la"  name="button" value="java" onClick={this.clickButton.bind(this,3)}>java</button>
-                                <button className="button-la"  name="button" value="心理学"  onClick={this.clickButton.bind(this,4)}>心理学</button>
-                                <button className="button-la" name="button" value="现代史"  onClick={this.clickButton.bind(this,5)}>现代史</button>
-                            </div>
+                        <div className="input-group per-mess">
+                            <span className="input-group-addon" id="basic-addon1">文件标签</span>
+                            <input ref="label" id="label"  className="form-control" aria-describedby="basic-addon1"   placeholder="例如：机器学习" type="text"></input>
+                        </div>
+                        <div className="div-ba input-group per-mess">
+                            <button  className=" button-la btn btn-info dropdown-toggle" name="button" value="机器学习" onClick={this.clickButton.bind(this,0)}>机器学习</button>
+                            <button className="button-la btn btn-info dropdown-toggle" name="button" value="英语四级"  onClick={this.clickButton.bind(this,1)}>英语四级</button >
+                            <button  className="button-la btn btn-info dropdown-toggle" name="button" value="高等数学"  onClick={this.clickButton.bind(this,2)}>高等数学</button>
+                            <button   className="button-la btn btn-info dropdown-toggle"  name="button" value="java" onClick={this.clickButton.bind(this,3)}>java</button>
+                            <button className="button-la btn btn-info dropdown-toggle"  name="button" value="心理学"  onClick={this.clickButton.bind(this,4)}>心理学</button>
+                            <button className="button-la btn btn-info dropdown-toggle" name="button" value="现代史"  onClick={this.clickButton.bind(this,5)}>现代史</button>
                         </div>
 
-                    <div>
-                        <button  className="button" onClick={this.addFile.bind(this)} >上传</button>
-                        <button  className="button"  onClick={this.clear.bind(this)} >取消</button>
+                    <div className=" input-group per-mess" id="up-re">
+                        <button  className="button"  onClick={this.addFile.bind(this)} >上传</button>
+                        <button  className="button left"  onClick={this.clear.bind(this)} >取消</button>
                     </div>
                 </div>
         </div>

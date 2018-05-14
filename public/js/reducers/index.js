@@ -11,6 +11,7 @@ import differentTypeListShow from './differentTypeListShow'
 import personalCenter from './personalCenter'
 import nav from './nav'
 import perRecom from './perRecom'
+import employee from './employee'
 export default combineReducers({
     login,
     register,
@@ -23,5 +24,6 @@ export default combineReducers({
     differentTypeListShow,
     personalCenter,
     nav,
-    perRecom
+    perRecom,
+    employee
 });

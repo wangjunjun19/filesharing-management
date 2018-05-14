@@ -1,7 +1,7 @@
 /**
  * Created by 十九 on 2018/3/5.
  */
-require('../../css/allFile.css');
+require('../../css/employee.css');
 
 import React,{Component} from "react";
 import {Link, browserHistory} from 'react-router';
@@ -9,56 +9,64 @@ import {Link, browserHistory} from 'react-router';
 class Employee extends Component{
 
     componentWillMount() {
-        //this.props.getAllFileList();
+        this.props.getEmployeeList();
     }
 
 
     search(){
         let info={
-            file_name:this.refs.search.value
+            user:this.refs.search.value
         }
-        console.log(info.file_name+"___info.file_name");
-        if(info.file_name != '')
+        console.log(info.user+"___info.file_name");
+        if(info.user != '')
         {
             this.props.search(info);
         }
 
     }
 
-    deleteFile(file_id){
-        let tip = confirm("您确认要删除该资料吗？")
-        if(tip === true){
-            let info={
-                file_id:file_id
+    deleteUser(id,type){
+        if(type===1){
+            alert("抱歉，该用户为管理员，您没有权限删除")
+        }else{
+            let tip = confirm("您确认要删除该用户吗？")
+            if(tip === true){
+                let info={
+                    user_id:id
+                }
+                this.props.deleteUser(info);
             }
-            this.props.deleteFile(info);
         }
-
     }
 
+
+
     componentWillReceiveProps(nextProps) {
-        if (nextProps.deleteFileTip) {
-            this.props.getAllFileList();
-            this.props.resetDeleteTip({modifyPassTip: false});
+        if (nextProps.deleteUserTip) {
+            this.props.getEmployeeList();
+            this.props.resetDeleteTip({deleteUserTip: false});
             alert("删除成功！")
         }
     }
 
     render(){
-       /* if(this.props.allFileList != '')
+        if(this.props.employeeList != '')
         {
-            var p=this.props.allFileList.map((value,index)=>{
-
-                return <div>
-                    <div className="file-div">
-                        <div className="span-file"><span >{value.file_name}</span></div>
-                        <div className="span-label"><span >{value.file_label}</span></div>
-                        <div className="span-intro"><span >{value.file_intro}</span></div>
-                        <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a></div>
-                        <div className="span-down "><button className="glyphicon glyphicon-trash down" onClick={this.deleteFile.bind(this,value.file_id)}></button></div>
-                    </div>
+            var p=this.props.employeeList.map((value,index)=>{
+        return <div key={index}>
+            <li className=" per-im btn btn-default dropdown-toggle"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <button className="glyphicon glyphicon-remove remove" onClick={this.deleteUser.bind(this,value.id,value.user_type)}></button>
+                <div >
+                    <span className="glyphicon glyphicon-user size"/>
                 </div>
-            });
+                <div className="divT size">用户ID：{value.id}</div>
+                <div className="divT size">用户名：{value.user_name}</div>
+                <div className="divT size">用户性别：{value.user_sex}</div>
+                <div className="divT size">用户年龄：{value.user_age}</div>
+                <div className="divT size">用户电话：{value.user_tel}</div>
+            </li>
+        </div>
+    });
         }
         else{
             var p=<div className = "errTip">
@@ -67,34 +75,26 @@ class Employee extends Component{
                         <img src="../image/tip.png"/>
                     </div>
                     <div>
-                        您搜索的用户不存在
+                        没有找到该用户
                     </div>
                 </div>
             </div>
-        }*/
+        }
 
         return<div >
-            <div className="horizontal">
-                <button  className="buttonBac" >上传文件</button>
-            </div>
-            <div className="search">
-                <input className="input" type="text"  placeholder="搜索用户" ref="search"/>
-                <button  className="buttonBac">搜索</button>
-            </div>
-            <div >
-                <span className="span-d">用户id</span>
-                <span className="span-b">用户名</span>
-                <div className="span-l">
-                    <span >用户类型</span>
-                    <select ref="intro"  id="intro" >
-                        <option value="">全部</option>
-                        <option value="管理员">管理员</option>
-                        <option value="一般用户">大二</option>
-                    </select>
+            <div  className="row" >
+                <div className="col-lg-3" id="search">
+                    <div className="input-group">
+                        <input type="text" className="form-control" placeholder="Enter user name..." ref="search"/>
+                        <span className="input-group-btn">
+                            <button className="btn btn-default" type="button" onClick={this.search.bind(this)}>Go!</button>
+                        </span>
+                    </div>
                 </div>
             </div>
-            <div  className="mainShow" >
 
+            <div  className="mainShow" >
+            {p}
             </div>
         </div>
     }

@@ -40,7 +40,11 @@ const select =require ('./server/routers/select');
 const selectByType=require('./server/routers/selectByType')
 const selectMyShare= require('./server/routers/selectMyShare')
 const selectfile=require('./server/routers/select-file')
+const getEmployeeList=require('./server/routers/getEmployeeList')
+const searchEmployee=require('./server/routers/searchEmployee')
 
+app.use('/',searchEmployee)
+app.use('/',getEmployeeList)
 app.use('/',selectfile)
 app.use('/',selectMyShare)
 app.use('/',selectByType)

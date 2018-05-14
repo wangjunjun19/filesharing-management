@@ -24,6 +24,7 @@ import myShareMiddleware from './middlewares/myShare'
 import differentTypeListShowMiddleware from './middlewares/differentTypeListShow'
 import navMiddleware from './middlewares/nav';
 import perRecomMiddleware from './middlewares/perRecom'
+import employeeMddleware from './middlewares/employee'
 
 const createStoreWithMiddleware = applyMiddleware(
     registerMiddleware,
@@ -35,7 +36,8 @@ const createStoreWithMiddleware = applyMiddleware(
     myShareMiddleware,
     differentTypeListShowMiddleware,
     navMiddleware,
-    perRecomMiddleware
+    perRecomMiddleware,
+    employeeMddleware
 )(createStore);
 
 const store = createStoreWithMiddleware(reducer);

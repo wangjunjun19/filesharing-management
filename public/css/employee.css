@@ -1,0 +1,25 @@
+.per-im{
+    display: list-item;
+    float: left;
+    box-sizing: border-box;
+    width: 380px;
+    height: 250px;
+    padding: 25px 25px 0;
+    border: 1px solid #e4b9c0;
+    margin-left: 10%;
+    margin-top: 3%;
+    background-image: url("../image/bacg.jpg");
+    background-size: 100%;
+}
+
+.size{
+    color: #ffffff;
+    font-size: large;
+}
+
+.remove{
+    background-color: transparent;
+    margin-top: auto;
+    float: right;
+    font-size: large;
+}

@@ -66,10 +66,10 @@ class UserHomePage extends React.Component{
         this.props.getAllFileList();
     }
     getEmployeeList(){
-        this.props.getEmployeeList();
+        //this.props.getEmployeeList();
     }
     personalCenter(){
-        this.props.getAllFileList();
+       // this.props.getAllFileList();
     }
 
     render(){
@@ -109,6 +109,7 @@ class UserHomePage extends React.Component{
             <div  className="module-aside DtJtsC">
                 <ul className="fOHAbxb"  onClick={this.onAside.bind(this)} >
                     <li className="hnegd6z bac-color"  id="allFile" onClick={this.getAllFile.bind(this)}>文件管理</li>
+                    <li className="hnegd6z"  id="employee" onClick={this.getEmployeeList.bind(this)}>用户管理</li>
                     <li className="hnegd6z" id="personalCenter" onClick={this.personalCenter.bind(this)}>个人中心</li>
                 </ul>
             </div>
