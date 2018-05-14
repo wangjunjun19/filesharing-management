@@ -1,4 +1,7 @@
 /**
+ * Created by 十九 on 2018/5/14.
+ */
+/**
  * Created by 十九 on 2018/3/4.
  */
 require('../../css/navStyle.css')
@@ -51,8 +54,8 @@ class Nav extends  React.Component{
         this.props.logoutUser();
     }
     login(){
-    browserHistory.push('');
-}
+        browserHistory.push('');
+    }
 
     register(){
         browserHistory.push('/register');
@@ -65,9 +68,11 @@ class Nav extends  React.Component{
         });
         let user= cookies.user_name;
         return<div>
-        <div className="module-header-wrapper" >
+            <div className="module-header-wrapper" >
                 <div  className="xtJbHcb">
-                   <span className="EHazOI" id="logo"  >FSMS</span>
+                    <span className="EHazOI" id="logo"  >FSMS</span>
+                    <button className="ZLSButton"    id="zlk" onClick={this.database.bind(this)}>资料库</button>
+                    <button className="ZLSButton" id="gxtj" onClick={this.perRecom.bind(this)}>个性推荐</button>
                     <div id="login-tip" className={(user!=""&&user)?"":"hidden"}>
                         <div > <span  id="return" onClick={this.return.bind(this)}>|退出登录</span></div>
                         <div><span  id="username" className="user glyphicon glyphicon-user " onClick={this.personalCenter.bind(this)}>{user},欢迎您|</span></div>
@@ -76,21 +81,9 @@ class Nav extends  React.Component{
                         <div > <span  id="return" onClick={this.register.bind(this)}>|注册</span></div>
                         <div><span  id="username"  onClick={this.login.bind(this)}>登录|</span></div>
                     </div>
-                    <ul className="nav nav-tabs ff">
-                        <li role="presentation" className="fl" >
-                            <a className="dropdown-toggle c"   id="zlk" onClick={this.database.bind(this)} data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="true">
-                                资料库
-                            </a>
-                        </li>
-                        <li role="presentation" className="fl" >
-                            <a className="dropdown-toggle c"  id="gxtj" onClick={this.perRecom.bind(this)} data-toggle="dropdown"  role="button" aria-haspopup="true" aria-expanded="false">
-                                个性推荐
-                            </a>
-                        </li>
-                    </ul>
-               </div>
-        </div>
+                </div>
             </div>
+        </div>
     }
 }
 

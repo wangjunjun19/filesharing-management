@@ -61,7 +61,7 @@ class PerRecom extends React.Component{
         }
 
         return<div >
-            <div className="per-bac">
+            <div>
             <Nav/>
                 </div>
             <div>
