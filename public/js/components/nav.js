@@ -71,12 +71,12 @@ class Nav extends  React.Component{
                    <button className="ZLSButton"    id="zlk" onClick={this.database.bind(this)}>资料库</button>
                    <button className="ZLSButton" id="gxtj" onClick={this.perRecom.bind(this)}>个性推荐</button>
                     <div id="login-tip" className={(user!=""&&user)?"":"hidden"}>
-                        <div > <span  id="return" onClick={this.return.bind(this)}>退出登录</span></div>
-                        <div><span  id="username" className="user glyphicon glyphicon-user " onClick={this.personalCenter.bind(this)}>{user},欢迎您</span></div>
+                        <div > <span  id="return" onClick={this.return.bind(this)}>|退出登录</span></div>
+                        <div><span  id="username" className="user glyphicon glyphicon-user " onClick={this.personalCenter.bind(this)}>{user},欢迎您|</span></div>
                     </div>
                     <div id="login-tip" className={(user!=""&&user)?"hidden":""}>
-                        <div > <span  id="return" onClick={this.register.bind(this)}>注册</span></div>
-                        <div><span  id="username"  onClick={this.login.bind(this)}>登录</span></div>
+                        <div > <span  id="return" onClick={this.register.bind(this)}>|注册</span></div>
+                        <div><span  id="username"  onClick={this.login.bind(this)}>登录|</span></div>
                     </div>
                </div>
         </div>

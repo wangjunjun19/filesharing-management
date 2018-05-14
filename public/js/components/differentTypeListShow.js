@@ -89,6 +89,12 @@ class differentTypeListShow extends Component{
     }
 
     render(){
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let user= cookies.user_name;
 
         if(this.props.differentTypeListTip != '')
         {
@@ -98,8 +104,11 @@ class differentTypeListShow extends Component{
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-label"><span >{value.file_label}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
-                        <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a></div>
-                    </div>
+                        <div className="span-down ">
+                            <div >
+                            <a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a></div>
+                            </div>
+                        </div>
                 </div>
             });
         }
@@ -132,7 +141,7 @@ class differentTypeListShow extends Component{
                 <span className="span-b">文件标签</span>
                 <div className="span-l">
                     <span >适用人群</span>
-                    <select ref="intro" className="btn btn-default dropdown-toggle" className="dropdown-menu"  id="intro" onClick={this.selectByType.bind(this)}>
+                    <select ref="intro"  className="btn btn-default dropdown-toggle"  onClick={this.selectByType.bind(this)}>
                         <option value="">全部</option>
                         <option value="大一">大一</option>
                         <option value="大二">大二</option>

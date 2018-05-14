@@ -78,6 +78,12 @@ class AllFile extends Component{
     }
 
     render(){
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let user= cookies.user_name;
         if(this.props.allFileList != '')
         {
             var p=this.props.allFileList.map((value,index)=>{
@@ -87,8 +93,10 @@ class AllFile extends Component{
                         <div className="span-label"><span >{value.file_label}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
                         <div className="span-down ">
+                            <div  className={(user!=""&&user)?"":"hidden"}>
                             <a name ="down"  className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a>
                         </div>
+                            </div>
                     </div>
                 </div>
             });

@@ -77,20 +77,10 @@ class UserHomePage extends React.Component{
         });
         let id = cookies.user_id;
         //let id=this.props.location.query.user_id;
-       /* let info={
+        let info={
             user_id:id
-        }*/
-        if(id==="" || !id)
-        {
-            alert("请登录")
-            browserHistory.push(`/`);
-        }else{
-            let info={
-                user_id:id
-            }
-            this.props.getMyShareList(info);
         }
-        //this.props.getMyShareList(info);
+        this.props.getMyShareList(info);
     }
 
     render(){
@@ -133,7 +123,12 @@ class UserHomePage extends React.Component{
 
         }
 
-
+        let cookies = {};
+        document.cookie.split(';').forEach((Cookie)=> {
+            let parts = Cookie.split('=');
+            cookies[parts[0].trim()] = (parts[1]).trim();
+        });
+        let user= cookies.user_name;
 
         return<div>
             <Nav/>
@@ -159,7 +154,9 @@ class UserHomePage extends React.Component{
                         <li className="hnegd6z" id="foreignLanguage" onClick={this.getDifferentTypeList.bind(this,5)}>外语类</li>
                         <li className="hnegd6z" id="arts" onClick={this.getDifferentTypeList.bind(this,6)}>艺术类</li>
                         <li className="hnegd6z" id="other" onClick={this.getDifferentTypeList.bind(this,7)} >其他</li>
+                        <div  className={(user!=""&&user)?"":"hidden"}>
                         <li className="hnegd6z" id="myShare"   onClick={this.getMyShareList.bind(this)}>我的分享</li>
+                        </div>
                     </ul>
                 </div>
             </div>
