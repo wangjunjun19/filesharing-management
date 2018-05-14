@@ -8,23 +8,6 @@ import {Link,browserHistory} from 'react-router';
 class AdminPer extends React.Component{
 
     componentWillMount() {
-        /*let cookies = {};
-        document.cookie.split(';').forEach((Cookie)=> {
-            let parts = Cookie.split('=');
-            cookies[parts[0].trim()] = (parts[1]).trim();
-        });
-        let user = cookies.user_name;
-        let name=this.props.location.query.user_name;
-        if(name!=user){
-            alert("请您先登录！")
-            browserHistory.push('');
-        }else{
-            let id = cookies.user_id;
-            let info={
-                user_id:id
-            }
-            this.props.getUserInfo(info);
-        }*/
         let cookies = {};
         document.cookie.split(';').forEach((Cookie)=> {
             let parts = Cookie.split('=');

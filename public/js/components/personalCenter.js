@@ -11,18 +11,11 @@ class PersonalCenter extends React.Component{
             let parts = Cookie.split('=');
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
-        let user = cookies.user_name;
-        let name=this.props.location.query.user_name;
-        if(name!=user){
-            alert("请您先登录！")
-            browserHistory.push('');
-        }else{
-            let id = cookies.user_id;
-            let info={
-                user_id:id
-            }
-            this.props.getUserInfo(info);
+        let id = cookies.user_id;
+        let info={
+            user_id:id
         }
+        this.props.getUserInfo(info);
     }
 
     verifyPass(){
@@ -86,13 +79,13 @@ class PersonalCenter extends React.Component{
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
         let id = cookies.user_id;
-            let tip = confirm("您确认要注销该账户吗？")
-            if(tip === true){
-                let info={
-                    user_id:id
-                }
-                this.props.cancellation(info);
+        let tip = confirm("您确认要注销该账户吗？")
+        if(tip === true){
+            let info={
+                user_id:id
             }
+            this.props.cancellation(info);
+        }
     }
 
     updateUser(){

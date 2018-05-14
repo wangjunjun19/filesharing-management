@@ -5,7 +5,6 @@ const insertDfr = require("../dbs/insertDfr");
 
 route.post('/downFile',(req,res) => {
     const info = req.body;
-    console.log(info);
             insertDfr(info,(result,err)=>{
                 if(err){
                     res.status(500);

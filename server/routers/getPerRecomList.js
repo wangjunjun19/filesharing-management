@@ -10,22 +10,18 @@ const deleteOldDfr=require("../dbs/deleteOldDfr");
 
 route.post('/getPerRecomList',(req,res) => {
     const info = req.body;
-    console.log(info+"____info");
     deleteOldDfr((result)=>{
     });
     getPerRecomList(info,(result) => {
-        console.log(result.length +"_____________")
         if(result.length===0){
             searchFiles((result,err)=>{
                 if(err){
                     res.status(500);
                 }else{
-                    console.log("result____"+result);
                     res.send({data:result})
                 }
             })
         }else{
-            console.log("result1____"+result);
             res.send({data:result})
         }
     })

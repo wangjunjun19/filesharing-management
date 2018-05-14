@@ -13,17 +13,6 @@ import DifferentTypeListShow from '../containers/differentTypeListShow'
 class UserHomePage extends React.Component{
 
    componentWillMount() {
-        /*let cookies = {};
-        document.cookie.split(';').forEach((Cookie)=> {
-            let parts = Cookie.split('=');
-            cookies[parts[0].trim()] = (parts[1]).trim();
-        });
-        let id = cookies.user_name;
-        let name=this.props.location.query.user_name;
-        if(name!=id){
-            alert("请您先登录！")
-            browserHistory.push('');
-        }*/
     }
 
     onAside(e){
@@ -76,7 +65,6 @@ class UserHomePage extends React.Component{
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
         let id = cookies.user_id;
-        //let id=this.props.location.query.user_id;
         let info={
             user_id:id
         }

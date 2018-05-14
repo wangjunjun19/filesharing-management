@@ -76,7 +76,6 @@ class AddFiles extends React.Component{
             .end((err,res)=>{
                 console.log(res.body.filePath+"____ha");
                 this.props.upload(res.body.filePath);
-                //this.props.addFiles(info);
             })
     }
 

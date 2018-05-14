@@ -9,7 +9,6 @@ function getAllFileList(callback) {
         if(err){
             throw err;
         }else{
-            console.log("data"+"db"+results);
             callback(results)
         }
     })

@@ -87,7 +87,6 @@ class Register extends React.Component {
             alert("恭喜您，注册成功！" +
             "点击确定，将跳往登录页面" );
             browserHistory.push('');
-            //window.setTimeout('',3000);
             this.props.reset({registerTip: false});
         }
     }
@@ -104,7 +103,7 @@ class Register extends React.Component {
                         <span>注册账号</span>
                     </div>
                     <div>
-                        <input type="text" className="username" ref="username" placeholder="请输入用户名" id="username"
+                        <input type="text" className="username" ref="username" placeholder="请输入用户名" id="usernam"
                             onBlur={this.verifyUsername.bind(this)} onFocus={this.focusName.bind(this)}/>
                         <span className="input-tips" id="nameTip"></span>
                     </div>

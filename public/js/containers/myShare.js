@@ -16,7 +16,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) =>{
     return {
         getMyShareList:(info)=>{
-            console.log(info.user_id+"++container__id")
+
             dispatch({type:"GET_MY_SHARE_LIST",info})
         },
         deleteFile:(info)=>{

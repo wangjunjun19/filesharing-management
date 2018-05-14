@@ -7,7 +7,6 @@ const route = express.Router();
 const getFileList = require("../dbs/getFileList");
 
 route.post('/getFileList',(req,res) => {
-    console.log(req.body);
     const info =req.body;
     getFileList(info,(result,err) => {
         if(err){

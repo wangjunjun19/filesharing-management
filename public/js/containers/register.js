@@ -7,7 +7,6 @@ import Register from "../components/register";
 const mapStateToProps = (state) => {
     return {
         registerTip:state.register.registerTip
-        //console.log(state.registerTip);
     }
 };
 

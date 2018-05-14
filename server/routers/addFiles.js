@@ -7,12 +7,10 @@ const addFiles = require("../dbs/addFiles");
 
 route.post('/addFiles',(req,res) => {
     const info = req.body;
-    console.log(info);
     addFiles(info,(result,err) => {
         if(err){
             res.status(500);
         }else{
-            console.log(result+"router__modify");
             res.send(result)
         }
     })

@@ -66,10 +66,8 @@ class UserHomePage extends React.Component{
         this.props.getAllFileList();
     }
     getEmployeeList(){
-        //this.props.getEmployeeList();
     }
     personalCenter(){
-       // this.props.getAllFileList();
     }
 
     render(){

@@ -10,7 +10,6 @@ export default store => next => action =>{
             request.post('/getPerRecomList')
                 .send(action.info)
                 .end((err,res) => {
-                    console.log(action.info)
                     next({type:"PER_RECOM",data:res.body.data});
                 });
             break;

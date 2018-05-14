@@ -8,7 +8,6 @@ const getMyShareList = require("../dbs/getMyShareList");
 
 route.post('/getMyShareList',(req,res) => {
     const info = req.body;
-    console.log(req.body);
     getMyShareList(info,(result,err) => {
         if(err){
             res.status(500);

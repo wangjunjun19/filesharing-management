@@ -7,7 +7,6 @@ const route = express.Router();
 const findUser = require("../dbs/findUser");
 
 route.post('/findUser',(req,res) => {
-    console.log(req.body);
     const info =req.body;
     findUser(info,(result,err) => {
         if(err){

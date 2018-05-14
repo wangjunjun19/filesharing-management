@@ -9,7 +9,6 @@ function updateDfr(info,callback) {
         if(err){
             throw err;
         }else{
-            console.log(results.length+"___________db results");
             callback(results)
         }
     })

@@ -10,7 +10,6 @@ function updateUser(info,callback) {
         if(err){
             throw err;
         }else{
-            console.log("data"+"db__modify"+results);
             callback({status:true})
         }
     })

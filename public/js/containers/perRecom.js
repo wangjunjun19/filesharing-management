@@ -13,7 +13,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) =>{
     return {
         getPerRecomList:(info)=>{
-            console.log(info.user_id+"cont");
+
             dispatch({type:"GET_PER_RECOM_LIST",info});
         },
         downFile:(info)=>{

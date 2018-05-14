@@ -1,9 +1,3 @@
-/**
- * Created by 十九 on 2018/5/14.
- */
-/**
- * Created by 十九 on 2018/3/7.
- */
 
 let db = require('./../connection');
 
@@ -14,7 +8,6 @@ function searchEmployee(info,callback) {
         if(err){
             throw err;
         }else{
-            console.log("data"+"db"+results);
             callback(results)
         }
     })

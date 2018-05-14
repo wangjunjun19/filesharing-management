@@ -18,14 +18,13 @@ const mapDispatchToProps = (dispatch) => {
             dispatch({type:"GET_PRESENT_SHOW",target});
         },
         getDifferentTypeList:(info)=>{
-            console.log(info.file_type+"_____——info.file_type___contain");
             dispatch({type:"GET_FILE_LIST",info})
         },
         getAllFileList:()=>{
             dispatch({type:"GET_ALL_FILE_LIST"})
         },
         getMyShareList:(info)=>{
-            console.log(info.user_id+"++container__id")
+
             dispatch({type:"GET_MY_SHARE_LIST",info})
         }
     }

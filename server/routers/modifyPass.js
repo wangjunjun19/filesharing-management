@@ -8,9 +8,7 @@ const verifyUsername =require('../dbs/verifyUsername');
 
 route.post('/modifyPass',(req,res) => {
     const info = req.body;
-    console.log(info.user_name+"____info");
     verifyUsername(info,(result)=>{
-        console.log(result.length+"__length")
         if(result.length === 0){
             res.send({status:"该用户名未注册！"});
         }else{
@@ -18,7 +16,6 @@ route.post('/modifyPass',(req,res) => {
                 if(err){
                     res.status(500);
                 }else{
-                    console.log(result+"router__modify");
                     res.send(result);
                 }
             })

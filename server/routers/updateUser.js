@@ -8,7 +8,6 @@ const updateUser = require('../dbs/updateUser');
 
 route.post('/updateUser',(req,res)=>{
     const info = req.body;
-    console.log(info.user_id+"________");
     updateUser(info,(result,err)=>{
         if(err){
             res.status(500);

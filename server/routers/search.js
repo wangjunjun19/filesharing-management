@@ -8,7 +8,6 @@ const search = require("../dbs/search");
 
 route.post('/search',(req,res) => {
     const info = req.body;
-    console.log(info.file_name+"______________info.file_name")
 
     search(info,(result,err) => {
         if(err){

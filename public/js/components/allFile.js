@@ -22,7 +22,6 @@ class AllFile extends Component{
             let parts = Cookie.split('=');
             cookies[parts[0]] = (parts[1]);
         });
-        //let name=this.props.location.query.user_name;
         if(cookies.user_id===""|| !cookies.user_id){
             var a = document.getElementsByName("down");
             console.log(a);
@@ -56,25 +55,13 @@ class AllFile extends Component{
             let parts = Cookie.split('=');
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
-        if(cookies.user_id==="")
-        {
 
-            //document.getElementById("down").style.display="display";
-            alert("请登录")
-        }else{
             let info={
                 file_id:file_id,
                 file_type:file_type,
                 user_id:parseInt(cookies.user_id)
             }
             this.props.downFile(info);
-        }
-        /*let info={
-            file_id:file_id,
-            file_type:file_type,
-            user_id:parseInt(cookies.user_id)
-        }
-        this.props.downFile(info);*/
     }
 
     render(){

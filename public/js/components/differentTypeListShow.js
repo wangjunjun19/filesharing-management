@@ -71,7 +71,6 @@ class differentTypeListShow extends Component{
                 break;
         }
             this.props.selectByType(info);
-         // this.refs.intro.value="";
     }
 
     downFile(file_id,file_type){
@@ -105,7 +104,7 @@ class differentTypeListShow extends Component{
                         <div className="span-label"><span >{value.file_label}</span></div>
                         <div className="span-intro"><span >{value.file_intro}</span></div>
                         <div className="span-down ">
-                            <div >
+                            <div  className={(user!=""&&user)?"":"hidden"}>
                             <a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a></div>
                             </div>
                         </div>

@@ -8,14 +8,12 @@ export default store => next => action => {
         case "LOAD-USERNAME":
             request.get('/legal-username')
                 .end((err,res)=>{
-                    console.log('legal username',res.text);
                     next({type:'USERNAME-GOT',status:res.text})
                 })
             break;
         case "LOGOUT":
             request.get('/logout')
                 .end((err,res) => {
-                    console.log('logout',res.text);
                     next({type:'USERNAME-GO',status:res.text})
                 })
             break;
