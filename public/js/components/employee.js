@@ -18,10 +18,7 @@ class Employee extends Component{
             user:this.refs.search.value
         }
         console.log(info.user+"___info.file_name");
-        if(info.user != '')
-        {
             this.props.search(info);
-        }
 
     }
 
@@ -75,7 +72,7 @@ class Employee extends Component{
                         <img src="../image/tip.png"/>
                     </div>
                     <div>
-                        没有找到该用户
+                        抱歉，没有匹配到对应的用户信息
                     </div>
                 </div>
             </div>

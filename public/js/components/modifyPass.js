@@ -108,7 +108,7 @@ class ModifyPass extends React.Component {
                         <span>重置登录密码</span>
                     </div>
                     <div>
-                        <input type="text" className="username" ref="username" placeholder="您的用户名" id="username"
+                        <input type="text" className="username" ref="username" placeholder="您的用户名" id="usernam"
                             onBlur={this.verifyUsername.bind(this)} onFocus={this.focusName.bind(this)}/>
                         <span className="input-tips" id="nameTip"></span>
                     </div>
@@ -123,8 +123,8 @@ class ModifyPass extends React.Component {
                         <span className="input-tips" id="repTip"></span>
                     </div>
                     <div>
-                        <button  className="button" onClick={this.modifyPass.bind(this)} >确认</button>
-                        <button  className="button"  onClick={this.return.bind(this)} >取消</button>
+                        <button  className="button-m" onClick={this.modifyPass.bind(this)} >确认</button>
+                        <button  className="button-m"  onClick={this.return.bind(this)} >取消</button>
                     </div>
                 </div>
             </div>
