@@ -58,6 +58,18 @@ class PersonalCenter extends React.Component{
         $("#mtip").text("");
     }
 
+    verifySchool(){
+        let school=this.refs.school.value;
+        if( !(/^[\u4E00-\u9FA5]+$/.test(school)) && school!=''){
+            $("#school").text("请输入正确学校");
+        }
+    }
+
+    focusSchool(){
+        $("#school").text("");
+        $("#mtip").text("");
+    }
+
     focusTel(){
         $("#tel").text("");
         $("#mtip").text("");
@@ -93,8 +105,9 @@ class PersonalCenter extends React.Component{
         let sex=$("#sex").text();
         let tel=$("#tel").text();
         let age=$("#age").text();
+        let school=$("#school").text();
 
-        if(pass!=''|| sex != ''|| tel !=''|| age !='')
+        if(pass!=''|| sex != ''|| tel !=''|| age !=''||school!='')
         {
             $("#mtip").text("修改项格式有误，请根据提示填写正确格式的内容");
         }
@@ -112,7 +125,8 @@ class PersonalCenter extends React.Component{
                     user_sex: this.refs.sex.value,
                     user_tel: this.refs.tel.value,
                     user_age: this.refs.age.value,
-                    user_id: id
+                    user_id: id,
+                    user_school:this.refs.school.value
                 }
                 this.props.updateUser(info);
             }
@@ -182,6 +196,15 @@ class PersonalCenter extends React.Component{
             </div>
         });
 
+        var school=this.props.userInfoTip.map((value,index)=>{
+            if(value.user_school === 'null')
+                value.user_school="";
+            return<div >
+                <input type="tel" ref="school"  className="form-control"  placeholder="请输入您的学校" aria-describedby="basic-addon1"
+                    onBlur={this.verifySchool.bind(this)} onFocus={this.focusSchool.bind(this)} defaultValue ={value.user_school} />
+            </div>
+        });
+
 
         return<div >
             <Nav/>
@@ -207,6 +230,10 @@ class PersonalCenter extends React.Component{
                 <div className="input-group per-mess">
                     <span className="input-group-addon" id="basic-addon1">电话</span>{tel}
                     <span className="per-tips" id="tel"></span>
+                </div>
+                <div className="input-group per-mess">
+                    <span className="input-group-addon" id="basic-addon1">学校</span>{school}
+                    <span className="per-tips" id="school"></span>
                 </div>
                 <div className="input-group per-mess">
                     <span className="per-tip" id="mtip"></span>

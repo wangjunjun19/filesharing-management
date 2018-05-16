@@ -7,13 +7,17 @@ import AddFiles from "../components/addFiles";
 const mapStateToProps = (state) => {
     return {
         addFileTip:state.addFiles.addFileTip,
-        uploadFile:state.uploadFile
+        uploadFile:state.uploadFile,
+        labelList:state.addFiles.labelList
     }
 
 };
 
 const mapDispatchToProps = (dispatch) => {
     return {
+        getLabel:()=>{
+            dispatch({type:"GET_LABEL_LIST"})
+        },
         upload:(data)=>{
             dispatch({type:"UPLOAD",data});
         },
@@ -22,6 +26,9 @@ const mapDispatchToProps = (dispatch) => {
         },
         resetAddFile:(info)=>{
             dispatch({type:'RESET_ADD_FILE',info})
+        },
+        insertLabel:(info) => {
+            dispatch({type:"INSET_LABEL",info})
         }
 
     }

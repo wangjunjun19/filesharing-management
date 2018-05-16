@@ -77,9 +77,10 @@ class AllFile extends Component{
                 return <div>
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
-                        <div className="span-label"><span >{value.file_label}</span></div>
-                        <div className="span-intro"><span >{value.file_intro}</span></div>
-                        <div className="span-down ">
+                        <div className="span-labela"><span >{value.file_label}</span></div>
+                        <div className="span-labela"><span >{value.user_school}</span></div>
+                        <div className="span-introa"><span >{value.file_intro}</span></div>
+                        <div className="span-downa ">
                             <div  className={(user!=""&&user)?"":"hidden"}>
                             <a name ="down"  className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a>
                         </div>
@@ -115,7 +116,8 @@ class AllFile extends Component{
             <div >
                 <span className="span-d">文件名</span>
                 <span className="span-b">文件标签</span>
-                <div className="span-l">
+                <span className="span-ba">上传者学校</span>
+                <div className="span-la">
                     <span >适用人群</span>
                 <select ref="intro"  className="btn btn-default dropdown-toggle"  onClick={this.select.bind(this)}>
                     <option value="">全部</option>

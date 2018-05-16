@@ -20,6 +20,9 @@ class AddFiles extends React.Component{
             alert("请您先登录！")
             browserHistory.push('');
         }
+        else{
+            this.props.getLabel();
+        }
     }
 
     return(){
@@ -105,12 +108,18 @@ class AddFiles extends React.Component{
             }
             this.props.addFiles(info);
         }
-
+        let label=this.refs.label.value;
+        if(label!=''){
+            let info={
+                label_name:label
+            }
+            this.props.insertLabel(info);
+        }
     }
 
     clickButton(i){
 
-        document.getElementById("label").value=document.getElementsByName("button")[i].value;
+        document.getElementById("label").value=i;
     }
     componentWillReceiveProps(nextProps) {
         console.log(nextProps.addFileTip + "_________register__")
@@ -125,6 +134,18 @@ class AddFiles extends React.Component{
     }
 
     render(){
+        if(this.props.labelList != '')
+        {
+            var p=this.props.labelList.map((value,index)=>{
+                return<div className="label-q">
+                        <button  className=" button-la btn btn-info dropdown-toggle" name="button" value={value.label_name} onClick={this.clickButton.bind(this,value.label_name)}>{value.label_name}</button>
+                    </div>
+            });
+
+        }
+
+
+
 
         return<div>
             <div>
@@ -167,13 +188,9 @@ class AddFiles extends React.Component{
                             <input ref="label" id="label"  className="form-control" aria-describedby="basic-addon1"   placeholder="例如：机器学习" type="text"></input>
                         </div>
                         <div className="div-ba input-group per-mess">
-                            <button  className=" button-la btn btn-info dropdown-toggle" name="button" value="机器学习" onClick={this.clickButton.bind(this,0)}>机器学习</button>
-                            <button className="button-la btn btn-info dropdown-toggle" name="button" value="英语四级"  onClick={this.clickButton.bind(this,1)}>英语四级</button >
-                            <button  className="button-la btn btn-info dropdown-toggle" name="button" value="高等数学"  onClick={this.clickButton.bind(this,2)}>高等数学</button>
-                            <button   className="button-la btn btn-info dropdown-toggle"  name="button" value="java" onClick={this.clickButton.bind(this,3)}>java</button>
-                            <button className="button-la btn btn-info dropdown-toggle"  name="button" value="心理学"  onClick={this.clickButton.bind(this,4)}>心理学</button>
-                            <button className="button-la btn btn-info dropdown-toggle" name="button" value="现代史"  onClick={this.clickButton.bind(this,5)}>现代史</button>
-                        </div>
+                            热门标签：
+                       {p}
+                       </div>
 
                     <div className=" input-group per-mess" id="up-re">
                         <button  className="button"  onClick={this.addFile.bind(this)} >上传</button>

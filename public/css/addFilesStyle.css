@@ -35,6 +35,8 @@
     width: 100%;
     margin-top: 2%;
     margin-left: 5%;
+    color: #ce8483;
+    font-size: large;
 }
 .text{
     width: 230px;
@@ -73,7 +75,12 @@
 
 .button-la{
     color: #ffffff;
-    margin-left: 6%;
+    margin-left: 20px;
+
+}
+
+.label-q{
+    display: inline-block;
 }
 
 .file{
