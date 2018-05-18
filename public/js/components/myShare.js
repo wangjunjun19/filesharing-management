@@ -77,7 +77,7 @@ class MyShare extends Component{
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-label"><span >{value.file_label}</span></div>
-                        <div className="span-intro"><span >{value.file_intro}</span></div>
+                        <div className="span-intro"><span >{value.file_grade}</span></div>
                         <div className="span-down "><a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a></div>
                         <div className="span-down "><button className="glyphicon glyphicon-trash down" onClick={this.deleteFile.bind(this,value.file_id)}></button></div>
 

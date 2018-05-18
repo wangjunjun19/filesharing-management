@@ -12,12 +12,10 @@ import DifferentTypeListShow from '../containers/differentTypeListShow'
 
 class UserHomePage extends React.Component{
 
-   componentWillMount() {
-    }
 
     onAside(e){
 
-        if(e.target.className != "menu"){
+        if(e.target.className != "fOHAbxb"){
             var child =e.target.parentNode.children;
             for(var i=0;i<child.length;i++){
                 child[i].style.backgroundColor="transparent";
@@ -64,11 +62,20 @@ class UserHomePage extends React.Component{
             let parts = Cookie.split('=');
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
-        let id = cookies.user_id;
-        let info={
-            user_id:id
+        let user= cookies.user_name;
+        if(user!=""&&user)
+        {
+
+            let id = cookies.user_id;
+            let info={
+                user_id:id
+            }
+            this.props.getMyShareList(info);
+        }else{
+            alert("请登录")
+            browserHistory.push(`/`);
         }
-        this.props.getMyShareList(info);
+
     }
 
     render(){
@@ -111,13 +118,6 @@ class UserHomePage extends React.Component{
 
         }
 
-        let cookies = {};
-        document.cookie.split(';').forEach((Cookie)=> {
-            let parts = Cookie.split('=');
-            cookies[parts[0].trim()] = (parts[1]).trim();
-        });
-        let user= cookies.user_name;
-
         return<div>
             <Nav/>
             <div  >
@@ -132,7 +132,7 @@ class UserHomePage extends React.Component{
                     </div>
                 </div>
                 <div  className="module-aside DtJtsC">
-                    <ul className="fOHAbxb"   onClick={this.onAside.bind(this)} >
+                    <ul className="fOHAbxb "   onClick={this.onAside.bind(this)} >
                         <li className="hnegd6z bac-color"id="allFile" onClick={this.getAllFile.bind(this)}>全部文件</li>
                         <li className="hnegd6z" id="economic"  onClick={this.getDifferentTypeList.bind(this,4)}>经管类</li>
                         <li className="hnegd6z" id="philosophy" onClick={this.getDifferentTypeList.bind(this,0)}>文哲类</li>
@@ -142,9 +142,7 @@ class UserHomePage extends React.Component{
                         <li className="hnegd6z" id="foreignLanguage" onClick={this.getDifferentTypeList.bind(this,5)}>外语类</li>
                         <li className="hnegd6z" id="arts" onClick={this.getDifferentTypeList.bind(this,6)}>艺术类</li>
                         <li className="hnegd6z" id="other" onClick={this.getDifferentTypeList.bind(this,7)} >其他</li>
-                        <div  className={(user!=""&&user)?"":"hidden"}>
                         <li className="hnegd6z" id="myShare"   onClick={this.getMyShareList.bind(this)}>我的分享</li>
-                        </div>
                     </ul>
                 </div>
             </div>

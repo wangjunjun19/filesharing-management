@@ -79,7 +79,7 @@ class AllFile extends Component{
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-labela"><span >{value.file_label}</span></div>
                         <div className="span-labela"><span >{value.user_school}</span></div>
-                        <div className="span-introa"><span >{value.file_intro}</span></div>
+                        <div className="span-introa"><span >{value.file_grade}</span></div>
                         <div className="span-downa ">
                             <div  className={(user!=""&&user)?"":"hidden"}>
                             <a name ="down"  className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a>

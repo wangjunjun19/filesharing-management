@@ -102,7 +102,7 @@ class differentTypeListShow extends Component{
                     <div className="file-div">
                         <div className="span-file"><span >{value.file_name}</span></div>
                         <div className="span-label"><span >{value.file_label}</span></div>
-                        <div className="span-intro"><span >{value.file_intro}</span></div>
+                        <div className="span-intro"><span >{value.file_grade}</span></div>
                         <div className="span-down ">
                             <div  className={(user!=""&&user)?"":"hidden"}>
                             <a className="glyphicon glyphicon-download-alt down" href={value.file_route}  download={value.file_name} onClick={this.downFile.bind(this,value.file_id,value.file_type)}></a></div>
