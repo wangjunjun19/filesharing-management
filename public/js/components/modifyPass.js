@@ -12,10 +12,10 @@ class ModifyPass extends React.Component {
 
     verifyUsername(){
         let username=this.refs.username.value;
-        let regexp=/^[A-Za-z0-9]{6,8}$/;
+        let regexp=/^[A-Za-z0-9]{6,16}$/;
 
         if(!regexp.test(username)){
-            $("#nameTip").text("用户名为6-8位字母数字组合");
+            $("#nameTip").text("用户名为6-16位字母数字组合");
         }
     }
 
@@ -41,6 +41,7 @@ class ModifyPass extends React.Component {
     return(){
         this.refs.username.value ="";
         this.refs.password.value = "";
+        this.refs.repass.value = "";
     }
 
     verifyRe(){
@@ -48,7 +49,7 @@ class ModifyPass extends React.Component {
         let rep=this.refs.repass.value;
 
         if(rep !== password){
-            $("#repTip").text("与初始密码不一致");
+            $("#repTip").text("两次密码输入不一致");
         }
     }
 

@@ -24,7 +24,7 @@ class AdminPer extends React.Component{
         let password=this.refs.password.value;
         let regexp=/^[A-Za-z0-9]{6,16}$/;
 
-        if(!regexp.test(password)&& password!=''){
+        if(!regexp.test(password)|| password===''){
             $("#password").text("密码为6-16位字母数字组合");
         }
     }

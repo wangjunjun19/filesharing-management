@@ -36,10 +36,8 @@ class differentTypeListShow extends Component{
                 info.file_type = 7;
                 break;
         }
-        if(info.file_name !='')
-        {
+
             this.props.searchByType(info);
-        }
     }
 
     selectByType() {

@@ -18,10 +18,8 @@ class AdminFiles extends Component{
             file_name:this.refs.search.value
         }
         console.log(info.file_name+"___info.file_name");
-        if(info.file_name != '')
-        {
             this.props.search(info);
-        }
+
 
     }
 

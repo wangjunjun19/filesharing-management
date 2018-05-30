@@ -9,10 +9,10 @@ import {Link,browserHistory} from 'react-router';
 class Login extends React.Component {
     verifyUsername(){
         let username=this.refs.username.value;
-        let regexp=/^[A-Za-z0-9]{6,8}$/;
+        let regexp=/^[A-Za-z0-9]{6,16}$/;
 
         if(!regexp.test(username)){
-            $("#usernameTip").text("用户名为6-8位字母数字组合");
+            $("#usernameTip").text("用户名为6-16位字母数字组合");
         }
     }
 

@@ -50,12 +50,12 @@ class AddFiles extends React.Component{
 
     test(){
         let isOK=this.getFileSize();
-        //判断文件大小是否大于10M
-        if(isOK<=10){
+        //判断文件大小是否大于30M
+        if(isOK<=30){
             this.isClick();
         }
         else{
-            alert("上传的文件不能超过10M,请重新上传!");
+            alert("上传的文件不能超过30M,请重新选择文件!");
             this.clear();
         }
 

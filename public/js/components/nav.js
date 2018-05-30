@@ -42,7 +42,14 @@ class Nav extends  React.Component{
             cookies[parts[0].trim()] = (parts[1]).trim();
         });
         let id = cookies.user_name;
-        browserHistory.push(`/perRecom?user_name=${id}`);
+        if(id!=""&&id)
+        {
+
+            browserHistory.push(`/perRecom?user_name=${id}`);
+        }else{
+            alert("请登录")
+            browserHistory.push(`/`);
+        }
     }
 
     return(){

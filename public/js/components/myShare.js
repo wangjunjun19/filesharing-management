@@ -26,10 +26,7 @@ class MyShare extends Component{
             file_name:this.refs.search.value,
             user_id:this.props.loginTip
         }
-        if(info.file_name != '')
-        {
             this.props.searchMy(info);
-        }
 
     }
 

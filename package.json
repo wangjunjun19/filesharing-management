@@ -1,7 +1,7 @@
 {
   "name": "fsms",
   "version": "1.0.0",
-  "description": "",
+  "description": "npm install<br/>\r npm run webpack<br/>\r npm start",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -31,7 +31,7 @@
     "superagent": "^3.5.2",
     "supertest": "^3.0.0",
     "url-loader": "^0.5.8",
-    "webpack": "^2.2.1"
+    "webpack": "^2.1.0-beta.22"
   },
   "dependencies": {
     "body-parser": "^1.17.1",
@@ -58,5 +58,13 @@
     "request": "^2.81.0",
     "superagent": "^3.5.2",
     "webpack-dev-middleware": "^2.0.4"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/wangjunjun19/filesharing-management.git"
+  },
+  "bugs": {
+    "url": "https://github.com/wangjunjun19/filesharing-management/issues"
+  },
+  "homepage": "https://github.com/wangjunjun19/filesharing-management#readme"
 }

@@ -11,10 +11,10 @@ class Register extends React.Component {
 
     verifyUsername(){
         let username=this.refs.username.value;
-        let regexp=/^[A-Za-z0-9]{6,8}$/;
+        let regexp=/^[A-Za-z0-9]{6,16}$/;
 
         if(!regexp.test(username)){
-            $("#nameTip").text("用户名为6-8位字母数字组合");
+            $("#nameTip").text("用户名为6-16位字母数字组合");
         }
     }
 
